@@ -1,30 +1,21 @@
+import events from "../data/events";
+
 function Events() {
   return (
     <section className="section page-section">
       <div className="container">
         <h1>Events</h1>
+        <p className="section-text">
+          See what the club is involved in throughout the year.
+        </p>
+
         <div className="card-grid">
-          <div className="card">
-            <h3>Weekly Meetings</h3>
-            <p>
-              Club meetings focused on biology topics, activities, and
-              announcements.
-            </p>
-          </div>
-          <div className="card">
-            <h3>Competition Preparation</h3>
-            <p>
-              Sessions for USABO, Science Olympiad, and other biology-related
-              events.
-            </p>
-          </div>
-          <div className="card">
-            <h3>Special Activities</h3>
-            <p>
-              Guest speakers, workshops, collaborative projects, and outreach
-              opportunities.
-            </p>
-          </div>
+          {events.map((event) => (
+            <div className="card" key={event.title}>
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

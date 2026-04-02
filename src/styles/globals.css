@@ -1,3 +1,5 @@
+/* RESET + BASE */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,12 +27,16 @@ a {
   margin: 0 auto;
 }
 
+/* NAVBAR */
+
 .navbar {
-  background: #1f4d36;
+  background: rgba(31, 77, 54, 0.95);
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
 .navbar-content {
@@ -41,15 +47,40 @@ a {
 }
 
 .logo {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
   font-size: 1.1rem;
+}
+
+.logo-mark {
+  font-size: 1.3rem;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
+
+.nav-link {
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.85;
+}
+
+.active-link {
+  border-bottom-color: white;
+}
+
+/* HERO */
 
 .hero {
   padding: 6rem 0;
@@ -101,49 +132,27 @@ a {
   background: transparent;
 }
 
-.footer {
-  padding: 2rem 0;
-  text-align: center;
-  background: #1f4d36;
-  color: white;
-  margin-top: 4rem;
-}
+/* SECTIONS */
 
 .section {
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 }
 
 .section.alt {
   background: #eef6f0;
 }
 
+.section h1,
 .section h2 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   margin-bottom: 1rem;
+  line-height: 1.15;
 }
 
 .section-text {
-  max-width: 700px;
+  max-width: 760px;
   margin-bottom: 1rem;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #e2e8e2;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  font-size: 1.02rem;
 }
 
 .page-section {
@@ -151,18 +160,41 @@ a {
   padding-top: 5rem;
 }
 
-.nav-links a {
-  padding-bottom: 0.2rem;
-  border-bottom: 2px solid transparent;
+/* CARDS */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #dfe8e1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   transition:
-    border-color 0.2s ease,
-    opacity 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.nav-links a:hover {
-  opacity: 0.85;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
 }
 
-.active-link {
-  border-bottom-color: white;
+.card h3 {
+  margin-bottom: 0.7rem;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  background: #1f4d36;
+  color: white;
+  margin-top: 4rem;
 }
