@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7faf7;
+  color: #1f2a1f;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.navbar {
+  background: #1f4d36;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.hero {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #e8f5ec, #f7faf7);
+  text-align: center;
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: #2f6b4f;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: #1f4d36;
+  color: white;
+}
+
+.secondary-btn {
+  border: 2px solid #1f4d36;
+  color: #1f4d36;
+  background: transparent;
+}
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  background: #1f4d36;
+  color: white;
+  margin-top: 4rem;
+}
