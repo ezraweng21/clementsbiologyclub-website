@@ -1,24 +1,45 @@
+import { Link } from "react-router-dom";
+
 function EventsPreview() {
   return (
-    <section className="section" id="events">
+    <section className="home-section alt-surface">
       <div className="container">
-        <h2>Upcoming Events</h2>
-
-        <div className="card-grid">
-          <div className="card">
-            <h3>Weekly Meeting</h3>
-            <p>Every Thursday after school</p>
+        <div className="section-heading section-heading-row">
+          <div>
+            <p className="section-kicker">Events</p>
+            <h2>Meetings and Activities</h2>
+            <p className="section-lead">
+              The club includes recurring meetings, academic preparation, and
+              activities that make biology more engaging.
+            </p>
           </div>
 
-          <div className="card">
-            <h3>Competition Prep</h3>
-            <p>USABO / Science Olympiad training sessions</p>
-          </div>
+          <Link to="/events" className="inline-text-link">
+            View event archive
+          </Link>
+        </div>
 
-          <div className="card">
-            <h3>Guest Speaker</h3>
-            <p>Invited researchers and professionals</p>
-          </div>
+        <div className="content-grid three-col">
+          <article className="content-card">
+            <h3>General Meetings</h3>
+            <p>
+              Announcements, biology topics, discussion, and member engagement.
+            </p>
+          </article>
+
+          <article className="content-card">
+            <h3>Competition Preparation</h3>
+            <p>
+              Preparation and review for biology-related academic competitions.
+            </p>
+          </article>
+
+          <article className="content-card">
+            <h3>Special Events</h3>
+            <p>
+              Workshops, speakers, themed activities, and club documentation.
+            </p>
+          </article>
         </div>
       </div>
     </section>

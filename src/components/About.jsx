@@ -1,21 +1,41 @@
 function About() {
   return (
-    <section className="section" id="about">
+    <section className="home-section">
       <div className="container">
-        <h2>About the Club</h2>
-        <p className="section-text">
-          The William P. Clements Biology Club is a student-led organization
-          focused on exploring biology beyond the classroom. From competitions
-          like USABO and ARBC to engaging presentations and hands-on activities,
-          we aim to foster curiosity, collaboration, and a deeper appreciation
-          of the life sciences.
-        </p>
+        <div className="section-heading">
+          <p className="section-kicker">About</p>
+          <h2>What Biology Club Is About</h2>
+          <p className="section-lead">
+            Biology Club is a student-led organization focused on making biology
+            more engaging, approachable, and meaningful beyond the classroom.
+          </p>
+        </div>
 
-        <p className="section-text">
-          Whether you're interested in medicine, research, or simply enjoy
-          learning about how living systems work, our club provides a space to
-          grow, connect, and explore.
-        </p>
+        <div className="content-grid three-col">
+          <article className="content-card">
+            <h3>Explore Topics</h3>
+            <p>
+              Go beyond standard coursework through discussions, themed
+              meetings, and broader biological ideas.
+            </p>
+          </article>
+
+          <article className="content-card">
+            <h3>Build Knowledge</h3>
+            <p>
+              Strengthen understanding through enrichment, review, and academic
+              preparation.
+            </p>
+          </article>
+
+          <article className="content-card">
+            <h3>Be Part of a Community</h3>
+            <p>
+              Meet students who share interests in biology, medicine, research,
+              and scientific learning.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
   );
