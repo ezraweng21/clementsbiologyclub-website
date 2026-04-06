@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import siteContent from "../data/siteContent";
 
 function EventsPreview() {
   return (
@@ -9,8 +10,8 @@ function EventsPreview() {
             <p className="section-kicker">Events</p>
             <h2>Meetings and Activities</h2>
             <p className="section-lead">
-              The club includes recurring meetings, academic preparation, and
-              activities that make biology more engaging.
+              The club includes recurring meetings, reviews, competition prep,
+              and special biology-related events throughout the year.
             </p>
           </div>
 
@@ -20,26 +21,14 @@ function EventsPreview() {
         </div>
 
         <div className="content-grid three-col">
-          <article className="content-card">
-            <h3>General Meetings</h3>
-            <p>
-              Announcements, biology topics, discussion, and member engagement.
-            </p>
-          </article>
-
-          <article className="content-card">
-            <h3>Competition Preparation</h3>
-            <p>
-              Preparation and review for biology-related academic competitions.
-            </p>
-          </article>
-
-          <article className="content-card">
-            <h3>Special Events</h3>
-            <p>
-              Workshops, speakers, themed activities, and club documentation.
-            </p>
-          </article>
+          {siteContent.events.types.slice(0, 3).map((eventType) => (
+            <article className="content-card" key={eventType}>
+              <h3>{eventType}</h3>
+              <p>
+                Part of the club’s recurring structure and yearly meeting flow.
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

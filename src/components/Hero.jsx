@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import siteContent from "../data/siteContent";
 
 function Hero() {
   return (
@@ -6,7 +7,7 @@ function Hero() {
       <div className="container hero-layout">
         <div className="hero-left">
           <p className="hero-tag">
-            William P. Clements High School • Student-Led • Life Sciences
+            {siteContent.club.school} • Student-Led • Life Sciences
           </p>
 
           <h1>
@@ -14,11 +15,7 @@ function Hero() {
             <span className="hero-accent"> beyond the classroom.</span>
           </h1>
 
-          <p className="hero-text">
-            Clements Biology Club is a space for students interested in biology,
-            medicine, research, and scientific curiosity to learn, connect, and
-            grow through meetings, activities, competitions, and enrichment.
-          </p>
+          <p className="hero-text">{siteContent.homepage.intro}</p>
 
           <div className="hero-buttons">
             <Link to="/about" className="primary-btn">
@@ -35,29 +32,11 @@ function Hero() {
             <p className="feature-label">What the Club Offers</p>
 
             <div className="feature-list">
-              <div className="feature-item">
-                <h3>Meetings</h3>
-                <p>
-                  Regular club meetings with biology topics, discussion, and
-                  announcements.
-                </p>
-              </div>
-
-              <div className="feature-item">
-                <h3>Academic Growth</h3>
-                <p>
-                  Competition preparation, enrichment, and broader exposure to
-                  biology.
-                </p>
-              </div>
-
-              <div className="feature-item">
-                <h3>Community</h3>
-                <p>
-                  A place to meet other students interested in life science and
-                  related fields.
-                </p>
-              </div>
+              {siteContent.homepage.highlights.map((item) => (
+                <div className="feature-item" key={item}>
+                  <p>{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

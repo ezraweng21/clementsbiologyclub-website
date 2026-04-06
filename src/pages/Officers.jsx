@@ -1,4 +1,4 @@
-import officers from "../data/officers";
+import siteContent from "../data/siteContent";
 
 function Officers() {
   return (
@@ -8,23 +8,29 @@ function Officers() {
           <p className="page-eyebrow">Leadership</p>
           <h1>Meet Our Officers</h1>
           <p className="section-text officer-intro">
-            The students helping lead Clements Biology Club through meetings,
-            planning, events, and community-building.
+            The students helping lead {siteContent.club.name} through meetings,
+            planning, competitions, communication, and club activities.
           </p>
         </div>
 
         <div className="officer-grid-compact">
-          {officers.map((officer, index) => (
+          {siteContent.officers.map((officer, index) => (
             <article
               className="officer-card-compact"
-              key={`${officer.role}-${index}`}
+              key={`${officer.role}-${officer.name}-${index}`}
             >
               <div className="officer-image-shell">
-                <img
-                  src={officer.image}
-                  alt={`${officer.name} - ${officer.role}`}
-                  className="officer-image-compact"
-                />
+                {officer.image ? (
+                  <img
+                    src={officer.image}
+                    alt={`${officer.name} - ${officer.role}`}
+                    className="officer-image-compact"
+                  />
+                ) : (
+                  <div className="officer-placeholder">
+                    <span>{officer.name.charAt(0)}</span>
+                  </div>
+                )}
               </div>
 
               <div className="officer-info-compact">
