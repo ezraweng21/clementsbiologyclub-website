@@ -1,6 +1,8 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+
 const variantSettings = {
   hero: {
-    count: 28,
+    count: 44,
     hue: 0,
     sizeMin: 12,
     sizeMax: 30,
@@ -13,7 +15,7 @@ const variantSettings = {
     delaySpread: 14,
   },
   about: {
-    count: 24,
+    count: 38,
     hue: 8,
     sizeMin: 10,
     sizeMax: 24,
@@ -26,7 +28,7 @@ const variantSettings = {
     delaySpread: 16,
   },
   quick: {
-    count: 22,
+    count: 36,
     hue: -6,
     sizeMin: 10,
     sizeMax: 22,
@@ -39,7 +41,7 @@ const variantSettings = {
     delaySpread: 18,
   },
   whyJoin: {
-    count: 26,
+    count: 40,
     hue: 4,
     sizeMin: 10,
     sizeMax: 24,
@@ -52,7 +54,7 @@ const variantSettings = {
     delaySpread: 15,
   },
   eventsPreview: {
-    count: 24,
+    count: 38,
     hue: 12,
     sizeMin: 10,
     sizeMax: 24,
@@ -65,7 +67,7 @@ const variantSettings = {
     delaySpread: 17,
   },
   officersPreview: {
-    count: 20,
+    count: 32,
     hue: -12,
     sizeMin: 12,
     sizeMax: 22,
@@ -78,7 +80,7 @@ const variantSettings = {
     delaySpread: 18,
   },
   aboutPage: {
-    count: 28,
+    count: 42,
     hue: 10,
     sizeMin: 10,
     sizeMax: 24,
@@ -91,7 +93,7 @@ const variantSettings = {
     delaySpread: 18,
   },
   eventsPage: {
-    count: 30,
+    count: 46,
     hue: 18,
     sizeMin: 10,
     sizeMax: 26,
@@ -104,7 +106,7 @@ const variantSettings = {
     delaySpread: 14,
   },
   resourcesPage: {
-    count: 26,
+    count: 40,
     hue: 0,
     sizeMin: 10,
     sizeMax: 22,
@@ -117,7 +119,7 @@ const variantSettings = {
     delaySpread: 18,
   },
   contactPage: {
-    count: 30,
+    count: 48,
     hue: -4,
     sizeMin: 10,
     sizeMax: 24,
@@ -130,7 +132,7 @@ const variantSettings = {
     delaySpread: 15,
   },
   officersPage: {
-    count: 24,
+    count: 36,
     hue: 14,
     sizeMin: 10,
     sizeMax: 22,
@@ -172,7 +174,7 @@ function buildLeaves(variant) {
     const size =
       settings.sizeMin + random() * (settings.sizeMax - settings.sizeMin);
     const left = random() * 100;
-    const top = -12 - random() * 90;
+    const top = -(size + random() * 120);
     const duration =
       settings.durationMin +
       random() * (settings.durationMax - settings.durationMin);
@@ -190,7 +192,7 @@ function buildLeaves(variant) {
       id: `${variant}-${index}`,
       style: {
         "--leaf-left": `${left}%`,
-        "--leaf-top": `${top}%`,
+        "--leaf-top": `${top}px`,
         "--leaf-size": `${size}px`,
         "--leaf-duration": `${duration}s`,
         "--leaf-delay": `${delay}s`,
@@ -205,15 +207,56 @@ function buildLeaves(variant) {
 }
 
 function DecorativeLeaves({ variant = "about" }) {
-  const leaves = buildLeaves(variant);
+  const containerRef = useRef(null);
+  const [containerHeight, setContainerHeight] = useState(900);
+  const leaves = useMemo(() => buildLeaves(variant), [variant]);
+
+  useEffect(() => {
+    if (!containerRef.current) {
+      return undefined;
+    }
+
+    const section = containerRef.current.parentElement;
+
+    if (!section) {
+      return undefined;
+    }
+
+    const updateHeight = () => {
+      setContainerHeight(section.clientHeight || 900);
+    };
+
+    updateHeight();
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className={`decorative-leaves decorative-leaves-${variant}`} aria-hidden="true">
-      {leaves.map((leaf) => (
-        <span className="decorative-leaf" key={leaf.id} style={leaf.style}>
+    <div
+      className={`decorative-leaves decorative-leaves-${variant}`}
+      aria-hidden="true"
+      ref={containerRef}
+    >
+      {leaves.map((leaf) => {
+        const top = Number.parseFloat(leaf.style["--leaf-top"]);
+        const dropDistance = Math.max(containerHeight - top + 36, containerHeight + 120);
+
+        return (
+          <span
+            className="decorative-leaf"
+            key={leaf.id}
+            style={{
+              ...leaf.style,
+              "--leaf-drop": `${dropDistance}px`,
+            }}
+          >
           <span className="decorative-leaf-inner"></span>
-        </span>
-      ))}
+          </span>
+        );
+      })}
     </div>
   );
 }

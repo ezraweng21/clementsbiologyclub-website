@@ -78,25 +78,25 @@ img {
 @keyframes fallingLeaf {
   0% {
     transform:
-      translate3d(0, -14vh, 0)
+      translate3d(0, 0, 0)
       rotate(var(--leaf-rotate))
       scale(var(--leaf-scale));
   }
   30% {
     transform:
-      translate3d(calc(var(--leaf-drift) * 0.6), 26vh, 0)
+      translate3d(calc(var(--leaf-drift) * 0.6), calc(var(--leaf-drop) * 0.28), 0)
       rotate(calc(var(--leaf-rotate) + 22deg))
       scale(calc(var(--leaf-scale) * 0.98));
   }
   65% {
     transform:
-      translate3d(calc(var(--leaf-drift) * -0.4), 60vh, 0)
+      translate3d(calc(var(--leaf-drift) * -0.4), calc(var(--leaf-drop) * 0.64), 0)
       rotate(calc(var(--leaf-rotate) - 18deg))
       scale(calc(var(--leaf-scale) * 1.02));
   }
   100% {
     transform:
-      translate3d(var(--leaf-drift), 124vh, 0)
+      translate3d(var(--leaf-drift), var(--leaf-drop), 0)
       rotate(calc(var(--leaf-rotate) + 34deg))
       scale(var(--leaf-scale));
   }
