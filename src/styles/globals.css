@@ -804,6 +804,166 @@ img {
   color: #313931;
 }
 
+/* ABOUT VISUAL */
+
+.about-page-shell {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(193, 229, 200, 0.24), transparent 18%),
+    radial-gradient(circle at 16% 74%, rgba(205, 230, 211, 0.16), transparent 20%),
+    linear-gradient(180deg, #f4f7f3, #f3f7f3);
+}
+
+.about-page-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-page-shell .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-dna-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dna-strand {
+  fill: none;
+  stroke: url(#dnaGreen);
+  stroke-linecap: round;
+  opacity: 0.88;
+}
+
+.strand-a,
+.strand-b {
+  stroke-width: 20;
+}
+
+.strand-c,
+.strand-d {
+  stroke-width: 15;
+  opacity: 0.52;
+}
+
+.strand-faint,
+.strand-faint-alt {
+  stroke-width: 11;
+  opacity: 0.24;
+}
+
+.dna-rung-line {
+  fill: none;
+  stroke: url(#dnaGold);
+  stroke-width: 9;
+  stroke-linecap: round;
+  opacity: 0.82;
+}
+
+.dna-rung-line-soft {
+  opacity: 0.46;
+  stroke-width: 7;
+}
+
+.bio-cell {
+  fill: url(#cellGlow);
+  stroke: rgba(92, 146, 106, 0.24);
+  stroke-width: 2;
+}
+
+.big-cell {
+  opacity: 0.84;
+}
+
+.mid-cell {
+  opacity: 0.68;
+}
+
+.small-cell {
+  opacity: 0.62;
+}
+
+.faint-cell,
+.faint-cell-small {
+  opacity: 0.34;
+}
+
+.contour-flow {
+  fill: none;
+  stroke: rgba(85, 149, 109, 0.34);
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.contour-flow-soft {
+  stroke: rgba(85, 149, 109, 0.2);
+  stroke-width: 18;
+}
+
+.molecule-node {
+  fill: rgba(122, 182, 137, 0.82);
+  stroke: rgba(250, 255, 251, 0.86);
+  stroke-width: 2;
+}
+
+.molecule-link {
+  fill: none;
+  stroke: rgba(86, 146, 103, 0.38);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.molecule-group-soft {
+  opacity: 0.7;
+}
+
+.about-sections-layout {
+  gap: 2.25rem;
+  padding-top: 0.9rem;
+}
+
+.about-panel {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+}
+
+.about-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-panel-mission {
+  width: min(760px, 100%);
+  padding: 1.3rem 1.25rem 1.4rem;
+  border-radius: 34px 18px 34px 18px;
+  background:
+    linear-gradient(135deg, rgba(252, 254, 252, 0.96), rgba(244, 249, 244, 0.92));
+}
+
+.about-panel-mission::before {
+  background:
+    radial-gradient(circle at top right, rgba(200, 229, 208, 0.32), transparent 22%);
+}
+
+.about-panel-meetings {
+  width: min(720px, 100%);
+  margin-left: auto;
+  padding: 1.35rem 1.25rem 1.45rem;
+  border-radius: 18px 34px 18px 34px;
+  background:
+    linear-gradient(135deg, rgba(250, 253, 250, 0.96), rgba(241, 247, 242, 0.92));
+}
+
+.about-panel-meetings::before {
+  background:
+    radial-gradient(circle at bottom left, rgba(207, 234, 214, 0.28), transparent 24%);
+}
+
 /* RESOURCES PAGE */
 
 .resource-section {
@@ -957,6 +1117,14 @@ img {
   .resource-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .about-sections-layout {
+    gap: 1.8rem;
+  }
+
+  .about-dna-svg {
+    opacity: 0.92;
+  }
 }
 
 @media (max-width: 860px) {
@@ -1058,10 +1226,28 @@ img {
     gap: 0.9rem;
   }
 
+  .about-sections-layout {
+    gap: 1.4rem;
+    padding-top: 0.55rem;
+  }
+
+  .about-panel-mission,
+  .about-panel-meetings {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 22px;
+    padding: 1.15rem 1rem 1.2rem;
+  }
+
   .decorative-leaf {
     width: calc(var(--leaf-size) * 0.86);
     height: calc(var(--leaf-size) * 1.2);
   }
+
+  .about-dna-svg {
+    opacity: 0.72;
+  }
+
 }
 
 @media (max-width: 430px) {

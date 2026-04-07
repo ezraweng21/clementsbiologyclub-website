@@ -1,10 +1,8 @@
 import siteContent from "../data/siteContent";
-import DecorativeLeaves from "../components/DecorativeLeaves";
 
 function Officers() {
   return (
     <section className="section page-section">
-      <DecorativeLeaves variant="officersPage" />
       <div className="container">
         <div className="page-header officer-page-header">
           <p className="page-eyebrow">Leadership</p>

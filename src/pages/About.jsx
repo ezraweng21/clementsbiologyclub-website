@@ -1,10 +1,10 @@
 import siteContent from "../data/siteContent";
-import DecorativeLeaves from "../components/DecorativeLeaves";
+import AboutVisual from "../components/AboutVisual";
 
 function About() {
   return (
-    <section className="section page-section">
-      <DecorativeLeaves variant="aboutPage" />
+    <section className="section page-section about-page-shell">
+      <AboutVisual />
       <div className="container">
         <div className="page-header">
           <p className="page-eyebrow">About</p>
@@ -12,8 +12,8 @@ function About() {
           <p className="section-text">{siteContent.club.description}</p>
         </div>
 
-        <div className="events-layout">
-          <section className="section-panel">
+        <div className="events-layout about-sections-layout">
+          <section className="section-panel about-panel about-panel-mission">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Mission</p>
@@ -48,7 +48,7 @@ function About() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel about-panel about-panel-meetings">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Meetings</p>

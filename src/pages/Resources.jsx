@@ -1,5 +1,4 @@
 import siteContent from "../data/siteContent";
-import DecorativeLeaves from "../components/DecorativeLeaves";
 
 function Resources() {
   const featuredResources = [
@@ -10,7 +9,6 @@ function Resources() {
 
   return (
     <section className="section page-section">
-      <DecorativeLeaves variant="resourcesPage" />
       <div className="container">
         <div className="page-header">
           <p className="page-eyebrow">Resources</p>

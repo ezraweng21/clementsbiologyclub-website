@@ -1,5 +1,4 @@
 import siteContent from "../data/siteContent";
-import DecorativeLeaves from "../components/DecorativeLeaves";
 
 function Contact() {
   const featuredResources = [
@@ -10,7 +9,6 @@ function Contact() {
 
   return (
     <section className="section page-section">
-      <DecorativeLeaves variant="contactPage" />
       <div className="container">
         <div className="page-header">
           <p className="page-eyebrow">Contact</p>
