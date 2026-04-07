@@ -62,7 +62,7 @@ function Events() {
 
             <p className="section-text timeline-intro">
               This section can be updated throughout the year to document club
-              meetings, reviews, workshops, and special events.
+              meetings, reviews, workshops, panels, and special events.
             </p>
 
             <div className="timeline">
@@ -75,7 +75,6 @@ function Events() {
 
                   <div className="timeline-date-block">
                     <p className="timeline-date">{event.date}</p>
-                    <span className="timeline-tag">{event.type}</span>
                   </div>
 
                   <div className="timeline-content">

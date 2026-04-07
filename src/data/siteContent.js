@@ -136,14 +136,12 @@ const siteContent = {
       {
         date: "August 21, 2025",
         title: "Bio Club Interest Meeting",
-        type: "Meeting",
         description:
           "Introduction to the club, overview of the year, and first chance for students to get involved.",
       },
       {
         date: "September 4, 2025",
         title: "September General Meeting: Cahaltown Case Study",
-        type: "General Meeting",
         description:
           "General meeting centered around a biology-themed case study and discussion-based exploration.",
       },
@@ -151,15 +149,19 @@ const siteContent = {
         date: "October 9, 2025",
         title:
           "October General Meeting: Anaerobic Respiration — Ginger Bugs / Yeast Balloons",
-        type: "General Meeting",
         description:
           "Interactive meeting focused on anaerobic respiration through hands-on activity and application.",
+      },
+      {
+        date: "November 13, 2025",
+        title: "Alumni Panel",
+        description:
+          "Panel-style event featuring alumni perspectives, advice, and discussion related to biology, academics, and future pathways.",
       },
       {
         date: "November 19, 2025",
         title:
           "November General Meeting: Joint Jeopardy Social + Cookie Decorating",
-        type: "Social",
         description:
           "A combined review-style and community event with Jeopardy and a social activity.",
       },
@@ -167,48 +169,41 @@ const siteContent = {
         date: "December 11, 2025",
         title:
           "December General Meeting: Forensics Social (Christmas Murder Mystery)",
-        type: "Social",
         description:
           "Forensics-themed social meeting with a biology/crime-science application focus.",
       },
       {
         date: "January 15, 2026",
         title: "January General Meeting",
-        type: "General Meeting",
         description: "January club meeting and semester restart programming.",
       },
       {
         date: "February 26, 2026",
         title: "February General Meeting: Microscopy Lab ID Competition",
-        type: "Competition",
         description:
           "Microscopy-focused meeting featuring lab identification and biology competition-style practice.",
       },
       {
         date: "March 2, 2026",
         title: "March General Meeting #1: Cryptography (MATH × BIO)",
-        type: "Interdisciplinary",
         description:
           "Exploration of interdisciplinary connections between mathematics and biology through cryptography-themed content.",
       },
       {
         date: "March 27, 2026",
         title: "March General Meeting #2: Computational Biology (CS × BIO)",
-        type: "Interdisciplinary",
         description:
           "Meeting focused on computational biology and the intersection of computer science and life science.",
       },
       {
         date: "April 2, 2026",
         title: "Raising Cane's Bio Club Fundraiser",
-        type: "Fundraiser",
         description:
           "Club fundraiser event to support biology club activities and participation.",
       },
       {
         date: "Tentative",
         title: "April General Meeting: End of Year Social",
-        type: "Social",
         description:
           "Tentative end-of-year social event to close out the club year.",
       },
@@ -257,9 +252,9 @@ const siteContent = {
     },
     {
       category: "Bio Bites",
-      title: "Bio Bites on Instagram",
+      title: "Bio Bites Archive",
       description:
-        "Gallery/archive placeholder for Bio Bites content. Later, this can link to a dedicated gallery or embedded Instagram section.",
+        "Placeholder for a dedicated Bio Bites gallery or Instagram-based archive.",
       link: "https://www.instagram.com/chsbiologyclub/",
     },
     {
