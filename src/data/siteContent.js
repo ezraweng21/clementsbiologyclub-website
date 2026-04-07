@@ -23,6 +23,7 @@ const siteContent = {
     steps: [
       "Join the club Discord or Remind to receive updates and announcements.",
       "Fill out the interest form and attend a meeting or review session.",
+      "Check the resources page for dues, contest updates, and Bio Bites highlights.",
       "Stay active through meetings, events, and club resources throughout the year.",
     ],
   },
@@ -210,6 +211,37 @@ const siteContent = {
     ],
   },
 
+  featuredLinks: {
+    dues: {
+      category: "Member Dues",
+      title: "RevTrak Dues Payment",
+      description:
+        "Pay club dues through RevTrak once the school payment portal is published for the year.",
+      link: "",
+      ctaLabel: "Pay on RevTrak",
+      deadline: "",
+      deadlineFallback: "Payment deadline will be posted here once finalized.",
+    },
+    tShirtContest: {
+      category: "Club Contest",
+      title: "T-Shirt Design Contest",
+      description:
+        "Submit or review this year's Biology Club T-shirt contest details when the form is available.",
+      link: "",
+      ctaLabel: "Open Contest Form",
+      status: "Contest link coming soon.",
+    },
+    bioBites: {
+      category: "Featured Series",
+      title: "Bio Bites",
+      description:
+        "Short, engaging biology highlights that can live as Instagram posts now and expand into a future embedded gallery.",
+      link: "https://www.instagram.com/chsbiologyclub/",
+      ctaLabel: "View on Instagram",
+      format: "Currently points to Instagram and is ready to become a gallery later.",
+    },
+  },
+
   resources: [
     {
       category: "Public Drive",
@@ -252,24 +284,10 @@ const siteContent = {
     },
     {
       category: "Bio Bites",
-      title: "Bio Bites Archive",
+      title: "Bio Bites on Instagram",
       description:
-        "Placeholder for a dedicated Bio Bites gallery or Instagram-based archive.",
+        "Current home for Bio Bites posts, with room to evolve into a dedicated gallery later.",
       link: "https://www.instagram.com/chsbiologyclub/",
-    },
-    {
-      category: "T-Shirt Contest",
-      title: "T-Shirt Contest",
-      description:
-        "Tentative section for T-shirt contest information and submissions.",
-      link: "",
-    },
-    {
-      category: "Dues",
-      title: "RevTrak Dues",
-      description:
-        "Tentative section for member dues payment link and deadline.",
-      link: "",
     },
   ],
 
@@ -285,6 +303,9 @@ const siteContent = {
     interestFormLink:
       "https://docs.google.com/forms/d/e/1FAIpQLScxaJLAJXdV0yvlKRYZZNMcCsSh8RI9LFFclcUK6SdCd6drEg/viewform?usp=header",
     linktree: "https://linktr.ee/clementsbioclub",
+    revTrakLink: "",
+    duesDeadline: "",
+    tShirtContestLink: "",
   },
 };
 

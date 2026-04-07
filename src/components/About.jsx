@@ -1,8 +1,10 @@
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "./DecorativeLeaves";
 
 function About() {
   return (
     <section className="home-section">
+      <DecorativeLeaves variant="about" />
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">About</p>

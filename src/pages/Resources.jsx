@@ -1,8 +1,16 @@
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "../components/DecorativeLeaves";
 
 function Resources() {
+  const featuredResources = [
+    siteContent.featuredLinks.dues,
+    siteContent.featuredLinks.tShirtContest,
+    siteContent.featuredLinks.bioBites,
+  ];
+
   return (
     <section className="section page-section">
+      <DecorativeLeaves variant="resourcesPage" />
       <div className="container">
         <div className="page-header">
           <p className="page-eyebrow">Resources</p>
@@ -14,6 +22,59 @@ function Resources() {
         </div>
 
         <div className="events-layout">
+          <section className="section-panel">
+            <div className="section-header-row">
+              <div className="section-header-block">
+                <p className="section-kicker">Featured</p>
+                <h2 className="subsection-title">Dues, Contest, and Bio Bites</h2>
+              </div>
+            </div>
+
+            <div className="resource-grid">
+              {featuredResources.map((resource) => (
+                <article
+                  className="resource-card resource-card-featured"
+                  key={resource.title}
+                >
+                  <p className="resource-label">{resource.category}</p>
+                  <h3>{resource.title}</h3>
+                  <p>{resource.description}</p>
+
+                  {resource.deadline ? (
+                    <p className="resource-meta">
+                      <strong>Deadline:</strong> {resource.deadline}
+                    </p>
+                  ) : resource.deadlineFallback ? (
+                    <p className="resource-meta">{resource.deadlineFallback}</p>
+                  ) : null}
+
+                  {resource.status ? (
+                    <p className="resource-meta">{resource.status}</p>
+                  ) : null}
+
+                  {resource.format ? (
+                    <p className="resource-meta">{resource.format}</p>
+                  ) : null}
+
+                  {resource.link ? (
+                    <a
+                      href={resource.link}
+                      className="resource-link"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {resource.ctaLabel || "Open Resource"}
+                    </a>
+                  ) : (
+                    <span className="resource-link resource-link-disabled">
+                      Link Coming Soon
+                    </span>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="section-panel">
             <div className="section-header-row">
               <div className="section-header-block">
@@ -51,9 +112,8 @@ function Resources() {
             </div>
 
             <p className="resource-note">
-              Bio Bites embedding can be added later. T-shirt contest and
-              RevTrak dues sections are included as placeholders for future
-              links and deadlines.
+              Bio Bites is set up to link out now and can be upgraded into an
+              embedded gallery later without changing the page structure.
             </p>
           </section>
         </div>

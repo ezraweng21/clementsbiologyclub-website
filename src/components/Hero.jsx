@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "./DecorativeLeaves";
 
 function Hero() {
   return (
     <section className="hero">
+      <DecorativeLeaves variant="hero" />
       <div className="container hero-layout">
         <div className="hero-left">
           <p className="hero-tag">

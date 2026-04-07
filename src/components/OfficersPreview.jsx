@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "./DecorativeLeaves";
 
 function OfficersPreview() {
   return (
     <section className="home-section">
+      <DecorativeLeaves variant="officersPreview" />
       <div className="container">
         <div className="section-heading section-heading-row">
           <div>

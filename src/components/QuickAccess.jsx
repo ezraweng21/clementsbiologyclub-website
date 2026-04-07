@@ -1,8 +1,10 @@
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "./DecorativeLeaves";
 
 function QuickAccess() {
   return (
     <section className="home-section alt-surface">
+      <DecorativeLeaves variant="quick" />
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">Quick Access</p>

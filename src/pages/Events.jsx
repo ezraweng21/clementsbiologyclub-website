@@ -1,8 +1,10 @@
 import siteContent from "../data/siteContent";
+import DecorativeLeaves from "../components/DecorativeLeaves";
 
 function Events() {
   return (
     <section className="section page-section">
+      <DecorativeLeaves variant="eventsPage" />
       <div className="container">
         <div className="page-header">
           <p className="page-eyebrow">Events</p>

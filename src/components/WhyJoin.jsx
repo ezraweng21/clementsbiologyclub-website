@@ -1,6 +1,9 @@
+import DecorativeLeaves from "./DecorativeLeaves";
+
 function WhyJoin() {
   return (
     <section className="home-section alt-surface">
+      <DecorativeLeaves variant="whyJoin" />
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">Why Join</p>
