@@ -42,18 +42,18 @@ function Contact() {
 
             <div className="card-grid">
               <article className="card">
-                <h3>Schedule</h3>
-                <p>{siteContent.meetingInfo.schedule}</p>
+                <h3>General Meetings</h3>
+                <p>{siteContent.meetingInfo.shortSchedule}</p>
+              </article>
+
+              <article className="card">
+                <h3>Review Meetings</h3>
+                <p>{siteContent.meetingInfo.reviewSchedule}</p>
               </article>
 
               <article className="card">
                 <h3>Location</h3>
                 <p>{siteContent.meetingInfo.location}</p>
-              </article>
-
-              <article className="card">
-                <h3>Joining Info</h3>
-                <p>{siteContent.meetingInfo.joinText}</p>
               </article>
             </div>
           </section>
@@ -61,15 +61,25 @@ function Contact() {
           <section className="section-panel">
             <div className="section-header-row">
               <div className="section-header-block">
-                <p className="section-kicker">Contacts</p>
+                <p className="section-kicker">Contact</p>
                 <h2 className="subsection-title">Club Contact Information</h2>
               </div>
             </div>
 
             <div className="card-grid">
               <article className="card">
-                <h3>General Contact</h3>
+                <h3>Email</h3>
                 <p>{siteContent.contact.generalEmail}</p>
+              </article>
+
+              <article className="card">
+                <h3>Instagram</h3>
+                <p>{siteContent.contact.instagramHandle}</p>
+              </article>
+
+              <article className="card">
+                <h3>Remind</h3>
+                <p>{siteContent.contact.remindCode}</p>
               </article>
 
               <article className="card">
@@ -80,6 +90,11 @@ function Contact() {
               <article className="card">
                 <h3>Sponsor Email</h3>
                 <p>{siteContent.contact.sponsorEmail}</p>
+              </article>
+
+              <article className="card">
+                <h3>Linktree</h3>
+                <p>{siteContent.contact.linktree}</p>
               </article>
             </div>
           </section>

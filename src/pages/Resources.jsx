@@ -9,7 +9,7 @@ function Resources() {
           <h1>Resources for Members</h1>
           <p className="section-text">
             Use this page as a central place for meeting materials, review
-            content, competition preparation, and useful biology links.
+            content, competition preparation, forms, and public club links.
           </p>
         </div>
 
@@ -17,8 +17,8 @@ function Resources() {
           <section className="section-panel">
             <div className="section-header-row">
               <div className="section-header-block">
-                <p className="section-kicker">Materials</p>
-                <h2 className="subsection-title">Club Resources</h2>
+                <p className="section-kicker">Resources</p>
+                <h2 className="subsection-title">Club Links and Materials</h2>
               </div>
             </div>
 
@@ -51,8 +51,9 @@ function Resources() {
             </div>
 
             <p className="resource-note">
-              Replace blank links later with Google Drive folders, slide decks,
-              documents, study guides, Discord resources, or external sites.
+              Bio Bites embedding can be added later. T-shirt contest and
+              RevTrak dues sections are included as placeholders for future
+              links and deadlines.
             </p>
           </section>
         </div>

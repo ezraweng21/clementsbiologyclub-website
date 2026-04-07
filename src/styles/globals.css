@@ -403,6 +403,10 @@ img {
   color: #313931;
 }
 
+.top-spacing {
+  margin-top: 1rem;
+}
+
 /* GENERAL CARDS */
 
 .card-grid {
