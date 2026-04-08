@@ -898,7 +898,7 @@ img {
 
 .dna-rung-line {
   fill: none;
-  stroke: url(#dnaGold);
+  stroke: rgba(239, 213, 157, 0.72);
   stroke-width: 9;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -906,7 +906,7 @@ img {
 }
 
 .dna-rung-line-underlay {
-  stroke: rgba(121, 88, 31, 0.32);
+  stroke: rgba(145, 104, 38, 0.16);
   stroke-width: 13;
   opacity: 0.6;
 }
