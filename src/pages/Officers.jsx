@@ -1,8 +1,11 @@
 import siteContent from "../data/siteContent";
+import OfficersVisual from "../components/OfficersVisual";
+import OfficerCardVines from "../components/OfficerCardVines";
 
 function Officers() {
   return (
-    <section className="section page-section">
+    <section className="section page-section officers-page-shell">
+      <OfficersVisual />
       <div className="container">
         <div className="page-header officer-page-header">
           <p className="page-eyebrow">Leadership</p>
@@ -13,12 +16,13 @@ function Officers() {
           </p>
         </div>
 
-        <div className="officer-grid-compact">
+        <div className="officer-grid-compact officer-grid-flora">
           {siteContent.officers.map((officer, index) => (
             <article
               className="officer-card-compact"
               key={`${officer.role}-${officer.name}-${index}`}
             >
+              <OfficerCardVines variant={index % 4} />
               <div className="officer-image-shell">
                 {officer.image ? (
                   <img
