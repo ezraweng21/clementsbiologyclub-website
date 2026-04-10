@@ -70,16 +70,16 @@ function Events() {
             <div className="timeline">
               {siteContent.events.timeline.map((event, index) => (
                 <article
-                  className="timeline-item"
+                  className={`timeline-item timeline-item-${index % 3}`}
                   key={`${event.date}-${event.title}-${index}`}
                 >
-                  <div className="timeline-marker"></div>
+                  <div className={`timeline-marker timeline-marker-${index % 3}`}></div>
 
-                  <div className="timeline-date-block">
+                  <div className={`timeline-date-block timeline-date-block-${index % 3}`}>
                     <p className="timeline-date">{event.date}</p>
                   </div>
 
-                  <div className="timeline-content">
+                  <div className={`timeline-content timeline-content-${index % 3}`}>
                     <h3>{event.title}</h3>
                     <p>{event.description}</p>
                   </div>

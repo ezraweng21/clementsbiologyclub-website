@@ -1516,8 +1516,8 @@ img {
 .events-page-shell {
   position: relative;
   background:
-    radial-gradient(circle at 12% 14%, rgba(232, 243, 235, 0.94), rgba(232, 243, 235, 0) 24%),
-    radial-gradient(circle at 86% 48%, rgba(220, 236, 226, 0.84), rgba(220, 236, 226, 0) 26%),
+    radial-gradient(circle at 12% 14%, rgba(227, 241, 231, 0.98), rgba(232, 243, 235, 0) 28%),
+    radial-gradient(circle at 86% 48%, rgba(213, 234, 222, 0.94), rgba(220, 236, 226, 0) 30%),
     linear-gradient(180deg, #f4f8f4 0%, #eff5ef 38%, #e4efe6 74%, #d5e7d9 100%);
 }
 
@@ -1549,7 +1549,7 @@ img {
 .events-layout {
   display: flex;
   flex-direction: column;
-  gap: 1.65rem;
+  gap: 2.15rem;
 }
 
 .events-block {
@@ -1559,23 +1559,23 @@ img {
 
 .events-panel {
   position: relative;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.52);
   border: 1px solid rgba(198, 214, 199, 0.74);
   box-shadow: 0 12px 28px rgba(27, 44, 29, 0.04);
   backdrop-filter: blur(2px);
 }
 
 .events-panel-overview {
-  width: min(100%, 870px);
+  width: min(100%, 680px);
 }
 
 .events-panel-types {
-  width: min(100%, 980px);
+  width: min(100%, 760px);
   margin-left: auto;
 }
 
 .events-panel-archive {
-  width: min(100%, 1080px);
+  width: min(100%, 820px);
   padding-top: 1.05rem;
 }
 
@@ -1584,26 +1584,39 @@ img {
   stroke: url(#eventCurrent);
   stroke-linecap: round;
   stroke-linejoin: round;
+  animation: eventCurrentDrift 18s linear infinite;
 }
 
 .event-current-main {
-  stroke-width: 20;
-  opacity: 0.6;
+  stroke-width: 24;
+  opacity: 0.78;
 }
 
 .event-current-soft {
-  stroke-width: 16;
-  opacity: 0.42;
+  stroke-width: 18;
+  opacity: 0.56;
 }
 
 .event-current-thread {
-  stroke-width: 8;
-  opacity: 0.3;
+  stroke-width: 10;
+  opacity: 0.42;
   stroke-dasharray: 2 14;
+  animation-duration: 13s;
+}
+
+.event-current-emphasis {
+  stroke-width: 14;
+  opacity: 0.62;
+  stroke-dasharray: 1 16;
+  animation-duration: 11s;
 }
 
 .event-aura {
   fill: url(#eventAura);
+}
+
+.event-aura-strong {
+  opacity: 0.98;
 }
 
 .event-particle-band {
@@ -1614,60 +1627,162 @@ img {
 }
 
 .event-particle {
-  fill: rgba(112, 152, 119, 0.38);
+  fill: rgba(112, 152, 119, 0.5);
+  animation: eventParticlePulse 7s ease-in-out infinite;
 }
 
 .event-particle-soft {
-  fill: rgba(164, 188, 164, 0.28);
+  fill: rgba(164, 188, 164, 0.38);
 }
 
 .event-microbe .microbe-body {
-  fill: rgba(207, 227, 212, 0.76);
-  stroke: rgba(99, 136, 109, 0.24);
-  stroke-width: 2.2;
+  fill: rgba(207, 227, 212, 0.88);
+  stroke: rgba(99, 136, 109, 0.36);
+  stroke-width: 2.8;
+}
+
+.event-microbe .microbe-halo {
+  fill: rgba(231, 241, 232, 0.34);
 }
 
 .event-microbe .microbe-core {
-  fill: rgba(141, 182, 152, 0.3);
+  fill: rgba(141, 182, 152, 0.4);
+}
+
+.event-microbe .microbe-vein {
+  fill: none;
+  stroke: rgba(109, 146, 117, 0.3);
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 
 .event-microbe .microbe-dot {
-  fill: rgba(120, 160, 128, 0.42);
+  fill: rgba(120, 160, 128, 0.58);
 }
 
 .event-microbe .microbe-dot-soft {
   fill: rgba(222, 236, 223, 0.78);
 }
 
+.event-microbe .microbe-speck {
+  fill: rgba(114, 156, 122, 0.52);
+}
+
+.event-microbe .microbe-speck-soft {
+  fill: rgba(236, 244, 233, 0.86);
+}
+
 .event-microbe .microbe-cilia {
   fill: none;
-  stroke: rgba(113, 151, 122, 0.34);
+  stroke: rgba(113, 151, 122, 0.46);
+  stroke-width: 3.8;
+  stroke-linecap: round;
+}
+
+.event-microbe {
+  animation: eventOrganismGlow 11s ease-in-out infinite;
+}
+
+.event-microbe-teal .microbe-body {
+  fill: rgba(198, 225, 221, 0.82);
+}
+
+.event-microbe-olive .microbe-body {
+  fill: rgba(219, 226, 199, 0.84);
+}
+
+.event-microbe-hero .microbe-body {
+  fill: rgba(197, 224, 203, 0.92);
+  stroke: rgba(92, 132, 104, 0.42);
+  stroke-width: 3.2;
+}
+
+.event-microbe-hero .microbe-core {
+  fill: rgba(130, 176, 145, 0.5);
+}
+
+.event-microbe-hero .microbe-cilia {
+  stroke: rgba(94, 136, 105, 0.56);
+  stroke-width: 4.2;
+}
+
+.event-microbe-hero {
+  animation-duration: 13s;
+}
+
+.event-bacteria .bacteria-body {
+  fill: rgba(203, 229, 208, 0.88);
+  stroke: rgba(96, 136, 104, 0.34);
+  stroke-width: 2.2;
+}
+
+.event-bacteria .bacteria-core {
+  fill: rgba(140, 180, 147, 0.42);
+}
+
+.event-bacteria .bacteria-band {
+  fill: none;
+  stroke: rgba(118, 158, 124, 0.28);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.event-bacteria .bacteria-dot {
+  fill: rgba(120, 160, 128, 0.56);
+}
+
+.event-bacteria .bacteria-speck {
+  fill: rgba(236, 244, 232, 0.74);
+}
+
+.event-bacteria .bacteria-tail {
+  fill: none;
+  stroke: rgba(99, 140, 108, 0.48);
   stroke-width: 3;
   stroke-linecap: round;
 }
 
-.event-microbe-teal .microbe-body {
-  fill: rgba(198, 225, 221, 0.7);
+.event-bacteria {
+  animation: eventOrganismGlow 12s ease-in-out infinite;
 }
 
-.event-microbe-olive .microbe-body {
-  fill: rgba(219, 226, 199, 0.72);
+.event-bacteria-teal .bacteria-body {
+  fill: rgba(196, 225, 221, 0.84);
+}
+
+.event-bacteria-olive .bacteria-body {
+  fill: rgba(221, 229, 200, 0.86);
 }
 
 .event-virus .virus-core {
-  fill: rgba(226, 235, 209, 0.82);
-  stroke: rgba(117, 145, 96, 0.24);
-  stroke-width: 2.2;
+  fill: rgba(226, 235, 209, 0.9);
+  stroke: rgba(117, 145, 96, 0.34);
+  stroke-width: 2.4;
+}
+
+.event-virus .virus-ring {
+  fill: none;
+  stroke: rgba(145, 172, 119, 0.4);
+  stroke-width: 2;
+  stroke-dasharray: 1 5;
+}
+
+.event-virus .virus-nucleus {
+  fill: rgba(124, 152, 98, 0.56);
 }
 
 .event-virus .virus-spike {
-  fill: rgba(183, 203, 152, 0.58);
-  stroke: rgba(113, 136, 91, 0.18);
+  fill: rgba(183, 203, 152, 0.72);
+  stroke: rgba(113, 136, 91, 0.28);
   stroke-width: 1;
 }
 
 .event-virus .virus-tip {
   fill: rgba(133, 168, 108, 0.74);
+}
+
+.event-virus {
+  animation: eventVirusGlow 10s ease-in-out infinite;
 }
 
 .event-virus-gold .virus-core {
@@ -1678,19 +1793,132 @@ img {
   fill: rgba(201, 227, 219, 0.82);
 }
 
+.event-virus-hero .virus-core {
+  fill: rgba(214, 231, 198, 0.92);
+  stroke: rgba(106, 138, 92, 0.4);
+}
+
 .event-spore {
-  fill: rgba(135, 174, 142, 0.42);
+  fill: rgba(135, 174, 142, 0.56);
 }
 
 .event-ring {
   fill: none;
-  stroke: rgba(164, 192, 171, 0.32);
-  stroke-width: 8;
+  stroke: rgba(164, 192, 171, 0.42);
+  stroke-width: 9;
 }
 
 .event-ring-soft {
-  stroke-width: 6;
-  stroke: rgba(181, 205, 183, 0.24);
+  stroke-width: 7;
+  stroke: rgba(181, 205, 183, 0.3);
+}
+
+.event-ring-focus {
+  stroke-width: 10;
+  stroke: rgba(141, 177, 150, 0.48);
+}
+
+.event-timeline-signals {
+  opacity: 0.9;
+}
+
+.event-signal {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.event-signal-main {
+  stroke: rgba(119, 157, 128, 0.44);
+  stroke-width: 10;
+  stroke-dasharray: 2 16;
+}
+
+.event-signal-soft {
+  stroke: rgba(151, 181, 153, 0.38);
+  stroke-width: 8;
+  stroke-dasharray: 2 18;
+}
+
+.event-pulse-ring {
+  fill: none;
+  stroke: rgba(151, 181, 153, 0.38);
+  stroke-width: 4;
+  animation: eventPulseExpand 4.4s ease-out infinite;
+}
+
+.event-pulse-core {
+  fill: rgba(97, 137, 108, 0.72);
+}
+
+.event-mutation-path {
+  fill: none;
+  stroke: rgba(120, 159, 128, 0.42);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 3 16;
+  animation: eventCurrentDrift 14s linear infinite;
+}
+
+.event-mutation-stage {
+  animation: eventMutationPulse 8.5s ease-in-out infinite;
+}
+
+.mutation-shell {
+  fill: rgba(208, 229, 213, 0.86);
+  stroke: rgba(95, 136, 106, 0.34);
+  stroke-width: 2.4;
+}
+
+.mutation-halo {
+  fill: rgba(230, 241, 232, 0.28);
+}
+
+.mutation-core {
+  fill: rgba(135, 177, 145, 0.38);
+}
+
+.mutation-vein {
+  fill: none;
+  stroke: rgba(110, 149, 118, 0.28);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.mutation-dot {
+  fill: rgba(104, 146, 114, 0.62);
+}
+
+.mutation-spike {
+  fill: rgba(176, 202, 152, 0.68);
+  stroke: rgba(110, 139, 94, 0.22);
+  stroke-width: 0.8;
+}
+
+.mutation-tail {
+  fill: none;
+  stroke: rgba(101, 142, 111, 0.48);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.event-mutation-stage-teal .mutation-shell {
+  fill: rgba(197, 225, 220, 0.84);
+}
+
+.event-mutation-stage-olive .mutation-shell {
+  fill: rgba(218, 226, 199, 0.86);
+}
+
+.event-mutation-stage-hero .mutation-shell {
+  fill: rgba(198, 224, 204, 0.92);
+  stroke: rgba(90, 132, 102, 0.42);
+}
+
+.event-mutation-stage-4 .mutation-spike,
+.event-mutation-stage-3 .mutation-spike {
+  fill: rgba(184, 210, 162, 0.76);
 }
 
 .timeline-header {
@@ -1723,21 +1951,67 @@ img {
   grid-template-columns: 16px 160px 1fr;
   gap: 0.8rem;
   align-items: start;
+  position: relative;
 }
 
 .timeline-marker {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
-  background: #2f6b4f;
-  margin-top: 0.38rem;
-  box-shadow: 0 0 0 4px rgba(230, 242, 232, 0.92);
+  background: linear-gradient(180deg, #3d8460, #22573e);
+  margin-top: 0.32rem;
+  box-shadow: 0 0 0 5px rgba(230, 242, 232, 0.92);
+  position: relative;
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 1px dashed rgba(104, 145, 114, 0.3);
+}
+
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  box-shadow:
+    0 -14px 0 -11px rgba(100, 142, 111, 0.38),
+    0 14px 0 -11px rgba(100, 142, 111, 0.38),
+    14px 0 0 -11px rgba(100, 142, 111, 0.38),
+    -14px 0 0 -11px rgba(100, 142, 111, 0.38);
+}
+
+.timeline-item-1 {
+  margin-left: 1.6rem;
+}
+
+.timeline-item-2 {
+  margin-left: 0.9rem;
 }
 
 .timeline-date-block {
   display: flex;
   flex-direction: column;
   gap: 0.24rem;
+}
+
+.timeline-date-block-0 .timeline-date {
+  color: #24553d;
+}
+
+.timeline-date-block-1 .timeline-date {
+  color: #2f6750;
+}
+
+.timeline-date-block-2 .timeline-date {
+  color: #446851;
 }
 
 .timeline-date {
@@ -1747,16 +2021,108 @@ img {
 }
 
 .timeline-content {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid #d6dfd6;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(198, 214, 199, 0.82);
   border-radius: 16px;
   padding: 0.85rem 0.95rem;
   box-shadow: 0 8px 18px rgba(18, 28, 18, 0.035);
 }
 
+.timeline-content-0 {
+  background:
+    radial-gradient(circle at 86% 18%, rgba(219, 234, 210, 0.54), transparent 30%),
+    rgba(255, 255, 255, 0.82);
+}
+
+.timeline-content-1 {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(204, 228, 221, 0.52), transparent 32%),
+    rgba(255, 255, 255, 0.82);
+}
+
+.timeline-content-2 {
+  background:
+    radial-gradient(circle at 90% 78%, rgba(226, 233, 205, 0.5), transparent 28%),
+    rgba(255, 255, 255, 0.82);
+}
+
 .events-panel .card,
 .events-panel .timeline-content {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+@keyframes eventCurrentDrift {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+@keyframes eventParticlePulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes eventOrganismGlow {
+  0%,
+  100% {
+    opacity: 0.9;
+    filter: saturate(0.94);
+  }
+
+  50% {
+    opacity: 1;
+    filter: saturate(1.12);
+  }
+}
+
+@keyframes eventVirusGlow {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: saturate(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    filter: saturate(1.14);
+  }
+}
+
+@keyframes eventPulseExpand {
+  0% {
+    opacity: 0.82;
+    transform: scale(0.78);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.42);
+  }
+}
+
+@keyframes eventMutationPulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: saturate(0.94);
+  }
+
+  50% {
+    opacity: 1;
+    filter: saturate(1.14);
+  }
 }
 
 .timeline-content h3 {
@@ -2216,6 +2582,11 @@ main:has(.officers-page-shell) + .footer {
 
   .timeline-item {
     grid-template-columns: 16px 1fr;
+  }
+
+  .timeline-item-1,
+  .timeline-item-2 {
+    margin-left: 0;
   }
 
   .timeline-date-block {
