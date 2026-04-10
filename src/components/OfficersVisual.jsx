@@ -1,3 +1,5 @@
+import { memo, useEffect, useRef, useState } from "react";
+
 function buildFlowerRow({
   y,
   startX,
@@ -410,7 +412,100 @@ function renderGrassClump({ x, y, scale = 1, flip = false, tone = "deep" }, inde
   );
 }
 
-function OfficersVisual() {
+function renderVineThorn({ x, y, rotate, scale = 1, side = "left" }, index) {
+  const direction = side === "right" ? 1 : -1;
+
+  return (
+    <g
+      key={`vine-thorn-${x}-${y}-${index}`}
+      className={`vine-thorn-group vine-thorn-group-${index % 3}`}
+      transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`}
+    >
+      <path
+        className="vine-thorn-body"
+        d={`M-2.8 0 Q0 ${-2.2 * direction}, 3.8 0 Q1.8 ${5.6 * direction}, 0 ${9.4 * direction} Q-1.6 ${5.8 * direction}, -2.8 0 Z`}
+      />
+      <path
+        className="vine-thorn-highlight"
+        d={`M-0.9 0 Q0 ${-0.9 * direction}, 1.4 0 Q0.8 ${2.8 * direction}, 0 ${5.2 * direction} Q-0.6 ${2.9 * direction}, -0.9 0 Z`}
+      />
+    </g>
+  );
+}
+
+const OfficersVisual = memo(function OfficersVisual() {
+  const hangingVineRefs = useRef([]);
+  const hangingVineSoftRefs = useRef([]);
+  const [hangingVineThorns, setHangingVineThorns] = useState([]);
+
+  useEffect(() => {
+    const collectThorns = (pathElements, config) => {
+      const thorns = [];
+      const sizePattern = [1, 0.96, 1.08, 0.94, 1.04, 0.98, 1.1, 0.95];
+
+      pathElements.forEach((pathElement, pathIndex) => {
+        if (!pathElement) {
+          return;
+        }
+
+        const totalLength = pathElement.getTotalLength();
+        let thornIndex = 0;
+
+        for (
+          let distance = config.start;
+          distance < totalLength - config.endPadding;
+          distance += config.step
+        ) {
+          const currentPoint = pathElement.getPointAtLength(distance);
+          const previousPoint = pathElement.getPointAtLength(Math.max(0, distance - 2));
+          const nextPoint = pathElement.getPointAtLength(
+            Math.min(totalLength, distance + 2),
+          );
+
+          const tangentAngle =
+            (Math.atan2(nextPoint.y - previousPoint.y, nextPoint.x - previousPoint.x) * 180) /
+            Math.PI;
+          const side = thornIndex % 2 === 0 ? config.startSide : config.altSide;
+
+          thorns.push({
+            x: currentPoint.x,
+            y: currentPoint.y,
+            rotate: tangentAngle,
+            side,
+            scale:
+              config.scaleBase *
+              sizePattern[(pathIndex + thornIndex) % sizePattern.length],
+          });
+
+          thornIndex += 1;
+        }
+      });
+
+      return thorns;
+    };
+
+    const nextThorns = [
+      ...collectThorns(hangingVineRefs.current, {
+        start: 84,
+        step: 30,
+        endPadding: 46,
+        scaleBase: 0.96,
+        startSide: "left",
+        altSide: "right",
+      }),
+      ...collectThorns(hangingVineSoftRefs.current, {
+        start: 96,
+        step: 38,
+        endPadding: 54,
+        scaleBase: 0.72,
+        startSide: "right",
+        altSide: "left",
+      }),
+    ];
+
+    setHangingVineThorns(nextThorns);
+  }, []);
+
   return (
     <div className="officers-page-visual" aria-hidden="true">
       <svg
@@ -447,45 +542,79 @@ function OfficersVisual() {
 
         <g className="hanging-vine-columns">
           {hangingVines.map((path, index) => (
-            <path
-              key={`hanging-vine-${index}`}
-              className={`vine-drop vine-drop-${index % 3}`}
-              d={path}
-            />
+            <g key={`hanging-vine-${index}`}>
+              <path
+                className={`vine-drop-outline vine-drop-outline-${index % 3}`}
+                d={path}
+              />
+              <path
+                ref={(element) => {
+                  hangingVineRefs.current[index] = element;
+                }}
+                className={`vine-drop vine-drop-${index % 3}`}
+                d={path}
+              />
+            </g>
           ))}
           {hangingVinesSoft.map((path, index) => (
-            <path
-              key={`hanging-vine-soft-${index}`}
-              className={`vine-drop-soft vine-drop-soft-${index % 3}`}
-              d={path}
-            />
+            <g key={`hanging-vine-soft-${index}`}>
+              <path
+                className={`vine-drop-soft-outline vine-drop-soft-outline-${index % 3}`}
+                d={path}
+              />
+              <path
+                ref={(element) => {
+                  hangingVineSoftRefs.current[index] = element;
+                }}
+                className={`vine-drop-soft vine-drop-soft-${index % 3}`}
+                d={path}
+              />
+            </g>
           ))}
+          <g className="hanging-vine-thorns">
+            {hangingVineThorns.map(renderVineThorn)}
+          </g>
         </g>
 
         <g className="side-vines">
           {sideVines.map((path, index) => (
-            <path
-              key={`side-vine-${index}`}
-              className={`vine-side vine-side-${index % 3}`}
-              d={path}
-            />
+            <g key={`side-vine-${index}`}>
+              <path
+                className={`vine-side-outline vine-side-outline-${index % 3}`}
+                d={path}
+              />
+              <path
+                className={`vine-side vine-side-${index % 3}`}
+                d={path}
+              />
+            </g>
           ))}
           {sideVinesSoft.map((path, index) => (
-            <path
-              key={`side-vine-soft-${index}`}
-              className={`vine-side-soft vine-side-soft-${index % 2}`}
-              d={path}
-            />
+            <g key={`side-vine-soft-${index}`}>
+              <path
+                className={`vine-side-soft-outline vine-side-soft-outline-${index % 2}`}
+                d={path}
+              />
+              <path
+                className={`vine-side-soft vine-side-soft-${index % 2}`}
+                d={path}
+              />
+            </g>
           ))}
         </g>
 
         <g className="snake-vines">
           {snakeVines.map((path, index) => (
-            <path
-              key={`snake-vine-${index}`}
-              className={`vine-snake vine-snake-${index % 2}`}
-              d={path}
-            />
+            <g key={`snake-vine-${index}`}>
+              <path
+                className={`vine-snake-outline vine-snake-outline-${index % 2}`}
+                d={path}
+              />
+              <path
+                className={`vine-snake vine-snake-${index % 2}`}
+                d={path}
+              />
+            </g>
           ))}
         </g>
 
@@ -617,6 +746,6 @@ function OfficersVisual() {
       </svg>
     </div>
   );
-}
+});
 
 export default OfficersVisual;

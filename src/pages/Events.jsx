@@ -1,10 +1,12 @@
 import siteContent from "../data/siteContent";
+import EventsVisual from "../components/EventsVisual";
 
 function Events() {
   return (
-    <section className="section page-section">
+    <section className="section page-section events-page-shell">
+      <EventsVisual />
       <div className="container">
-        <div className="page-header">
+        <div className="page-header events-page-header">
           <p className="page-eyebrow">Events</p>
           <h1>Club Events, Meetings, and Yearly Activity</h1>
           <p className="section-text">
@@ -15,7 +17,7 @@ function Events() {
         </div>
 
         <div className="events-layout">
-          <section className="section-panel">
+          <section className="section-panel events-panel events-panel-overview">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Overview</p>
@@ -31,7 +33,7 @@ function Events() {
             </p>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel events-panel events-panel-types">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Recurring</p>
@@ -52,7 +54,7 @@ function Events() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel events-panel events-panel-archive">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Archive</p>

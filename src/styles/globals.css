@@ -133,7 +133,16 @@ img {
 }
 
 .logo-mark {
-  font-size: 1.08rem;
+  flex: 0 0 auto;
+}
+
+.logo-mark-image {
+  width: 2.15rem;
+  height: 2.15rem;
+  object-fit: cover;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(235, 247, 236, 0.22);
+  background: rgba(233, 245, 234, 0.18);
 }
 
 .logo-text {
@@ -745,6 +754,8 @@ img {
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  contain: layout paint;
+  overflow: hidden;
 }
 
 .officers-page-shell .container {
@@ -755,6 +766,7 @@ img {
 .officers-vine-svg {
   width: 100%;
   height: 100%;
+  transform: translateZ(0);
 }
 
 .forest-band-fill {
@@ -1028,7 +1040,17 @@ img {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 6px 10px rgba(46, 82, 58, 0.07));
+}
+
+.vine-drop-outline,
+.vine-side-outline,
+.vine-drop-soft-outline,
+.vine-side-soft-outline,
+.vine-snake-outline {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
 }
 
 .vine-drop {
@@ -1036,8 +1058,17 @@ img {
   stroke-width: 6.8;
 }
 
+.vine-drop-outline {
+  stroke: rgba(236, 245, 233, 0.2);
+  stroke-width: 8.8;
+}
+
 .vine-drop-0 {
   stroke: rgba(72, 118, 86, 0.76);
+}
+
+.vine-drop-outline-0 {
+  stroke: rgba(236, 245, 233, 0.24);
 }
 
 .vine-drop-1 {
@@ -1045,9 +1076,19 @@ img {
   stroke-width: 6.2;
 }
 
+.vine-drop-outline-1 {
+  stroke: rgba(228, 241, 226, 0.18);
+  stroke-width: 8.2;
+}
+
 .vine-drop-2 {
   stroke: rgba(58, 104, 74, 0.7);
   stroke-width: 7.2;
+}
+
+.vine-drop-outline-2 {
+  stroke: rgba(220, 236, 221, 0.22);
+  stroke-width: 9.2;
 }
 
 .vine-drop-soft {
@@ -1058,8 +1099,17 @@ img {
   stroke-linejoin: round;
 }
 
+.vine-drop-soft-outline {
+  stroke: rgba(233, 244, 231, 0.12);
+  stroke-width: 5.8;
+}
+
 .vine-drop-soft-0 {
   stroke: rgba(89, 132, 98, 0.38);
+}
+
+.vine-drop-soft-outline-0 {
+  stroke: rgba(233, 244, 231, 0.14);
 }
 
 .vine-drop-soft-1 {
@@ -1067,9 +1117,19 @@ img {
   stroke-width: 3.8;
 }
 
+.vine-drop-soft-outline-1 {
+  stroke: rgba(227, 239, 225, 0.1);
+  stroke-width: 5.2;
+}
+
 .vine-drop-soft-2 {
   stroke: rgba(72, 116, 84, 0.34);
   stroke-width: 4.8;
+}
+
+.vine-drop-soft-outline-2 {
+  stroke: rgba(223, 236, 221, 0.12);
+  stroke-width: 6.2;
 }
 
 .vine-side {
@@ -1077,8 +1137,17 @@ img {
   stroke-width: 6;
 }
 
+.vine-side-outline {
+  stroke: rgba(235, 245, 233, 0.18);
+  stroke-width: 7.8;
+}
+
 .vine-side-0 {
   stroke: rgba(66, 112, 81, 0.72);
+}
+
+.vine-side-outline-0 {
+  stroke: rgba(236, 245, 233, 0.22);
 }
 
 .vine-side-1 {
@@ -1086,9 +1155,19 @@ img {
   stroke-width: 5.4;
 }
 
+.vine-side-outline-1 {
+  stroke: rgba(229, 241, 227, 0.16);
+  stroke-width: 7.2;
+}
+
 .vine-side-2 {
   stroke: rgba(56, 100, 72, 0.7);
   stroke-width: 6.6;
+}
+
+.vine-side-outline-2 {
+  stroke: rgba(221, 236, 223, 0.2);
+  stroke-width: 8.4;
 }
 
 .vine-side-soft {
@@ -1099,13 +1178,27 @@ img {
   stroke-linejoin: round;
 }
 
+.vine-side-soft-outline {
+  stroke: rgba(232, 243, 230, 0.1);
+  stroke-width: 5.6;
+}
+
 .vine-side-soft-0 {
   stroke: rgba(91, 137, 101, 0.34);
+}
+
+.vine-side-soft-outline-0 {
+  stroke: rgba(232, 243, 230, 0.12);
 }
 
 .vine-side-soft-1 {
   stroke: rgba(126, 166, 121, 0.26);
   stroke-width: 3.8;
+}
+
+.vine-side-soft-outline-1 {
+  stroke: rgba(226, 239, 224, 0.09);
+  stroke-width: 5.2;
 }
 
 .vine-snake {
@@ -1114,16 +1207,52 @@ img {
   stroke-width: 4.8;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 4px 8px rgba(44, 76, 56, 0.06));
+}
+
+.vine-snake-outline {
+  stroke: rgba(230, 242, 229, 0.12);
+  stroke-width: 6.2;
 }
 
 .vine-snake-0 {
   stroke: rgba(74, 120, 88, 0.42);
 }
 
+.vine-snake-outline-0 {
+  stroke: rgba(232, 243, 230, 0.14);
+}
+
 .vine-snake-1 {
   stroke: rgba(112, 154, 108, 0.32);
   stroke-width: 4.2;
+}
+
+.vine-snake-outline-1 {
+  stroke: rgba(226, 239, 225, 0.1);
+  stroke-width: 5.6;
+}
+
+.hanging-vine-thorns {
+  opacity: 0.94;
+}
+
+.vine-thorn-body {
+  fill: rgba(88, 98, 54, 0.84);
+  stroke: rgba(248, 252, 242, 0.3);
+  stroke-linejoin: round;
+  stroke-width: 0.8;
+}
+
+.vine-thorn-highlight {
+  fill: rgba(236, 244, 225, 0.24);
+}
+
+.vine-thorn-group-1 .vine-thorn-body {
+  fill: rgba(104, 112, 62, 0.76);
+}
+
+.vine-thorn-group-2 .vine-thorn-body {
+  fill: rgba(70, 91, 53, 0.78);
 }
 
 .vine-path {
@@ -1384,15 +1513,184 @@ img {
 
 /* EVENTS PAGE */
 
+.events-page-shell {
+  position: relative;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(232, 243, 235, 0.94), rgba(232, 243, 235, 0) 24%),
+    radial-gradient(circle at 86% 48%, rgba(220, 236, 226, 0.84), rgba(220, 236, 226, 0) 26%),
+    linear-gradient(180deg, #f4f8f4 0%, #eff5ef 38%, #e4efe6 74%, #d5e7d9 100%);
+}
+
+.events-page-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  contain: layout paint;
+  overflow: hidden;
+}
+
+.events-page-shell .container {
+  position: relative;
+  z-index: 1;
+}
+
+.events-visual-svg {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+}
+
+.events-page-header {
+  margin-bottom: 1.8rem;
+  max-width: 780px;
+}
+
 .events-layout {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.65rem;
 }
 
 .events-block {
   display: flex;
   flex-direction: column;
+}
+
+.events-panel {
+  position: relative;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(198, 214, 199, 0.74);
+  box-shadow: 0 12px 28px rgba(27, 44, 29, 0.04);
+  backdrop-filter: blur(2px);
+}
+
+.events-panel-overview {
+  width: min(100%, 870px);
+}
+
+.events-panel-types {
+  width: min(100%, 980px);
+  margin-left: auto;
+}
+
+.events-panel-archive {
+  width: min(100%, 1080px);
+  padding-top: 1.05rem;
+}
+
+.event-current {
+  fill: none;
+  stroke: url(#eventCurrent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.event-current-main {
+  stroke-width: 20;
+  opacity: 0.6;
+}
+
+.event-current-soft {
+  stroke-width: 16;
+  opacity: 0.42;
+}
+
+.event-current-thread {
+  stroke-width: 8;
+  opacity: 0.3;
+  stroke-dasharray: 2 14;
+}
+
+.event-aura {
+  fill: url(#eventAura);
+}
+
+.event-particle-band {
+  fill: none;
+  stroke: rgba(147, 181, 156, 0.26);
+  stroke-width: 1.4;
+  stroke-dasharray: 2 10;
+}
+
+.event-particle {
+  fill: rgba(112, 152, 119, 0.38);
+}
+
+.event-particle-soft {
+  fill: rgba(164, 188, 164, 0.28);
+}
+
+.event-microbe .microbe-body {
+  fill: rgba(207, 227, 212, 0.76);
+  stroke: rgba(99, 136, 109, 0.24);
+  stroke-width: 2.2;
+}
+
+.event-microbe .microbe-core {
+  fill: rgba(141, 182, 152, 0.3);
+}
+
+.event-microbe .microbe-dot {
+  fill: rgba(120, 160, 128, 0.42);
+}
+
+.event-microbe .microbe-dot-soft {
+  fill: rgba(222, 236, 223, 0.78);
+}
+
+.event-microbe .microbe-cilia {
+  fill: none;
+  stroke: rgba(113, 151, 122, 0.34);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.event-microbe-teal .microbe-body {
+  fill: rgba(198, 225, 221, 0.7);
+}
+
+.event-microbe-olive .microbe-body {
+  fill: rgba(219, 226, 199, 0.72);
+}
+
+.event-virus .virus-core {
+  fill: rgba(226, 235, 209, 0.82);
+  stroke: rgba(117, 145, 96, 0.24);
+  stroke-width: 2.2;
+}
+
+.event-virus .virus-spike {
+  fill: rgba(183, 203, 152, 0.58);
+  stroke: rgba(113, 136, 91, 0.18);
+  stroke-width: 1;
+}
+
+.event-virus .virus-tip {
+  fill: rgba(133, 168, 108, 0.74);
+}
+
+.event-virus-gold .virus-core {
+  fill: rgba(232, 224, 194, 0.82);
+}
+
+.event-virus-teal .virus-core {
+  fill: rgba(201, 227, 219, 0.82);
+}
+
+.event-spore {
+  fill: rgba(135, 174, 142, 0.42);
+}
+
+.event-ring {
+  fill: none;
+  stroke: rgba(164, 192, 171, 0.32);
+  stroke-width: 8;
+}
+
+.event-ring-soft {
+  stroke-width: 6;
+  stroke: rgba(181, 205, 183, 0.24);
 }
 
 .timeline-header {
@@ -1410,6 +1708,16 @@ img {
   position: relative;
 }
 
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(108, 146, 115, 0.36), rgba(80, 120, 88, 0.12));
+}
+
 .timeline-item {
   display: grid;
   grid-template-columns: 16px 160px 1fr;
@@ -1423,7 +1731,7 @@ img {
   border-radius: 999px;
   background: #2f6b4f;
   margin-top: 0.38rem;
-  box-shadow: 0 0 0 5px rgba(47, 107, 79, 0.12);
+  box-shadow: 0 0 0 4px rgba(230, 242, 232, 0.92);
 }
 
 .timeline-date-block {
@@ -1444,6 +1752,11 @@ img {
   border-radius: 16px;
   padding: 0.85rem 0.95rem;
   box-shadow: 0 8px 18px rgba(18, 28, 18, 0.035);
+}
+
+.events-panel .card,
+.events-panel .timeline-content {
+  background: rgba(255, 255, 255, 0.88);
 }
 
 .timeline-content h3 {
@@ -1839,12 +2152,41 @@ img {
 
 .footer {
   padding: 1.45rem 0;
-  text-align: center;
   background: #1f4d36;
   color: white;
   margin-top: 3rem;
   font-size: 0.84rem;
   border-top: 1px solid #153626;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.footer-logo {
+  width: 2.45rem;
+  height: 2.45rem;
+  object-fit: cover;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(236, 247, 238, 0.18);
+  background: rgba(232, 244, 234, 0.14);
+}
+
+.footer-copy p {
+  margin: 0;
+}
+
+.footer-title {
+  font-weight: 700;
+  margin-bottom: 0.18rem;
 }
 
 main:has(.officers-page-shell) + .footer {
@@ -1882,6 +2224,13 @@ main:has(.officers-page-shell) + .footer {
 
   .timeline-content {
     grid-column: 2;
+  }
+
+  .events-panel-overview,
+  .events-panel-types,
+  .events-panel-archive {
+    width: 100%;
+    margin-left: 0;
   }
 
   .resource-grid {
@@ -1960,6 +2309,16 @@ main:has(.officers-page-shell) + .footer {
   .logo {
     font-size: 0.9rem;
     max-width: 75%;
+  }
+
+  .logo-mark-image {
+    width: 1.95rem;
+    height: 1.95rem;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
   }
 
   .hero {

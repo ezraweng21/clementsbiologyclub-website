@@ -28,6 +28,8 @@ const leafClusterGroups = [
   },
 ];
 
+import { memo } from "react";
+
 function LeafCluster({ x, y, rotate, scale, stretch = 1, flip = 1 }) {
   return (
     <g
@@ -45,7 +47,7 @@ function LeafCluster({ x, y, rotate, scale, stretch = 1, flip = 1 }) {
   );
 }
 
-function OfficerCardVines({ variant = 0 }) {
+const OfficerCardVines = memo(function OfficerCardVines({ variant = 0 }) {
   return (
     <div className={`officer-card-vines officer-card-vines-${variant}`} aria-hidden="true">
       <svg className="officer-card-vines-svg" viewBox="0 0 420 500" preserveAspectRatio="none">
@@ -241,6 +243,6 @@ function OfficerCardVines({ variant = 0 }) {
       </svg>
     </div>
   );
-}
+});
 
 export default OfficerCardVines;

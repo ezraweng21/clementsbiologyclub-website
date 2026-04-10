@@ -15,7 +15,11 @@ function Navbar() {
     <header className="navbar">
       <div className="container navbar-content">
         <NavLink to="/" className="logo" onClick={handleCloseMenu}>
-          <span className="logo-mark">🧬</span>
+          <img
+            className="logo-mark logo-mark-image"
+            src="/images/bioclub-logo.webp"
+            alt="Clements High School Biology Club logo"
+          />
           <span className="logo-text">Clements Biology Club</span>
         </NavLink>
 
