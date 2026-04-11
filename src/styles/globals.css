@@ -2408,6 +2408,522 @@ img {
 
 /* RESOURCES PAGE */
 
+.resources-page-shell {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(236, 250, 252, 0.98), rgba(236, 250, 252, 0) 26%),
+    radial-gradient(circle at 86% 24%, rgba(191, 226, 235, 0.88), rgba(191, 226, 235, 0) 26%),
+    linear-gradient(180deg, #f4fbfd 0%, #e6f6f8 14%, #d5edf2 30%, #bfe0ea 48%, #9fd1df 68%, #6faec2 86%, #4c8ea7 100%);
+}
+
+.resources-page-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.resources-page-shell .container {
+  position: relative;
+  z-index: 1;
+}
+
+.resources-visual-svg {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+}
+
+.resources-corner-creature {
+  position: absolute;
+  top: 4.7rem;
+  right: clamp(0.6rem, 2.2vw, 2.5rem);
+  width: clamp(180px, 18vw, 280px);
+  height: auto;
+  overflow: visible;
+}
+
+.resources-page-header {
+  margin-bottom: 1.95rem;
+  max-width: 760px;
+}
+
+.resources-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.35rem;
+}
+
+.resources-panel {
+  position: relative;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(174, 209, 218, 0.92);
+  box-shadow: 0 18px 40px rgba(19, 54, 61, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.resources-panel-featured {
+  width: min(100%, 760px);
+}
+
+.resources-panel-library {
+  width: min(100%, 868px);
+  margin-left: auto;
+}
+
+.reef-wave-band {
+  animation: reefWaveShift 18s ease-in-out infinite;
+}
+
+.reef-wave-back {
+  fill: url(#reefWaveBack);
+  opacity: 0.92;
+}
+
+.reef-wave-mid {
+  fill: url(#reefWaveMid);
+  opacity: 0.82;
+  animation-duration: 16s;
+}
+
+.reef-wave-front {
+  fill: url(#reefWaveFront);
+  opacity: 0.76;
+  animation-duration: 14s;
+}
+
+.reef-wave-lower {
+  fill: rgba(112, 178, 197, 0.74);
+  opacity: 0.74;
+  animation-duration: 12s;
+}
+
+.reef-wave-deep {
+  fill: rgba(76, 132, 157, 0.82);
+  opacity: 0.9;
+  animation-duration: 10s;
+}
+
+.reef-wave-ribbon-top,
+.reef-wave-ribbon-mid,
+.reef-wave-ribbon-lower,
+.reef-wave-ribbon-deep {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: reefCurrentDrift 17s linear infinite;
+}
+
+.reef-wave-ribbon-top {
+  stroke: rgba(255, 255, 255, 0.74);
+  stroke-width: 4.5;
+}
+
+.reef-wave-ribbon-mid {
+  stroke: rgba(229, 248, 250, 0.68);
+  stroke-width: 4;
+  animation-duration: 15s;
+}
+
+.reef-wave-ribbon-lower {
+  stroke: rgba(195, 231, 239, 0.66);
+  stroke-width: 4.5;
+  animation-duration: 13s;
+}
+
+.reef-wave-ribbon-deep {
+  stroke: rgba(168, 214, 228, 0.54);
+  stroke-width: 5;
+  animation-duration: 11s;
+}
+
+.reef-wave-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: reefCurrentDrift 20s linear infinite;
+}
+
+.reef-wave-edge-top {
+  stroke: rgba(255, 255, 255, 0.82);
+  stroke-width: 5;
+}
+
+.reef-wave-edge-mid {
+  stroke: rgba(221, 246, 248, 0.72);
+  stroke-width: 4;
+}
+
+.reef-wave-edge-front {
+  stroke: rgba(202, 236, 242, 0.74);
+  stroke-width: 4.5;
+}
+
+.reef-current {
+  fill: none;
+  stroke: url(#reefCurrent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: reefCurrentDrift 18s linear infinite;
+}
+
+.reef-current-0 {
+  stroke-width: 24;
+  opacity: 0.78;
+}
+
+.reef-current-1 {
+  stroke-width: 20;
+  opacity: 0.68;
+  animation-duration: 15s;
+}
+
+.reef-current-2 {
+  stroke-width: 22;
+  opacity: 0.66;
+  animation-duration: 21s;
+}
+
+.reef-current-thread {
+  stroke-width: 11;
+  opacity: 0.4;
+  stroke-dasharray: 2 18;
+  animation-duration: 13s;
+}
+
+.reef-glow {
+  fill: url(#reefGlow);
+  opacity: 0.94;
+  animation: reefGlowPulse 10s ease-in-out infinite;
+}
+
+.reef-glow-soft {
+  opacity: 0.72;
+  animation-duration: 13s;
+}
+
+.reef-glow-deep {
+  opacity: 0.48;
+  animation-duration: 16s;
+}
+
+.reef-bubble {
+  fill: rgba(255, 255, 255, 0.54);
+  stroke: rgba(195, 230, 230, 0.86);
+  stroke-width: 1.4;
+  animation: reefBubbleRise 11s ease-in-out infinite;
+}
+
+.reef-bubble-1 {
+  animation-duration: 13s;
+}
+
+.reef-bubble-2 {
+  animation-duration: 15s;
+}
+
+.reef-bubble-floating {
+  opacity: 0.72;
+}
+
+.reef-jellyfish {
+  animation: reefCreatureFloat 14s ease-in-out infinite;
+}
+
+.reef-jellyfish-medium {
+  animation-duration: 11s;
+}
+
+.reef-jelly-cap {
+  fill: rgba(237, 247, 252, 0.54);
+  stroke: rgba(194, 219, 234, 0.84);
+  stroke-width: 2;
+}
+
+.reef-jelly-inner {
+  fill: none;
+  stroke: rgba(242, 252, 255, 0.66);
+  stroke-width: 2;
+}
+
+.reef-jelly-tentacle {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 2.6;
+}
+
+.reef-jellyfish-pearl .reef-jelly-tentacle {
+  stroke: rgba(230, 242, 247, 0.72);
+}
+
+.reef-jellyfish-blue .reef-jelly-tentacle {
+  stroke: rgba(180, 224, 236, 0.72);
+}
+
+.reef-jellyfish-violet .reef-jelly-tentacle {
+  stroke: rgba(205, 191, 232, 0.68);
+}
+
+.reef-fish {
+  animation: reefFishGlide 16s ease-in-out infinite;
+}
+
+.reef-fish-school-right .reef-fish {
+  animation-duration: 18s;
+}
+
+.reef-fish-body {
+  stroke-width: 1.8;
+}
+
+.reef-fish-silver .reef-fish-body,
+.reef-fish-silver .reef-fish-tail,
+.reef-fish-silver .reef-fish-fin {
+  fill: rgba(233, 242, 241, 0.86);
+  stroke: rgba(169, 194, 192, 0.86);
+}
+
+.reef-fish-teal .reef-fish-body,
+.reef-fish-teal .reef-fish-tail,
+.reef-fish-teal .reef-fish-fin {
+  fill: rgba(151, 211, 207, 0.86);
+  stroke: rgba(89, 155, 150, 0.88);
+}
+
+.reef-fish-gold .reef-fish-body,
+.reef-fish-gold .reef-fish-tail,
+.reef-fish-gold .reef-fish-fin {
+  fill: rgba(233, 210, 151, 0.84);
+  stroke: rgba(181, 148, 86, 0.86);
+}
+
+.reef-fish-eye {
+  fill: rgba(41, 63, 72, 0.72);
+}
+
+.reef-creature {
+  animation: reefCreatureFloat 12s ease-in-out infinite;
+}
+
+.reef-creature-turtle {
+  opacity: 0.98;
+}
+
+.reef-turtle-glow {
+  fill: rgba(220, 241, 214, 0.42);
+}
+
+.reef-turtle-shadow {
+  fill: rgba(102, 148, 110, 0.18);
+}
+
+.reef-turtle-shell {
+  fill: rgba(146, 108, 72, 0.92);
+  stroke: rgba(103, 70, 43, 0.86);
+  stroke-width: 3.6;
+}
+
+.reef-turtle-shell-inner {
+  fill: rgba(184, 144, 100, 0.76);
+  stroke: rgba(126, 90, 56, 0.56);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+}
+
+.reef-turtle-shell-seam {
+  fill: none;
+  stroke: rgba(112, 78, 50, 0.76);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.reef-turtle-shell-plate {
+  fill: rgba(202, 166, 118, 0.46);
+  stroke: rgba(136, 100, 63, 0.52);
+  stroke-width: 1.4;
+}
+
+.reef-turtle-shell-highlight {
+  fill: rgba(231, 203, 168, 0.2);
+}
+
+.reef-turtle-head {
+  fill: rgba(150, 194, 139, 0.92);
+  stroke: rgba(86, 127, 91, 0.72);
+  stroke-width: 2.8;
+}
+
+.reef-turtle-cheek {
+  fill: rgba(186, 212, 162, 0.58);
+}
+
+.reef-turtle-flipper {
+  fill: rgba(139, 188, 148, 0.84);
+  stroke: rgba(88, 131, 99, 0.7);
+  stroke-width: 2.5;
+}
+
+.reef-turtle-flipper-back {
+  fill: rgba(121, 170, 132, 0.76);
+}
+
+.reef-turtle-tail {
+  fill: rgba(123, 170, 118, 0.86);
+  stroke: rgba(78, 116, 78, 0.68);
+  stroke-width: 1.8;
+}
+
+.reef-turtle-flipper-vein {
+  fill: none;
+  stroke: rgba(108, 148, 115, 0.54);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.reef-turtle-head-detail {
+  fill: none;
+  stroke: rgba(118, 157, 112, 0.5);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.reef-turtle-eye {
+  fill: rgba(38, 61, 46, 0.74);
+}
+
+.reef-turtle-eye-highlight {
+  fill: rgba(255, 255, 255, 0.9);
+}
+
+.reef-shell-body {
+  fill: rgba(251, 242, 228, 0.92);
+  stroke: rgba(190, 168, 144, 0.84);
+  stroke-width: 2.4;
+}
+
+.reef-shell-pearl .reef-shell-body {
+  fill: rgba(241, 246, 244, 0.92);
+  stroke: rgba(165, 186, 181, 0.82);
+}
+
+.reef-shell-mint .reef-shell-body {
+  fill: rgba(225, 242, 235, 0.92);
+  stroke: rgba(130, 176, 156, 0.82);
+}
+
+.reef-shell-rib {
+  fill: none;
+  stroke: rgba(179, 156, 136, 0.56);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.reef-anemone-tentacle {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 8;
+  animation: reefPlantSway 7.8s ease-in-out infinite;
+}
+
+.reef-anemone-rose .reef-anemone-tentacle {
+  stroke: rgba(214, 135, 164, 0.78);
+}
+
+.reef-anemone-violet .reef-anemone-tentacle {
+  stroke: rgba(171, 135, 214, 0.82);
+}
+
+.reef-anemone-teal .reef-anemone-tentacle {
+  stroke: rgba(92, 168, 160, 0.82);
+}
+
+.reef-anemone-core {
+  fill: rgba(255, 241, 230, 0.78);
+  stroke: rgba(209, 184, 172, 0.74);
+  stroke-width: 2;
+}
+
+.reef-coral-trunk {
+  fill: none;
+  stroke: rgba(215, 133, 126, 0.76);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2 12;
+  animation: reefPlantSway 9s ease-in-out infinite;
+}
+
+.reef-coral-mounds path {
+  fill: rgba(229, 155, 146, 0.28);
+}
+
+.reef-coral-mounds-left path:last-child {
+  fill: rgba(197, 122, 131, 0.22);
+}
+
+.reef-coral-mounds-right path:last-child {
+  fill: rgba(171, 136, 185, 0.2);
+}
+
+.reef-stone-ridges path {
+  fill: rgba(95, 143, 152, 0.24);
+  stroke: rgba(110, 160, 168, 0.28);
+  stroke-width: 2;
+}
+
+.reef-kelp-blade {
+  fill: url(#reefKelp);
+  opacity: 0.92;
+  animation: reefPlantSway 8.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.reef-kelp-right .reef-kelp-blade {
+  animation-duration: 9.8s;
+}
+
+.reef-kelp-center .reef-kelp-blade {
+  fill: rgba(102, 153, 117, 0.72);
+  animation-duration: 7.6s;
+}
+
+.reef-seagrass-blade {
+  opacity: 0.92;
+  animation: reefPlantSway 6.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.reef-seagrass-mid-blade {
+  opacity: 0.8;
+}
+
+.reef-seagrass-front-blade {
+  opacity: 0.96;
+}
+
+.reef-seagrass-back-blade {
+  opacity: 0.56;
+}
+
+.reef-seagrass-cluster-blade {
+  opacity: 0.98;
+  animation-duration: 5.8s;
+}
+
+.reef-seagrass-tone-0 {
+  fill: rgba(88, 138, 95, 0.92);
+}
+
+.reef-seagrass-tone-1 {
+  fill: rgba(119, 168, 120, 0.88);
+}
+
+.reef-seagrass-tone-2 {
+  fill: rgba(76, 112, 95, 0.92);
+}
+
 .resource-section {
   display: flex;
   flex-direction: column;
@@ -2422,14 +2938,14 @@ img {
 }
 
 .resource-card {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid #d6dfd6;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(185, 214, 222, 0.92);
   border-radius: 16px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  box-shadow: 0 8px 18px rgba(18, 28, 18, 0.035);
+  box-shadow: 0 10px 24px rgba(18, 38, 36, 0.05);
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -2438,13 +2954,13 @@ img {
 
 .resource-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 24px rgba(18, 28, 18, 0.07);
-  border-color: #c8d5c8;
+  box-shadow: 0 18px 30px rgba(18, 44, 49, 0.12);
+  border-color: #a9cfda;
 }
 
 .resource-card-featured {
   background:
-    linear-gradient(180deg, rgba(245, 249, 245, 0.98), rgba(255, 255, 255, 0.96));
+    linear-gradient(180deg, rgba(235, 248, 251, 0.92), rgba(255, 255, 255, 0.8));
 }
 
 .resource-label {
@@ -2467,10 +2983,10 @@ img {
 
 .resource-meta {
   font-size: 0.77rem;
-  color: #4d5d4d;
+  color: #31565d;
   padding: 0.48rem 0.65rem;
-  background: #f3f6f2;
-  border: 1px solid #dde5dc;
+  background: rgba(233, 245, 248, 0.8);
+  border: 1px solid rgba(193, 220, 228, 0.92);
   border-radius: 10px;
 }
 
@@ -2479,9 +2995,9 @@ img {
   align-self: flex-start;
   padding: 0.48rem 0.75rem;
   border-radius: 10px;
-  background: #eef2ee;
-  border: 1px solid #d6dfd6;
-  color: #1b1b1b;
+  background: rgba(221, 238, 242, 0.9);
+  border: 1px solid rgba(172, 205, 214, 0.92);
+  color: #163a44;
   font-size: 0.78rem;
   font-weight: 600;
   transition:
@@ -2490,7 +3006,7 @@ img {
 }
 
 .resource-link:hover {
-  background: #e6ebe5;
+  background: rgba(211, 232, 238, 0.96);
   transform: translateY(-1px);
 }
 
@@ -2501,7 +3017,681 @@ img {
 
 .resource-note {
   font-size: 0.8rem;
-  color: #4d5d4d;
+  color: #46635f;
+}
+
+.resources-panel .resource-card {
+  backdrop-filter: blur(2px);
+}
+
+/* CONTACT PAGE */
+
+.contact-page-shell {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(251, 247, 237, 0.96), rgba(251, 247, 237, 0) 24%),
+    radial-gradient(circle at 86% 16%, rgba(234, 226, 208, 0.88), rgba(234, 226, 208, 0) 26%),
+    linear-gradient(180deg, #f7f1e5 0%, #f3ead9 28%, #ece1cd 58%, #dfd0b8 82%, #d2bea2 100%);
+}
+
+.contact-page-shell::before,
+.contact-page-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-page-shell::before {
+  z-index: 0;
+  background:
+    linear-gradient(90deg, transparent 0 7.1rem, rgba(187, 94, 74, 0.16) 7.1rem 7.25rem, transparent 7.25rem 100%),
+    repeating-linear-gradient(
+      180deg,
+      rgba(154, 174, 196, 0.24) 0,
+      rgba(154, 174, 196, 0.24) 0.0625rem,
+      transparent 0.0625rem,
+      transparent 3.375rem
+    );
+  background-position: 0 0, 0 5.5rem;
+  opacity: 0.95;
+}
+
+.contact-page-shell::after {
+  z-index: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(177, 142, 92, 0.12), transparent 10%),
+    radial-gradient(circle at 86% 24%, rgba(155, 111, 78, 0.1), transparent 12%),
+    radial-gradient(circle at 74% 72%, rgba(120, 88, 60, 0.08), transparent 14%);
+  mix-blend-mode: multiply;
+}
+
+.contact-page-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.contact-page-shell .container {
+  position: relative;
+  z-index: 2;
+  padding-inline: clamp(11rem, 14vw, 15rem);
+}
+
+.contact-visual-svg {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+}
+
+.contact-side-gallery {
+  position: absolute;
+  top: 3rem;
+  width: clamp(206px, 19vw, 290px);
+  height: calc(100% - 5.8rem);
+  overflow: visible;
+  opacity: 0.98;
+  z-index: 1;
+}
+
+.contact-side-gallery-left {
+  left: 0.2rem;
+}
+
+.contact-side-gallery-right {
+  right: 0.2rem;
+}
+
+.contact-tool-float {
+  position: absolute;
+  width: clamp(140px, 12vw, 196px);
+  overflow: visible;
+  opacity: 1;
+  z-index: 2;
+}
+
+.contact-tool-float-forceps {
+  top: 21.5rem;
+  left: clamp(7.8rem, 9vw, 10.2rem);
+  height: 18rem;
+}
+
+.contact-tool-float-magnifier {
+  top: 8rem;
+  right: clamp(0.3rem, 0.8vw, 0.9rem);
+  height: 15.5rem;
+}
+
+.contact-tool-float-ruler {
+  bottom: 2.8rem;
+  right: clamp(-4.8rem, -3vw, -2.4rem);
+  width: clamp(204px, 16vw, 276px);
+  height: 16rem;
+}
+
+.contact-tool-float-pen {
+  bottom: 10.5rem;
+  left: clamp(7.6rem, 8.8vw, 9.8rem);
+  height: 18.5rem;
+}
+
+.contact-page-header {
+  margin-bottom: 1.85rem;
+  max-width: 760px;
+}
+
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.contact-panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(252, 248, 240, 0.82), rgba(245, 238, 224, 0.72));
+  border: 1px solid rgba(191, 169, 136, 0.76);
+  box-shadow: 0 18px 34px rgba(62, 47, 28, 0.08);
+}
+
+.contact-panel-highlights {
+  width: min(100%, 700px);
+}
+
+.contact-panel-join {
+  width: min(100%, 640px);
+  margin-left: auto;
+}
+
+.contact-panel-meetings {
+  width: min(100%, 610px);
+}
+
+.contact-panel-info {
+  width: min(100%, 740px);
+  margin-left: auto;
+}
+
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(214, 197, 172, 0.42);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.contact-journal-rules {
+  opacity: 0.92;
+}
+
+.contact-rule-line {
+  fill: none;
+  stroke: rgba(122, 148, 178, 0.26);
+  stroke-width: 1;
+}
+
+.contact-margin-line {
+  fill: none;
+  stroke: rgba(183, 97, 81, 0.48);
+  stroke-width: 1.3;
+}
+
+.contact-stamp-glow {
+  fill: url(#contactStamp);
+}
+
+.contact-stamp-outer,
+.contact-stamp-inner {
+  fill: none;
+  stroke-width: 2.2;
+  stroke-dasharray: 8 8;
+}
+
+.contact-stamp-ring-olive .contact-stamp-outer,
+.contact-stamp-ring-olive .contact-stamp-inner {
+  stroke: rgba(104, 128, 87, 0.38);
+}
+
+.contact-stamp-ring-rose .contact-stamp-outer,
+.contact-stamp-ring-rose .contact-stamp-inner {
+  stroke: rgba(168, 117, 106, 0.34);
+}
+
+.contact-stamp-ring-sage .contact-stamp-outer,
+.contact-stamp-ring-sage .contact-stamp-inner {
+  stroke: rgba(118, 142, 115, 0.34);
+}
+
+.contact-label-paper {
+  fill: rgba(250, 246, 237, 0.9);
+  stroke: rgba(194, 176, 145, 0.72);
+  stroke-width: 1.8;
+}
+
+.contact-label-card-note .contact-label-paper {
+  fill: rgba(245, 238, 225, 0.9);
+}
+
+.contact-label-pin {
+  fill: rgba(128, 101, 80, 0.72);
+}
+
+.contact-label-rule {
+  stroke: rgba(170, 157, 135, 0.52);
+  stroke-width: 1.05;
+}
+
+.contact-label-rule-short {
+  opacity: 0.82;
+}
+
+.contact-tape-body {
+  fill: rgba(216, 194, 142, 0.34);
+  stroke: rgba(176, 154, 116, 0.24);
+  stroke-width: 1;
+}
+
+.contact-side-paper {
+  fill: rgba(248, 242, 230, 0.985);
+  stroke: rgba(171, 144, 104, 0.92);
+  stroke-width: 1.9;
+}
+
+.contact-side-paper-inner {
+  fill: rgba(251, 246, 237, 0.72);
+  stroke: rgba(196, 175, 140, 0.62);
+  stroke-width: 1.15;
+}
+
+.contact-side-pin {
+  fill: rgba(116, 90, 68, 0.72);
+}
+
+.contact-side-sketch {
+  opacity: 0.92;
+}
+
+.contact-specimen-stem,
+.contact-fern-stem {
+  fill: none;
+  stroke: url(#contactStem);
+  stroke-width: 4.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-pressed-leaf {
+  animation: contactHerbariumSway 18s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.contact-leaf-body {
+  fill: rgba(168, 190, 132, 0.6);
+  stroke: rgba(101, 122, 78, 0.58);
+  stroke-width: 1.8;
+}
+
+.contact-pressed-leaf-olive .contact-leaf-body {
+  fill: rgba(158, 170, 104, 0.56);
+}
+
+.contact-pressed-leaf-mint .contact-leaf-body {
+  fill: rgba(176, 196, 148, 0.52);
+}
+
+.contact-leaf-vein {
+  fill: none;
+  stroke: rgba(104, 120, 80, 0.48);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.contact-leaf-vein-soft {
+  stroke-width: 1.1;
+  opacity: 0.78;
+}
+
+.contact-pressed-flower {
+  animation: contactHerbariumSway 20s ease-in-out infinite;
+}
+
+.contact-flower-petal {
+  fill: rgba(229, 217, 191, 0.72);
+  stroke: rgba(176, 150, 111, 0.58);
+  stroke-width: 1.5;
+}
+
+.contact-flower-center {
+  fill: rgba(184, 150, 94, 0.78);
+  stroke: rgba(132, 101, 64, 0.42);
+  stroke-width: 1.4;
+}
+
+.contact-fern-frond {
+  animation: contactHerbariumSway 22s ease-in-out infinite;
+}
+
+.contact-fern-leaf {
+  fill: none;
+  stroke: rgba(118, 139, 92, 0.44);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.contact-seed-pod {
+  opacity: 0.9;
+}
+
+.contact-seed-pod-body {
+  fill: rgba(171, 150, 118, 0.28);
+  stroke: rgba(125, 102, 74, 0.4);
+  stroke-width: 2;
+}
+
+.contact-seed-pod-vein {
+  fill: none;
+  stroke: rgba(118, 96, 71, 0.32);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.contact-annotation-line {
+  fill: none;
+  stroke: rgba(146, 123, 94, 0.38);
+  stroke-width: 2;
+  stroke-dasharray: 4 12;
+}
+
+.contact-annotation-dot {
+  fill: rgba(146, 123, 94, 0.54);
+}
+
+.contact-tool-field {
+  opacity: 1;
+}
+
+.contact-journal-tool {
+  animation: contactHerbariumSway 24s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.contact-tool-metal {
+  fill: none;
+  stroke: rgba(110, 83, 56, 0.9);
+  stroke-width: 4.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-tool-metal-soft {
+  fill: none;
+  stroke: rgba(177, 151, 122, 0.78);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.contact-tool-glass {
+  fill: rgba(215, 231, 226, 0.34);
+  stroke: rgba(112, 88, 62, 0.82);
+  stroke-width: 2.8;
+}
+
+.contact-tool-joint {
+  fill: rgba(179, 154, 126, 0.78);
+  stroke: rgba(112, 86, 60, 0.72);
+  stroke-width: 1.8;
+}
+
+.contact-tool-board {
+  fill: rgba(236, 226, 205, 0.82);
+  stroke: rgba(146, 116, 84, 0.84);
+  stroke-width: 2;
+}
+
+.contact-tool-mark {
+  fill: none;
+  stroke: rgba(114, 86, 56, 0.9);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.contact-tool-fill {
+  fill: rgba(177, 148, 114, 0.62);
+  stroke: rgba(110, 83, 56, 0.84);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.contact-tool-tip {
+  fill: rgba(161, 134, 104, 0.74);
+  stroke: rgba(103, 78, 51, 0.84);
+  stroke-width: 2.1;
+  stroke-linejoin: round;
+}
+
+.contact-fossil-imprint,
+.contact-specimen-sketch,
+.contact-scribble-note {
+  opacity: 0.96;
+}
+
+.contact-fossil-shadow {
+  fill: rgba(176, 154, 125, 0.14);
+}
+
+.contact-fossil-outline {
+  fill: none;
+  stroke: rgba(138, 116, 88, 0.38);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-fossil-rib {
+  fill: none;
+  stroke: rgba(138, 116, 88, 0.28);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.contact-fossil-hole {
+  fill: rgba(138, 116, 88, 0.18);
+}
+
+.contact-fossil-bone {
+  fill: rgba(193, 175, 150, 0.14);
+  stroke: rgba(138, 116, 88, 0.28);
+  stroke-width: 1.6;
+}
+
+.contact-side-gallery .contact-fossil-shadow {
+  fill: rgba(153, 124, 86, 0.24);
+}
+
+.contact-side-gallery .contact-fossil-plane {
+  fill: rgba(214, 194, 166, 0.44);
+  stroke: rgba(145, 114, 82, 0.18);
+  stroke-width: 1.4;
+}
+
+.contact-side-gallery .contact-fossil-outline {
+  stroke: rgba(88, 61, 37, 0.88);
+  stroke-width: 4.3;
+}
+
+.contact-side-gallery .contact-fossil-rib {
+  stroke: rgba(110, 83, 55, 0.76);
+  stroke-width: 2.8;
+}
+
+.contact-side-gallery .contact-fossil-hole {
+  fill: rgba(92, 66, 42, 0.44);
+}
+
+.contact-side-gallery .contact-fossil-bone {
+  fill: rgba(215, 197, 170, 0.48);
+  stroke: rgba(101, 75, 50, 0.72);
+  stroke-width: 2.4;
+}
+
+.contact-side-gallery .contact-fossil-imprint {
+  opacity: 1;
+}
+
+.contact-side-gallery .contact-specimen-sketch-outline {
+  stroke: rgba(90, 68, 47, 0.84);
+  stroke-width: 2.85;
+}
+
+.contact-side-gallery .contact-specimen-sketch-vein {
+  stroke: rgba(114, 90, 67, 0.68);
+  stroke-width: 2.05;
+}
+
+.contact-specimen-sketch-plane {
+  fill: rgba(201, 187, 160, 0.22);
+  stroke: none;
+}
+
+.contact-side-gallery .contact-scribble-line {
+  stroke: rgba(79, 57, 35, 0.84);
+  stroke-width: 1.9;
+}
+
+.contact-side-gallery .contact-scribble-line-soft {
+  opacity: 0.84;
+  stroke-width: 1.8;
+}
+
+.contact-side-gallery .contact-ink-mark {
+  opacity: 0.98;
+}
+
+.contact-side-caption-line {
+  fill: none;
+  stroke: rgba(120, 98, 74, 0.84);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.contact-side-caption-line-short {
+  opacity: 0.78;
+  stroke-width: 1.45;
+}
+
+.contact-side-caption {
+  opacity: 0.96;
+}
+
+.contact-specimen-sketch-outline {
+  fill: none;
+  stroke: rgba(122, 103, 82, 0.34);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2 8;
+}
+
+.contact-specimen-sketch-vein {
+  fill: none;
+  stroke: rgba(122, 103, 82, 0.24);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.contact-scribble-line {
+  fill: none;
+  stroke: rgba(74, 58, 42, 0.7);
+  stroke-width: 1.95;
+  stroke-linecap: round;
+}
+
+.contact-scribble-line-soft {
+  opacity: 0.76;
+  stroke-width: 1.55;
+}
+
+.contact-ink-mark {
+  opacity: 0.94;
+}
+
+.contact-ink-blot-core {
+  fill: rgba(58, 44, 34, 0.26);
+}
+
+.contact-ink-blot-speck {
+  fill: rgba(58, 44, 34, 0.22);
+}
+
+.contact-ink-swirl path {
+  fill: none;
+  stroke: rgba(74, 58, 42, 0.46);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.contact-specimen-sketch {
+  opacity: 0.94;
+}
+
+.contact-panel .card,
+.contact-panel .card-accent {
+  background: rgba(252, 248, 240, 0.78);
+  border-color: rgba(204, 183, 146, 0.68);
+  box-shadow: 0 10px 18px rgba(68, 53, 31, 0.045);
+}
+
+@keyframes contactHerbariumSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+
+@keyframes reefCurrentDrift {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@keyframes reefWaveShift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes reefBubbleRise {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translateY(-14px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes reefPlantSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(2.2deg);
+  }
+}
+
+@keyframes reefCreatureFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes reefFishGlide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes reefGlowPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 0.98;
+  }
 }
 
 .text-link {
@@ -2562,6 +3752,27 @@ main:has(.officers-page-shell) + .footer {
   border-top-color: rgba(61, 105, 76, 0.42);
 }
 
+main:has(.events-page-shell) + .footer {
+  margin-top: 0;
+  background:
+    linear-gradient(180deg, #d5e7d9 0%, #a9c7b0 26%, #6a9174 56%, #1f4d36 100%);
+  border-top-color: rgba(104, 145, 116, 0.42);
+}
+
+main:has(.contact-page-shell) + .footer {
+  margin-top: 0;
+  background:
+    linear-gradient(180deg, #d7c4aa 0%, #b99d77 24%, #7f6b4f 56%, #1f4d36 100%);
+  border-top-color: rgba(153, 127, 89, 0.42);
+}
+
+main:has(.resources-page-shell) + .footer {
+  margin-top: 0;
+  background:
+    linear-gradient(180deg, #6faec2 0%, #4f96ae 22%, #2f718b 52%, #1f4d36 100%);
+  border-top-color: rgba(79, 134, 155, 0.42);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 980px) {
@@ -2600,6 +3811,32 @@ main:has(.officers-page-shell) + .footer {
   .events-panel-overview,
   .events-panel-types,
   .events-panel-archive {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .contact-panel-highlights,
+  .contact-panel-join,
+  .contact-panel-meetings,
+  .contact-panel-info {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .contact-page-shell .container {
+    padding-inline: 0;
+  }
+
+  .contact-tool-field {
+    opacity: 0;
+  }
+
+  .contact-tool-float {
+    display: none;
+  }
+
+  .resources-panel-featured,
+  .resources-panel-library {
     width: 100%;
     margin-left: 0;
   }
@@ -2692,6 +3929,13 @@ main:has(.officers-page-shell) + .footer {
     text-align: center;
   }
 
+  .resources-corner-creature {
+    width: clamp(152px, 34vw, 220px);
+    top: 3.2rem;
+    right: 0.35rem;
+    opacity: 0.88;
+  }
+
   .hero {
     padding: 4rem 0 3rem;
   }
@@ -2720,6 +3964,19 @@ main:has(.officers-page-shell) + .footer {
   .content-grid.three-col,
   .content-grid.two-col {
     grid-template-columns: 1fr;
+  }
+
+  .resources-layout {
+    gap: 1rem;
+  }
+
+  .contact-layout {
+    gap: 1rem;
+  }
+
+  .contact-side-gallery {
+    width: clamp(118px, 22vw, 176px);
+    opacity: 0.96;
   }
 
   .officer-grid-compact {

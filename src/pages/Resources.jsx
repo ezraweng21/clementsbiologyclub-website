@@ -1,4 +1,5 @@
 import siteContent from "../data/siteContent";
+import ResourcesVisual from "../components/ResourcesVisual";
 
 function Resources() {
   const featuredResources = [
@@ -6,11 +7,23 @@ function Resources() {
     siteContent.featuredLinks.tShirtContest,
     siteContent.featuredLinks.bioBites,
   ];
+  const featuredLinks = new Set(
+    featuredResources
+      .map((resource) => resource.link)
+      .filter(Boolean)
+  );
+  const featuredTitles = new Set(featuredResources.map((resource) => resource.title));
+  const libraryResources = siteContent.resources.filter(
+    (resource) =>
+      !featuredTitles.has(resource.title) &&
+      !(resource.link && featuredLinks.has(resource.link))
+  );
 
   return (
-    <section className="section page-section">
+    <section className="section page-section resources-page-shell">
+      <ResourcesVisual />
       <div className="container">
-        <div className="page-header">
+        <div className="page-header resources-page-header">
           <p className="page-eyebrow">Resources</p>
           <h1>Resources for Members</h1>
           <p className="section-text">
@@ -19,8 +32,8 @@ function Resources() {
           </p>
         </div>
 
-        <div className="events-layout">
-          <section className="section-panel">
+        <div className="resources-layout">
+          <section className="section-panel resources-panel resources-panel-featured">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Featured</p>
@@ -73,7 +86,7 @@ function Resources() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel resources-panel resources-panel-library">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Resources</p>
@@ -82,7 +95,7 @@ function Resources() {
             </div>
 
             <div className="resource-grid">
-              {siteContent.resources.map((resource, index) => (
+              {libraryResources.map((resource, index) => (
                 <article
                   className="resource-card"
                   key={`${resource.category}-${resource.title}-${index}`}

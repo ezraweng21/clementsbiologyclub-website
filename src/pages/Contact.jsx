@@ -1,4 +1,5 @@
 import siteContent from "../data/siteContent";
+import ContactVisual from "../components/ContactVisual";
 
 function Contact() {
   const featuredResources = [
@@ -8,9 +9,10 @@ function Contact() {
   ];
 
   return (
-    <section className="section page-section">
+    <section className="section page-section contact-page-shell">
+      <ContactVisual />
       <div className="container">
-        <div className="page-header">
+        <div className="page-header contact-page-header">
           <p className="page-eyebrow">Contact</p>
           <h1>Get Involved</h1>
           <p className="section-text">
@@ -19,8 +21,8 @@ function Contact() {
           </p>
         </div>
 
-        <div className="events-layout">
-          <section className="section-panel">
+        <div className="contact-layout">
+          <section className="section-panel contact-panel contact-panel-highlights">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Highlights</p>
@@ -70,7 +72,7 @@ function Contact() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel contact-panel contact-panel-join">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Join</p>
@@ -88,7 +90,7 @@ function Contact() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel contact-panel contact-panel-meetings">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Meetings</p>
@@ -114,7 +116,7 @@ function Contact() {
             </div>
           </section>
 
-          <section className="section-panel">
+          <section className="section-panel contact-panel contact-panel-info">
             <div className="section-header-row">
               <div className="section-header-block">
                 <p className="section-kicker">Contact</p>
