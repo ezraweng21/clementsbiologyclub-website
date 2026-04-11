@@ -1,56 +1,53 @@
 # Clements Biology Club Website
 
-React + Vite website for the Clements Biology Club.
+Website for the Clements Biology Club, built with React and Vite.
 
-The site uses the existing React Router page structure and a centralized content file at `src/data/siteContent.js` so club details, links, events, and contact information can be updated without rewriting page components.
+## Overview
 
-## Stack
+This project uses the existing React Router page structure and a centralized content file at `src/data/siteContent.js`. Most routine content updates can be made in that file without changing the page components.
 
-- React 19
+## Tech Stack
+
+- React
 - Vite
 - React Router
 - Framer Motion
 - ESLint
 
-## Project Structure
+## Key Files
 
 - `src/data/siteContent.js`
-  Main content source for club info, officers, events, resources, contact links, and featured items.
+  Central source for club information, featured links, officers, events, resources, and contact details.
 - `src/pages`
-  Route-level pages such as `About`, `Events`, `Resources`, `Officers`, and `Contact`.
+  Route-level pages for the main sections of the site.
 - `src/components`
-  Shared sections plus page-specific visual components.
+  Shared UI components and page-specific visual components.
 - `src/styles/globals.css`
-  Global styling and page-specific visual systems.
+  Global styles and page-level visual treatments.
 - `public`
-  Static images such as officer photos and branding assets.
+  Static assets such as officer photos and branding files.
 
-## Current Site Features
+## Implemented Pages
 
-- Homepage with falling leaf background treatment
-- About page with DNA-inspired biology illustration
-- Officers page with forest / vine / floral visuals
-- Events page with microbe / virus / lab-inspired visuals
-- Resources page with layered underwater / reef visuals
-- Contact page with botanical specimen / field-journal notebook styling
-- Shared club branding, favicon, and social preview logo
-- Featured content support for:
-  - RevTrak dues
-  - dues deadline
-  - T-shirt contest
-  - Bio Bites
+- Home
+- About
+- Officers
+- Events
+- Resources
+- Contact
 
-## Content Updates
+Each page uses the same overall site structure while allowing for page-specific visual styling.
 
-Most routine edits should happen in `src/data/siteContent.js`.
+## Content Notes
 
-Examples:
+The site currently supports:
 
-- update meeting text
-- replace officer names or photos
-- add event timeline entries
-- change resource links
-- plug in final RevTrak / T-shirt contest links
+- member dues / RevTrak messaging
+- dues deadline messaging
+- T-shirt contest messaging
+- Bio Bites linking and future gallery support
+
+Final values for school-year-specific links and deadlines should be updated in `src/data/siteContent.js`.
 
 ## Development
 
@@ -60,13 +57,13 @@ Install dependencies:
 npm install
 ```
 
-Start the dev server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+Create a production build:
 
 ```bash
 npm run build
@@ -78,34 +75,32 @@ Run lint:
 npm run lint
 ```
 
-## Final QA Status
+## Current Status
 
-Checked recently:
+Recent checks:
 
 - `npm run build` passes
 - `npm run lint` passes
-- key page-specific visual systems are implemented and integrated
-- Resources page no longer duplicates Bio Bites in both featured and general sections
 
-## Later TODOs
+## Remaining Updates
 
-- Replace any remaining placeholder values in `src/data/siteContent.js`
-  - `featuredLinks.dues.link`
-  - `featuredLinks.dues.deadline`
-  - `featuredLinks.tShirtContest.link`
-  - `contact.revTrakLink`
-  - `contact.duesDeadline`
-  - `contact.tShirtContestLink`
-- Do a full final visual QA pass on desktop, tablet, and mobile
-- Check all external links one more time before publishing
-- Do an accessibility pass
-  - focus visibility
-  - contrast
-  - motion sensitivity review
-- Decide whether Bio Bites should remain an Instagram link or become an embedded gallery later
-- Optional cleanup pass if any page visuals feel too dense after stakeholder review
+The main remaining work is content finalization rather than structural development.
 
-## Notes
+Items still to update later:
 
-- The current design intentionally uses page-specific biology visual themes rather than one repeated motif across the entire site.
-- The architecture was kept intact instead of rewriting the project from scratch.
+- final RevTrak dues link
+- final dues deadline
+- final T-shirt contest link
+- any year-specific link or contact changes
+- final visual QA on desktop, tablet, and mobile
+- accessibility review
+
+## Maintenance
+
+For routine updates:
+
+1. Edit content in `src/data/siteContent.js`
+2. Run `npm run build`
+3. Run `npm run lint`
+
+If a future redesign is needed, the current architecture should be preserved unless there is a strong reason to change it.
