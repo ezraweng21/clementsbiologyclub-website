@@ -3,7 +3,7 @@ import DecorativeLeaves from "./DecorativeLeaves";
 
 function About() {
   return (
-    <section className="home-section">
+    <section className="home-section home-about-section">
       <DecorativeLeaves variant="about" />
       <div className="container">
         <div className="section-heading">

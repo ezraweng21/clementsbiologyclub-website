@@ -1,5 +1,6 @@
 import siteContent from "../data/siteContent";
 import ContactVisual from "../components/ContactVisual";
+import { Link } from "react-router-dom";
 
 function Contact() {
   const featuredResources = [
@@ -87,6 +88,14 @@ function Contact() {
                   <p>{step}</p>
                 </article>
               ))}
+
+              <article className="card card-accent">
+                <h3>Not Ready Yet?</h3>
+                <p>{siteContent.meetingInfo.dropInNote}</p>
+                <Link to="/get-involved" className="resource-link">
+                  Explore Ways to Help
+                </Link>
+              </article>
             </div>
           </section>
 

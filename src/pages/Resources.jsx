@@ -1,5 +1,6 @@
 import siteContent from "../data/siteContent";
 import ResourcesVisual from "../components/ResourcesVisual";
+import { Link } from "react-router-dom";
 
 function Resources() {
   const featuredResources = [
@@ -18,6 +19,9 @@ function Resources() {
       !featuredTitles.has(resource.title) &&
       !(resource.link && featuredLinks.has(resource.link))
   );
+  const houstonResources = siteContent.resourceCollections.houston;
+  const explorationResources = siteContent.resourceCollections.exploration;
+  const competitionResources = siteContent.resourceCollections.competitionPrep;
 
   return (
     <section className="section page-section resources-page-shell">
@@ -126,6 +130,98 @@ function Resources() {
               Bio Bites is set up to link out now and can be upgraded into an
               embedded gallery later without changing the page structure.
             </p>
+          </section>
+
+          <section className="section-panel resources-panel resources-panel-houston">
+            <div className="section-header-row">
+              <div className="section-header-block">
+                <p className="section-kicker">For Houston Students</p>
+                <h2 className="subsection-title">Local Opportunities</h2>
+              </div>
+            </div>
+
+            <div className="resource-grid">
+              {houstonResources.map((resource) => (
+                <article className="resource-card" key={resource.name}>
+                  <p className="resource-label">Houston Area</p>
+                  <h3>{resource.name}</h3>
+                  <p>{resource.description}</p>
+                  <a
+                    href={resource.link}
+                    className="resource-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Resource
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="section-panel resources-panel resources-panel-explore">
+            <div className="section-header-row">
+              <div className="section-header-block">
+                <p className="section-kicker">Explore Interests</p>
+                <h2 className="subsection-title">Competitions, Paths, and Questions</h2>
+              </div>
+            </div>
+
+            <div className="content-grid two-col">
+              <article className="content-card">
+                <h3>Competition Resources</h3>
+                <div className="stack-links">
+                  {competitionResources.map((resource) =>
+                    resource.internal ? (
+                      <Link
+                        key={resource.title}
+                        to={resource.link}
+                        className="resource-link"
+                      >
+                        {resource.title}
+                      </Link>
+                    ) : (
+                      <a
+                        key={resource.title}
+                        href={resource.link}
+                        className="resource-link"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {resource.title}
+                      </a>
+                    )
+                  )}
+                </div>
+              </article>
+
+              <article className="content-card">
+                <h3>Find What Fits You</h3>
+                <div className="stack-links">
+                  {explorationResources.map((resource) =>
+                    resource.internal ? (
+                      <Link
+                        key={resource.title}
+                        to={resource.link}
+                        className="resource-link"
+                      >
+                        {resource.title}
+                      </Link>
+                    ) : (
+                      <a
+                        key={resource.title}
+                        href={resource.link}
+                        className="resource-link"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {resource.title}
+                      </a>
+                    )
+                  )}
+                </div>
+              </article>
+            </div>
           </section>
         </div>
       </div>

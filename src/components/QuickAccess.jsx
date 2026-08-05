@@ -1,9 +1,10 @@
 import siteContent from "../data/siteContent";
+import { Link } from "react-router-dom";
 import DecorativeLeaves from "./DecorativeLeaves";
 
 function QuickAccess() {
   return (
-    <section className="home-section alt-surface">
+    <section className="home-section home-quick-section">
       <DecorativeLeaves variant="quick" />
       <div className="container">
         <div className="section-heading">
@@ -29,6 +30,10 @@ function QuickAccess() {
           <article className="content-card">
             <h3>Join the Club</h3>
             <p>{siteContent.meetingInfo.joinText}</p>
+            <p>{siteContent.meetingInfo.dropInNote}</p>
+            <Link to="/get-involved" className="text-link">
+              Explore ways to contribute
+            </Link>
           </article>
         </div>
 

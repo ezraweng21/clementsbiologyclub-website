@@ -77,6 +77,13 @@ function Navbar() {
             Resources
           </NavLink>
           <NavLink
+            to="/get-involved"
+            className={getLinkClass}
+            onClick={handleCloseMenu}
+          >
+            Get Involved
+          </NavLink>
+          <NavLink
             to="/contact"
             className={getLinkClass}
             onClick={handleCloseMenu}

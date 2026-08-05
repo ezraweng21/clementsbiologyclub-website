@@ -1,5 +1,6 @@
 import siteContent from "../data/siteContent";
 import AboutVisual from "../components/AboutVisual";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -70,7 +71,32 @@ function About() {
               <article className="card">
                 <h3>Joining</h3>
                 <p>{siteContent.meetingInfo.joinText}</p>
+                <p>{siteContent.meetingInfo.dropInNote}</p>
               </article>
+            </div>
+          </section>
+
+          <section className="section-panel about-panel about-panel-skills">
+            <div className="section-header-row">
+              <div className="section-header-block">
+                <p className="section-kicker">Practical Skills</p>
+                <h2 className="subsection-title">Directly Applicable Experience</h2>
+              </div>
+            </div>
+
+            <div className="card-grid">
+              {siteContent.practicalSkills.map((skill) => (
+                <article className="card" key={skill.title}>
+                  <h3>{skill.title}</h3>
+                  <p>{skill.text}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="top-spacing">
+              <Link to="/get-involved" className="resource-link">
+                See Contributor Opportunities
+              </Link>
             </div>
           </section>
         </div>

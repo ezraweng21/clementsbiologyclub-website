@@ -2,7 +2,7 @@ import DecorativeLeaves from "./DecorativeLeaves";
 
 function WhyJoin() {
   return (
-    <section className="home-section alt-surface">
+    <section className="home-section home-why-section">
       <DecorativeLeaves variant="whyJoin" />
       <div className="container">
         <div className="section-heading">

@@ -4,7 +4,7 @@ import DecorativeLeaves from "./DecorativeLeaves";
 
 function OfficersPreview() {
   return (
-    <section className="home-section">
+    <section className="home-section home-officers-section">
       <DecorativeLeaves variant="officersPreview" />
       <div className="container">
         <div className="section-heading section-heading-row">

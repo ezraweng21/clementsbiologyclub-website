@@ -4,7 +4,7 @@ import DecorativeLeaves from "./DecorativeLeaves";
 
 function EventsPreview() {
   return (
-    <section className="home-section alt-surface">
+    <section className="home-section home-events-section">
       <DecorativeLeaves variant="eventsPreview" />
       <div className="container">
         <div className="section-heading section-heading-row">

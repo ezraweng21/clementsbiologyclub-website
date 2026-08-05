@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import Navbar from "./components/Navbar";
@@ -9,18 +10,33 @@ import Officers from "./pages/Officers";
 import Events from "./pages/Events";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
+import BioBox from "./pages/BioBox";
+import Articles from "./pages/Articles";
+import Competitions from "./pages/Competitions";
+import GetInvolved from "./pages/GetInvolved";
 
 function PageWrapper({ children }) {
   return (
     <Motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -16 }}
-      transition={{ duration: 0.28, ease: "easeOut" }}
+      className="page-transition-shell"
+      initial={{ opacity: 0, y: 20, scale: 0.997 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -10, scale: 0.999 }}
+      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </Motion.div>
   );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
 }
 
 function App() {
@@ -28,6 +44,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
         <AnimatePresence mode="wait">
@@ -69,6 +86,38 @@ function App() {
               element={
                 <PageWrapper>
                   <Resources />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/biobox"
+              element={
+                <PageWrapper>
+                  <BioBox />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/articles"
+              element={
+                <PageWrapper>
+                  <Articles />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/competitions"
+              element={
+                <PageWrapper>
+                  <Competitions />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/get-involved"
+              element={
+                <PageWrapper>
+                  <GetInvolved />
                 </PageWrapper>
               }
             />

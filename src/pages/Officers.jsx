@@ -41,10 +41,29 @@ function Officers() {
                 <p className="officer-role-compact">{officer.role}</p>
                 <h2 className="officer-name-compact">{officer.name}</h2>
                 <p className="officer-grade-compact">Grade {officer.grade}</p>
+                <p className="officer-bio-compact">{officer.bio}</p>
               </div>
             </article>
           ))}
         </div>
+
+        <section className="section-panel contributor-panel">
+          <div className="section-header-row">
+            <div className="section-header-block">
+              <p className="section-kicker">Contributor Team</p>
+              <h2 className="subsection-title">Active Project Contributors</h2>
+            </div>
+          </div>
+
+          <div className="content-grid two-col">
+            {siteContent.contributorTeam.map((member) => (
+              <article className="content-card" key={`${member.name}-${member.role}`}>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

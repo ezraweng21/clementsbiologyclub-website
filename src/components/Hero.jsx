@@ -34,8 +34,11 @@ function Hero() {
             <p className="feature-label">What the Club Offers</p>
 
             <div className="feature-list">
-              {siteContent.homepage.highlights.map((item) => (
+              {siteContent.homepage.highlights.map((item, index) => (
                 <div className="feature-item" key={item}>
+                  <span className="feature-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <p>{item}</p>
                 </div>
               ))}
