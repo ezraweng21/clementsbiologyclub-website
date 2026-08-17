@@ -93,3 +93,5 @@ The first seven are directly listed in the supplied high-school catalog. The rem
 ## Teacher-selection checklist
 
 Before recommending an activity, ask: What course and current unit are you teaching? How many minutes are available? Do you want a demo, a full student investigation, or a multi-day follow-up? What student artifact would be useful for grading? Do you have any allergy, safety, refrigeration, or incubation constraints? The best BioBox option is the one that answers those questions and reduces the teacher's prep burden.
+
+For the internal cost ranges, purchasing approach, 10-criterion selection scores, quick teacher-facing star ratings, three-question activity FAQs, and program-wide teacher FAQ, see `biobox-expansion-planning-guide.md`.
