@@ -4784,11 +4784,17 @@ main:has(.resources-page-shell) + .footer {
 .explore-options button { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.2rem; border: 1px solid rgba(57, 94, 53, .18); border-radius: 20px 9px 20px 13px; background: rgba(246, 250, 240, .86); color: var(--forest-900); cursor: pointer; font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; text-align: left; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
 .explore-options button:hover { background: #e2edda; box-shadow: 0 12px 22px rgba(31, 77, 54, .09); transform: translateY(-3px); }
 .explore-options b { font-family: var(--font-body); font-size: 1.2rem; }
+.explore-options-single { grid-template-columns: 1fr; }
+.explore-options small { display: block; margin-top: .3rem; color: var(--ink-soft); font-family: var(--font-body); font-size: .86rem; font-weight: 500; line-height: 1.45; }
+.explore-back { margin-bottom: 1rem; border: 0; background: transparent; color: var(--forest-800); cursor: pointer; font-size: .85rem; font-weight: 800; }
 .explore-next-steps { display: grid; gap: .65rem; margin: 1.35rem 0; }
 .explore-next-steps p { display: grid; grid-template-columns: 2.1rem 1fr; gap: .65rem; align-items: start; padding: .85rem 0; border-bottom: 1px solid rgba(42, 83, 47, .12); }
 .explore-next-steps b { color: #78965d; font-size: .78rem; letter-spacing: .08em; }
 .explore-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
 .explore-actions button { cursor: pointer; }
+
+.event-photo-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin-top: 1.35rem; }
+.event-photo-gallery img { width: 100%; height: 8.5rem; border: 1px solid rgba(41, 81, 50, .15); border-radius: 18px 8px 18px 12px; box-shadow: 0 8px 18px rgba(22, 62, 34, .1); object-fit: cover; }
 
 .articles-page {
   --program-accent: #9d6e4b;
@@ -5479,6 +5485,8 @@ body {
   }
 
   .explore-options { grid-template-columns: 1fr; }
+
+  .event-photo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 860px) {

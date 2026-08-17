@@ -42,8 +42,16 @@ function BioBoxDetail() {
             <p className="section-kicker">Science card</p>
             <h2>Core investigation</h2>
             <p><strong>Question:</strong> {kit.scienceCard.question}</p>
-            <p><strong>Key idea:</strong> {kit.scienceCard.takeaway}</p>
+            <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
+            <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
+            <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
             <p><strong>Materials:</strong> {kit.scienceCard.materials}</p>
+          </section>
+          <section className="section-panel biobox-detail-card biobox-setup-card">
+            <p className="section-kicker">At a glance</p>
+            <h2>Plan before class</h2>
+            <p>{kit.setup}</p>
+            <p><strong>Student output:</strong> A documented observation, data table, model, or evidence-based explanation that can be used for discussion or assessment.</p>
           </section>
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Expansion card</p>

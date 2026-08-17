@@ -1,6 +1,13 @@
 import siteContent from "../data/siteContent";
 import EventsVisual from "../components/EventsVisual";
 
+const eventPhotos = [
+  { src: "/images/events/microscope_lab.jpg", alt: "Students using a microscope during a Biology Club activity" },
+  { src: "/images/events/yeast_lab.webp", alt: "Biology Club yeast lab activity" },
+  { src: "/images/events/lecture.webp", alt: "Biology Club presentation" },
+  { src: "/images/events/canes_fundraiser.webp", alt: "Biology Club fundraiser" },
+];
+
 function Events() {
   return (
     <section className="section page-section events-page-shell">
@@ -31,6 +38,10 @@ function Events() {
               and other interactive biology-related activities throughout the
               year.
             </p>
+
+            <div className="event-photo-gallery" aria-label="Biology Club event photos">
+              {eventPhotos.map((photo) => <img key={photo.src} src={photo.src} alt={photo.alt} />)}
+            </div>
           </section>
 
           <section className="section-panel events-panel events-panel-types">
