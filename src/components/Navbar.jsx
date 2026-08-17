@@ -91,6 +91,13 @@ function Navbar() {
             Get Involved
           </NavLink>
           <NavLink
+            to="/explore"
+            className={getLinkClass}
+            onClick={handleCloseMenu}
+          >
+            Explore
+          </NavLink>
+          <NavLink
             to="/contact"
             className={getLinkClass}
             onClick={handleCloseMenu}

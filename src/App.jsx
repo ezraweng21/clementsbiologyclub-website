@@ -15,6 +15,7 @@ import BioBoxDetail from "./pages/BioBoxDetail";
 import Articles from "./pages/Articles";
 import Competitions from "./pages/Competitions";
 import GetInvolved from "./pages/GetInvolved";
+import Explore from "./pages/Explore";
 
 function PageWrapper({ children }) {
   return (
@@ -127,6 +128,14 @@ function App() {
               element={
                 <PageWrapper>
                   <GetInvolved />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/explore"
+              element={
+                <PageWrapper>
+                  <Explore />
                 </PageWrapper>
               }
             />
