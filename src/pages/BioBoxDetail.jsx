@@ -56,7 +56,7 @@ function BioBoxDetail() {
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Expansion card</p>
             <h2>Take it further</h2>
-            <p>{kit.expansionCard}</p>
+            <p>{kit.extensionCard}</p>
           </section>
           <section className="section-panel biobox-detail-card biobox-curriculum-card">
             <p className="section-kicker">Curriculum fit</p>
