@@ -11,6 +11,7 @@ import Events from "./pages/Events";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import BioBox from "./pages/BioBox";
+import BioBoxDetail from "./pages/BioBoxDetail";
 import Articles from "./pages/Articles";
 import Competitions from "./pages/Competitions";
 import GetInvolved from "./pages/GetInvolved";
@@ -94,6 +95,14 @@ function App() {
               element={
                 <PageWrapper>
                   <BioBox />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/biobox/:kitSlug"
+              element={
+                <PageWrapper>
+                  <BioBoxDetail />
                 </PageWrapper>
               }
             />

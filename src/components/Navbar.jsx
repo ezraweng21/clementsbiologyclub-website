@@ -77,6 +77,13 @@ function Navbar() {
             Resources
           </NavLink>
           <NavLink
+            to="/biobox"
+            className={getLinkClass}
+            onClick={handleCloseMenu}
+          >
+            BioBox
+          </NavLink>
+          <NavLink
             to="/get-involved"
             className={getLinkClass}
             onClick={handleCloseMenu}

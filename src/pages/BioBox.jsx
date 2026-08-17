@@ -1,128 +1,50 @@
 import { Link } from "react-router-dom";
-import siteContent from "../data/siteContent";
+import { bioboxCollections } from "../data/bioboxKits";
 
 function BioBox() {
-  const { biobox } = siteContent;
-
   return (
     <section className="section page-section programs-page-shell biobox-page">
       <div className="container">
-        <div className="page-header programs-page-header">
-          <p className="page-eyebrow">BioBox</p>
-          <h1>{biobox.title}</h1>
-          <p className="section-text">{biobox.subtitle}</p>
+        <header className="page-header programs-page-header biobox-list-header">
+          <p className="page-eyebrow">BioBox classroom collection</p>
+          <h1>Biology kits made for curious classrooms.</h1>
+          <p className="section-text">
+            Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
+          </p>
+        </header>
+
+        <div className="biobox-collection-nav" aria-label="BioBox collections">
+          {bioboxCollections.map((collection) => <a href={`#${collection.id}`} key={collection.id}>{collection.label}</a>)}
         </div>
 
-        <div className="programs-layout">
-          <section className="section-panel programs-panel">
-            <div className="section-header-row">
-              <div className="section-header-block">
-                <p className="section-kicker">Impact</p>
-                <h2 className="subsection-title">Monthly Impact Snapshot</h2>
+        <div className="biobox-collections">
+          {bioboxCollections.map((collection) => (
+            <section className="biobox-collection" id={collection.id} key={collection.id}>
+              <div className="biobox-collection-heading">
+                <div>
+                  <p className="section-kicker">{collection.grades}</p>
+                  <h2>{collection.label} collection</h2>
+                </div>
+                <span>{collection.kits.length} kits</span>
               </div>
-            </div>
-
-            <div className="content-grid three-col">
-              {biobox.impact.map((item) => (
-                <article className="content-card impact-card" key={item.label}>
-                  <p className="impact-value">{item.value}</p>
-                  <h3>{item.label}</h3>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="section-panel programs-panel">
-            <div className="section-header-row">
-              <div className="section-header-block">
-                <p className="section-kicker">Kits</p>
-                <h2 className="subsection-title">The Six Core Kits</h2>
+              <div className="biobox-kit-grid">
+                {collection.kits.map((kit) => (
+                  <Link to={`/biobox/${kit.slug}`} className="biobox-kit-card" key={kit.slug}>
+                    <div className="biobox-kit-image" aria-label={`Photo space for ${kit.name}`}>
+                      {kit.image ? <img src={kit.image} alt={kit.name} /> : <span>Kit photo</span>}
+                      <b>{kit.number}</b>
+                    </div>
+                    <div className="biobox-kit-copy">
+                      <p className="biobox-teks">{kit.teks}</p>
+                      <h3>{kit.name}</h3>
+                      <p>{kit.summary}</p>
+                      <span className="biobox-open-link">View kit details <span>→</span></span>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            </div>
-
-            <div className="card-grid">
-              {biobox.kits.map((kit) => (
-                <article className="card card-accent kit-card" key={kit.name}>
-                  <div className="kit-photo-shell">
-                    {kit.photo ? (
-                      <img
-                        src={kit.photo}
-                        alt={`${kit.name} in use`}
-                        className="kit-photo"
-                      />
-                    ) : (
-                      <div className="kit-photo-placeholder">
-                        <span>Photo archive coming soon</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <h3>{kit.name}</h3>
-                  <p>{kit.hook}</p>
-                  <p className="resource-meta">
-                    <strong>Age range:</strong> {kit.ageRange}
-                  </p>
-
-                  {kit.scienceCardLink ? (
-                    <a
-                      href={kit.scienceCardLink}
-                      className="resource-link"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Read the Science Card
-                    </a>
-                  ) : (
-                    <span className="resource-link resource-link-disabled">
-                      Science card link coming soon
-                    </span>
-                  )}
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="section-panel programs-panel">
-            <div className="section-header-row">
-              <div className="section-header-block">
-                <p className="section-kicker">Request a Kit</p>
-                <h2 className="subsection-title">School Request Pathway</h2>
-              </div>
-            </div>
-
-            <div className="content-grid two-col">
-              <article className="content-card">
-                <h3>Teacher / Coordinator Requests</h3>
-                <p>
-                  Are you a teacher or school coordinator interested in receiving
-                  a BioBox kit? Fill out the request form and the club will
-                  follow up when public kit requests open.
-                </p>
-                {biobox.requestFormLink ? (
-                  <a
-                    href={biobox.requestFormLink}
-                    className="resource-link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Open Request Form
-                  </a>
-                ) : (
-                  <span className="resource-link resource-link-disabled">
-                    {biobox.requestFormFallback}
-                  </span>
-                )}
-              </article>
-
-              <article className="content-card">
-                <h3>Get Involved</h3>
-                <p>{biobox.memberContact}</p>
-                <Link to="/get-involved" className="resource-link">
-                  Member Opportunities
-                </Link>
-              </article>
-            </div>
-          </section>
+            </section>
+          ))}
         </div>
       </div>
     </section>
