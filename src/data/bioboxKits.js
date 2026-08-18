@@ -1,8 +1,19 @@
+import { highSchoolAdditions, middleSchoolAdditions } from "./bioboxAdditions";
+
+const overBudgetSlugs = new Set([
+  "foldscope-microscopy",
+  "pglo-bacterial-transformation",
+  "high-school-foldscope",
+  "owl-pellet-dissection",
+]);
+
 const makeKit = (kit, level, index) => ({
   ...kit,
   level,
   number: String(index + 1).padStart(2, "0"),
   image: "",
+  price: kit.price || "Included in the low-cost BioBox catalog; final delivered cost depends on class size and school inventory.",
+  lessonFlow: kit.lessonFlow || `1. Launch with a prediction connected to ${kit.concepts}. 2. Run the investigation and record observations or data. 3. Use evidence to explain the result and connect it to the lesson standard.`,
   scienceCard: {
     question: kit.question,
     whatYouSee: kit.whatYouSee,
@@ -49,8 +60,8 @@ const highSchoolKits = [
 ];
 
 export const bioboxCollections = [
-  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: middleSchoolKits.map((kit, index) => makeKit(kit, "Middle School", index)) },
-  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: highSchoolKits.map((kit, index) => makeKit(kit, "High School", index)) },
+  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: [...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug)).map((kit, index) => makeKit(kit, "Middle School", index)) },
+  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: [...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug)).map((kit, index) => makeKit(kit, "High School", index)) },
 ];
 
 export const allBioBoxKits = bioboxCollections.flatMap((collection) => collection.kits);

@@ -37,6 +37,7 @@ function BioBoxDetail() {
             <p className="section-kicker">Classroom integration</p>
             <h2>Ready for your lesson flow</h2>
             <p>{kit.classroomIntegration}</p>
+            <p><strong>Suggested flow:</strong> {kit.lessonFlow}</p>
           </section>
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Science card</p>
@@ -51,6 +52,7 @@ function BioBoxDetail() {
             <p className="section-kicker">At a glance</p>
             <h2>Plan before class</h2>
             <p>{kit.setup}</p>
+            <p><strong>Planning cost:</strong> {kit.price}</p>
             <p><strong>Student output:</strong> A documented observation, data table, model, or evidence-based explanation that can be used for discussion or assessment.</p>
           </section>
           <section className="section-panel biobox-detail-card">
