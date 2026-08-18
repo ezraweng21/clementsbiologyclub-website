@@ -14,6 +14,11 @@ const makeKit = (kit, level, index) => ({
   image: "",
   price: kit.price || "Included in the low-cost BioBox catalog; final delivered cost depends on class size and school inventory.",
   lessonFlow: kit.lessonFlow || `1. Launch with a prediction connected to ${kit.concepts}. 2. Run the investigation and record observations or data. 3. Use evidence to explain the result and connect it to the lesson standard.`,
+  faqs: kit.faqs || [
+    { question: "How does this fit into a class period?", answer: kit.setup },
+    { question: "What will students do and produce?", answer: `Students follow this lesson flow: ${kit.lessonFlow}` },
+    { question: "What should I confirm before scheduling?", answer: "Confirm class size, available equipment, safety/accessibility needs, and whether you want a demonstration, stations, or a full investigation." },
+  ],
   scienceCard: {
     question: kit.question,
     whatYouSee: kit.whatYouSee,

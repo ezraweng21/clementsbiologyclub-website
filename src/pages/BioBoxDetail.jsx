@@ -65,6 +65,16 @@ function BioBoxDetail() {
             <h2>{kit.teks}</h2>
             <p>{kit.curriculumFit}</p>
           </section>
+          <section className="section-panel biobox-detail-card biobox-faq-card">
+            <p className="section-kicker">Quick teacher FAQ</p>
+            <h2>Before you request this kit</h2>
+            {kit.faqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </section>
         </div>
       </div>
     </section>

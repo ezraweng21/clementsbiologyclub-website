@@ -59,6 +59,13 @@ These are additions to the club's existing H-E-B, Fort Bend/Greater Houston Comm
 | Print/lamination / competition supplies | FedEx Office, UPS Store, Office Depot, local print shops, and parent employers | “Could you donate 100 color copies/laminated case cards for student science lessons?” |
 | Prizes | Restaurants, bookstores, local cafes, tutoring centers, science stores, and local businesses | “Donate a $25 gift card for a monthly student science-writing award.” |
 
+### Verified equipment and grant routes
+
+- **Bio-Rad Science Teacher Grants:** a K-12 inquiry-science program with priority for Bio-Rad education products/technologies and educator-led projects. Ask the faculty sponsor whether a local-community eligibility route is open before applying.
+- **Bio-Rad Explorer:** the current official program lists educational pricing and a dedicated curriculum/program contact at `biotechnology_explorer@bio-rad.com`. For a quote, `lsg.quotes.us@bio-rad.com` is the public route. Lead with a teacher-approved pGLO/gel request or equipment loan/discount question rather than a vague cash ask.
+- **McCarthey Dressman Academic Enrichment:** educator-led awards can reach up to $10,000. The teacher applies as the named individual; its application window is January 15-April 15 or until the cap is reached.
+- **KidsGardening Waterwise Garden Grant:** currently relevant only for a campus garden, pollinator, soil, or water-conservation project. It is not a general BioBox consumables grant.
+
 ## Restaurant and business outreach routes
 
 Use an official request form or a local manager rather than guessing private employee emails. Put the date, location, expected attendance, school/faculty sponsor, and specific BioBox purpose in every request.

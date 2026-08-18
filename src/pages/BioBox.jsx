@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { bioboxCollections } from "../data/bioboxKits";
 
+const teacherFaqs = [
+  ["Is BioBox free?", "Yes. We aim to provide confirmed kits and facilitation at no cost when inventory and funding allow. A request is not confirmed until we coordinate the date and materials with the teacher."],
+  ["What do you need from me?", "Your course and unit, approximate student count, class length, available equipment, and any safety or accessibility needs. We will suggest a format that fits."],
+  ["How much teacher preparation is required?", "For a standard visit, we bring the activity plan, materials, and setup/cleanup support. The teacher remains the classroom authority and approves the final lesson plan."],
+  ["How long does a visit take?", "Many kits work as a 10-15 minute demonstration, a 30-45 minute activity, or a 45-55 minute investigation. Multi-day options are only used when a teacher wants the follow-up."],
+  ["Is it safe?", "We use age-appropriate, teacher-approved materials and share any safety needs before confirming. We do not offer uncontrolled cultures, unsealed mold, or real blood."],
+  ["Can you match my TEKS and current lesson?", "Yes. Tell us the grade/course and current unit. We will suggest a direct fit, and activities requiring teacher-confirmed TEKS stay clearly labeled."],
+  ["What if I have limited time or equipment?", "We can adapt many activities into a demonstration, pair station, reusable paper model, or smaller-group investigation."],
+  ["Do you need photos or student names?", "Never student names. With school and teacher permission, we may ask for non-identifying photos of materials, student work, or hands-on activity plus a short teacher quote. That helps document impact for future grants."],
+  ["Can I decline photos?", "Absolutely. Photos are helpful, never a condition of receiving BioBox support. A teacher quote, supply photo, anonymized work sample, or no media at all is fine."],
+  ["Can you help with supplies beyond BioBox?", "Yes. The Teacher Grant Help Program can help identify likely funding sources, direct links, and a short project description. We cannot promise funding, but we can make the search easier."],
+];
+
 function BioBox() {
   return (
     <section className="section page-section programs-page-shell biobox-page">
@@ -10,6 +23,9 @@ function BioBox() {
           <h1>Biology kits made for curious classrooms.</h1>
           <p className="section-text">
             Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
+          </p>
+          <p className="section-text">
+            Good science feels different when students can touch it, test it, argue about it, and connect it to their own lives. BioBox exists to give local teachers one more way to make science memorable - and to let Clements students build something useful beyond our own campus.
           </p>
         </header>
 
@@ -87,6 +103,19 @@ function BioBox() {
               <p>Would this be useful?<br />[Name] | Clements Biology Club</p>
             </div>
           </details>
+        </section>
+
+        <section className="section-panel biobox-program-faq" aria-labelledby="biobox-faq-title">
+          <p className="section-kicker">Questions, answered</p>
+          <h2 id="biobox-faq-title">Teacher FAQ</h2>
+          <div className="biobox-program-faq-grid">
+            {teacherFaqs.map(([question, answer]) => (
+              <details key={question}>
+                <summary>{question}</summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
       </div>
     </section>

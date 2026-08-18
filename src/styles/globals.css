@@ -4775,6 +4775,13 @@ main:has(.resources-page-shell) + .footer {
 .biobox-detail-card { min-height: 15rem; }
 .biobox-detail-card h2 { margin-bottom: .7rem; font-size: clamp(1.45rem, 2.4vw, 2rem); line-height: 1.12; }
 .biobox-detail-card p + p { margin-top: .75rem; }
+.biobox-faq-card details,
+.biobox-program-faq details { border-top: 1px solid rgba(57, 95, 52, .16); }
+.biobox-faq-card details:first-of-type { margin-top: .9rem; }
+.biobox-faq-card summary,
+.biobox-program-faq summary { padding: .72rem 0; color: var(--forest-800); cursor: pointer; font-weight: 800; }
+.biobox-faq-card details p,
+.biobox-program-faq details p { padding: 0 0 .8rem; color: var(--ink-soft); font-size: .93rem; line-height: 1.65; }
 .biobox-curriculum-card { background: linear-gradient(145deg, rgba(227,239,214,.96), rgba(255,255,255,.9)) !important; }
 .biobox-not-found h1 { max-width: 17ch; margin-bottom: 1.4rem; font-size: clamp(2.5rem, 6vw, 4rem); }
 
@@ -4794,6 +4801,9 @@ main:has(.resources-page-shell) + .footer {
 .biobox-email-template summary { padding: 1rem 0 .25rem; color: var(--forest-800); cursor: pointer; font-weight: 800; }
 .biobox-email-template div { max-width: 62ch; padding: .75rem 0 .15rem; color: var(--ink-soft); }
 .biobox-email-template p + p { margin-top: .8rem; }
+.biobox-program-faq { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+.biobox-program-faq h2 { margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 3rem); }
+.biobox-program-faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.75rem; }
 
 /* EXPLORE */
 .explore-panel { max-width: 940px; }
@@ -5502,6 +5512,7 @@ body {
   }
 
   .biobox-grant-help-grid { grid-template-columns: 1fr; }
+  .biobox-program-faq-grid { grid-template-columns: 1fr; }
 
   .explore-options { grid-template-columns: 1fr; }
 
