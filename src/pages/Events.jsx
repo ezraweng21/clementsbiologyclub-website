@@ -5,7 +5,11 @@ const eventPhotos = [
   { src: "/images/events/microscope_lab.jpg", alt: "Students using a microscope during a Biology Club activity" },
   { src: "/images/events/yeast_lab.webp", alt: "Biology Club yeast lab activity" },
   { src: "/images/events/lecture.webp", alt: "Biology Club presentation" },
+  { src: "/images/events/lecture2.webp", alt: "Biology Club speaker presentation" },
   { src: "/images/events/canes_fundraiser.webp", alt: "Biology Club fundraiser" },
+  { src: "/images/events/microscope_lab2.webp", alt: "Students exploring microscopy" },
+  { src: "/images/events/microscope_lab3.webp", alt: "Microscope activity during a club event" },
+  { src: "/images/events/ranger_camp.webp", alt: "Students at an outdoor science activity" },
 ];
 
 function Events() {
@@ -40,7 +44,11 @@ function Events() {
             </p>
 
             <div className="event-photo-gallery" aria-label="Biology Club event photos">
-              {eventPhotos.map((photo) => <img key={photo.src} src={photo.src} alt={photo.alt} />)}
+              {eventPhotos.map((photo) => (
+                <a key={photo.src} href={photo.src} target="_blank" rel="noreferrer" aria-label={`Open larger photo: ${photo.alt}`}>
+                  <img src={photo.src} alt={photo.alt} />
+                </a>
+              ))}
             </div>
           </section>
 

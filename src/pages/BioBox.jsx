@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { bioboxCollections } from "../data/bioboxKits";
 
+const teacherRequestForm = "https://docs.google.com/forms/d/e/1FAIpQLSeHdBwtWE7oeubHmAgJ7wBTKe_v0_GcWJHCMWn4WSVHxP6GTA/viewform?usp=header";
+
 const teacherFaqs = [
   ["Is BioBox free?", "Yes. We aim to provide confirmed kits and facilitation at no cost when inventory and funding allow. A request is not confirmed until we coordinate the date and materials with the teacher."],
   ["What do you need from me?", "Your course and unit, approximate student count, class length, available equipment, and any safety or accessibility needs. We will suggest a format that fits."],
@@ -89,7 +91,7 @@ function BioBox() {
             <article className="biobox-grant-help-action">
               <h3>Start a request</h3>
               <p>We are not promising to purchase supplies. We are promising to help teachers find the right path to funding them.</p>
-              <a className="primary-btn" href="mailto:chs.biologyolympiad@gmail.com?subject=BioBox%20Teacher%20Grant%20Help">Ask for grant help</a>
+              <a className="primary-btn" href={teacherRequestForm} target="_blank" rel="noreferrer">Request BioBox or grant help</a>
             </article>
           </div>
           <details className="biobox-email-template">

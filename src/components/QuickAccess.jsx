@@ -1,11 +1,16 @@
 import siteContent from "../data/siteContent";
 import { Link } from "react-router-dom";
-import DecorativeLeaves from "./DecorativeLeaves";
-
 function QuickAccess() {
+  const clubLinks = [
+    { label: "Join the club", detail: "Interest form", href: siteContent.contact.interestFormLink },
+    { label: "Join Discord", detail: "Announcements and updates", href: siteContent.contact.discordLink },
+    { label: "Join Remind", detail: `Code ${siteContent.contact.remindCode}`, href: siteContent.contact.remindLink },
+    { label: "Meeting materials", detail: "Past slides and resources", href: siteContent.resources[0]?.link },
+    { label: "Follow Instagram", detail: "Bio Bites and club updates", href: "https://www.instagram.com/chsbiologyclub/" },
+  ];
+
   return (
     <section className="home-section home-quick-section">
-      <DecorativeLeaves variant="quick" />
       <div className="container">
         <div className="section-heading">
           <p className="section-kicker">Quick Access</p>
@@ -15,70 +20,22 @@ function QuickAccess() {
           </p>
         </div>
 
-        <div className="content-grid three-col">
-          <article className="content-card">
-            <h3>General Meetings</h3>
-            <p>{siteContent.meetingInfo.shortSchedule}</p>
-            <p>Location: {siteContent.meetingInfo.location}</p>
-          </article>
-
-          <article className="content-card">
-            <h3>Review Meetings</h3>
-            <p>{siteContent.meetingInfo.reviewSchedule}</p>
-          </article>
-
-          <article className="content-card">
-            <h3>Join the Club</h3>
-            <p>{siteContent.meetingInfo.joinText}</p>
-            <p>{siteContent.meetingInfo.dropInNote}</p>
-            <Link to="/get-involved" className="text-link">
-              Explore ways to contribute
-            </Link>
-          </article>
+        <div className="quick-access-schedule">
+          <p><strong>General meetings:</strong> {siteContent.meetingInfo.shortSchedule} <span>·</span> {siteContent.meetingInfo.location}</p>
+          <p><strong>Review meetings:</strong> {siteContent.meetingInfo.reviewSchedule}</p>
         </div>
 
-        <div className="resource-grid top-spacing">
-          <article className="resource-card">
-            <p className="resource-label">Discord</p>
-            <h3>Join Discord</h3>
-            <p>Stay updated on announcements, resources, and meetings.</p>
-            <a
-              href={siteContent.contact.discordLink}
-              className="resource-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open Link
+        <div className="quick-access-links" aria-label="Club links">
+          {clubLinks.map((link) => (
+            <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+              <span><b>{link.label}</b><small>{link.detail}</small></span>
+              <span aria-hidden="true">→</span>
             </a>
-          </article>
-
-          <article className="resource-card">
-            <p className="resource-label">Remind</p>
-            <h3>Join Remind</h3>
-            <p>Use code {siteContent.contact.remindCode} for club reminders.</p>
-            <a
-              href={siteContent.contact.remindLink}
-              className="resource-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open Link
-            </a>
-          </article>
-
-          <article className="resource-card">
-            <p className="resource-label">Interest Form</p>
-            <h3>Sign Up</h3>
-            <p>Fill out the interest form to get involved with Biology Club.</p>
-            <a
-              href={siteContent.contact.interestFormLink}
-              className="resource-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open Form
-            </a>
-          </article>
+          ))}
+          <Link to="/get-involved">
+            <span><b>Find a role</b><small>Ways to contribute beyond meetings</small></span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

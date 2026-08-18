@@ -82,7 +82,7 @@ img {
 }
 
 .container {
-  width: min(1220px, 91%);
+  width: min(1420px, 94%);
   margin: 0 auto;
 }
 
@@ -630,7 +630,7 @@ img {
 }
 
 .content-grid.three-col {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .content-grid.two-col {
@@ -4454,6 +4454,23 @@ main:has(.resources-page-shell) + .footer {
   color: var(--ink-soft);
 }
 
+/* Compact home links replace the tall stack of near-identical cards. */
+.quick-access-schedule { display: flex; flex-wrap: wrap; gap: .65rem 1.5rem; margin: 1.2rem 0 1rem; color: var(--ink-soft); font-size: .96rem; }
+.quick-access-schedule p { margin: 0; }
+.quick-access-schedule span { color: var(--forest-700); }
+.quick-access-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .72rem; }
+.quick-access-links a { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .85rem 1rem; border: 1px solid rgba(28, 72, 49, .16); border-radius: 15px; background: rgba(255,255,255,.72); color: var(--forest-900); box-shadow: 0 6px 16px rgba(18, 54, 34, .05); transition: transform .2s ease, background .2s ease; }
+.quick-access-links a:hover { transform: translateY(-3px); background: #fff; }
+.quick-access-links b, .quick-access-links small { display: block; }
+.quick-access-links b { font-family: var(--font-display); font-size: 1rem; }
+.quick-access-links small { margin-top: .18rem; color: var(--ink-soft); font-size: .78rem; line-height: 1.35; }
+
+/* Wider cards improve scanability and remove the decorative officer-card vines. */
+.resource-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.officer-grid-compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.officer-card-compact { max-width: none; overflow: hidden; }
+.officer-card-compact::before, .officer-card-compact::after { display: none; }
+
 .inline-text-link,
 .text-link {
   color: var(--forest-800);
@@ -4821,7 +4838,9 @@ main:has(.resources-page-shell) + .footer {
 .explore-actions button { cursor: pointer; }
 
 .event-photo-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin-top: 1.35rem; }
-.event-photo-gallery img { width: 100%; height: 8.5rem; border: 1px solid rgba(41, 81, 50, .15); border-radius: 18px 8px 18px 12px; box-shadow: 0 8px 18px rgba(22, 62, 34, .1); object-fit: cover; }
+.event-photo-gallery a { display: block; overflow: hidden; border: 1px solid rgba(41, 81, 50, .15); border-radius: 18px 8px 18px 12px; box-shadow: 0 8px 18px rgba(22, 62, 34, .1); }
+.event-photo-gallery img { width: 100%; height: 9.5rem; object-fit: cover; transition: transform .25s ease; }
+.event-photo-gallery a:hover img { transform: scale(1.06); }
 
 .articles-page {
   --program-accent: #9d6e4b;
@@ -5663,4 +5682,25 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Final desktop layout pass: use the available width before falling back to two columns. */
+@media (min-width: 981px) {
+  .resource-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .content-grid.three-col { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .officer-grid-compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Put discovery and local opportunities ahead of housekeeping resources. */
+.resources-panel-explore { order: 1; }
+.resources-panel-houston { order: 2; }
+.resources-panel-featured { order: 3; }
+.resources-panel-library { order: 4; }
+
+@media (max-width: 980px) {
+  .quick-access-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .quick-access-links { grid-template-columns: 1fr; }
 }

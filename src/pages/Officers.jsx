@@ -1,6 +1,5 @@
 import siteContent from "../data/siteContent";
 import OfficersVisual from "../components/OfficersVisual";
-import OfficerCardVines from "../components/OfficerCardVines";
 
 function Officers() {
   return (
@@ -16,13 +15,12 @@ function Officers() {
           </p>
         </div>
 
-        <div className="officer-grid-compact officer-grid-flora">
+        <div className="officer-grid-compact">
           {siteContent.officers.map((officer, index) => (
             <article
               className="officer-card-compact"
               key={`${officer.role}-${officer.name}-${index}`}
             >
-              <OfficerCardVines variant={index % 4} />
               <div className="officer-image-shell">
                 {officer.image ? (
                   <img

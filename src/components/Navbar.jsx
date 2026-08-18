@@ -56,46 +56,22 @@ function Navbar() {
             About
           </NavLink>
           <NavLink
-            to="/officers"
-            className={getLinkClass}
-            onClick={handleCloseMenu}
-          >
-            Officers
-          </NavLink>
-          <NavLink
-            to="/events"
-            className={getLinkClass}
-            onClick={handleCloseMenu}
-          >
-            Events
-          </NavLink>
-          <NavLink
-            to="/resources"
-            className={getLinkClass}
-            onClick={handleCloseMenu}
-          >
-            Resources
-          </NavLink>
-          <NavLink
             to="/biobox"
             className={getLinkClass}
             onClick={handleCloseMenu}
           >
             BioBox
           </NavLink>
+          <NavLink to="/explore" className={getLinkClass} onClick={handleCloseMenu}>Explore</NavLink>
+          <NavLink to="/events" className={getLinkClass} onClick={handleCloseMenu}>Events</NavLink>
+          <NavLink to="/resources" className={getLinkClass} onClick={handleCloseMenu}>Resources</NavLink>
+          <NavLink to="/officers" className={getLinkClass} onClick={handleCloseMenu}>Officers</NavLink>
           <NavLink
             to="/get-involved"
             className={getLinkClass}
             onClick={handleCloseMenu}
           >
             Get Involved
-          </NavLink>
-          <NavLink
-            to="/explore"
-            className={getLinkClass}
-            onClick={handleCloseMenu}
-          >
-            Explore
           </NavLink>
           <NavLink
             to="/contact"

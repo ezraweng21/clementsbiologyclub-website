@@ -2,7 +2,6 @@ import Hero from "../components/Hero";
 import QuickAccess from "../components/QuickAccess";
 import About from "../components/About";
 import WhyJoin from "../components/WhyJoin";
-import OfficersPreview from "../components/OfficersPreview";
 import EventsPreview from "../components/EventsPreview";
 import MemberSpotlight from "../components/MemberSpotlight";
 import { Link } from "react-router-dom";
@@ -66,7 +65,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <OfficersPreview />
       <EventsPreview />
     </>
   );
