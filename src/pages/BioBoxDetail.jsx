@@ -51,8 +51,7 @@ function BioBoxDetail() {
           <section className="section-panel biobox-detail-card biobox-setup-card">
             <p className="section-kicker">At a glance</p>
             <h2>Plan before class</h2>
-            <p>{kit.setup}</p>
-            <p><strong>Planning cost:</strong> {kit.price}</p>
+            <p className="biobox-setup-time">{kit.setup}</p>
             <p><strong>Student output:</strong> A documented observation, data table, model, or evidence-based explanation that can be used for discussion or assessment.</p>
           </section>
           <section className="section-panel biobox-detail-card">

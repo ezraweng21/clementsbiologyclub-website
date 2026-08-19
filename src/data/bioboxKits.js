@@ -15,9 +15,8 @@ const makeKit = (kit, level, index) => ({
   price: kit.price || "Included in the low-cost BioBox catalog; final delivered cost depends on class size and school inventory.",
   lessonFlow: kit.lessonFlow || `1. Launch with a prediction connected to ${kit.concepts}. 2. Run the investigation and record observations or data. 3. Use evidence to explain the result and connect it to the lesson standard.`,
   faqs: kit.faqs || [
-    { question: "How does this fit into a class period?", answer: kit.setup },
-    { question: "What will students do and produce?", answer: `Students follow this lesson flow: ${kit.lessonFlow}` },
     { question: "What should I confirm before scheduling?", answer: "Confirm class size, available equipment, safety/accessibility needs, and whether you want a demonstration, stations, or a full investigation." },
+    { question: "What is included?", answer: "BioBox confirms materials, facilitation, setup/cleanup support, and the final lesson format with the teacher before the visit." },
   ],
   scienceCard: {
     question: kit.question,
@@ -64,9 +63,22 @@ const highSchoolKits = [
   { name: "Agar Plates and Bacterial Culture", slug: "high-school-agar-plates", summary: "A carefully contained culture activity connects cell biology to experimental microbiology.", teks: "Biology 5(B)", concepts: "prokaryotes, bacterial growth, and scientific evidence", setup: "Prepared plates · 15 min inoculation · 48–72 hr observation", classroomIntegration: "Use after comparing prokaryotic and eukaryotic cells. Students culture only approved environmental surfaces, make a prediction, and observe sealed plates later. They compare colony morphology, use a data table, and explain why a visible colony represents many descendants of one original cell.", question: "How can a single prokaryotic cell produce a visible colony?", whatYouSee: "Sealed plates develop distinct colonies with different colors, textures, and sizes.", whatItMeans: "Cells reproduce by binary fission when conditions provide nutrients and moisture, producing millions of descendants in one visible colony.", whyItMatters: "Microbiology labs culture samples to identify bacteria and test treatments; containment and evidence-based interpretation are essential.", extensionCard: "Compare data from approved surfaces or handwashing conditions. Graph colony-count categories, discuss limitations of the method, and propose a follow-up test with repeated trials.", curriculumFit: "Biology 5(B): compare prokaryotic and eukaryotic cells; supports required laboratory-tool and investigation practice.", materials: "Pre-poured nutrient agar plates, sterile swabs, labels, tape, gloves, and sealed disposal supplies." },
 ];
 
+const highImpactOrder = [
+  "agar-plates", "uv-bead-bracelets", "ptc-taste-strips", "middle-school-dna-extraction", "gummy-bear-osmosis", "yeast-fermentation",
+  "catalase-enzyme-lab", "gel-electrophoresis-simulation", "high-school-agar-plates", "water-quality-testing", "high-school-elephant-toothpaste", "high-school-ptc-taste-strips",
+];
+
+const orderByImpact = (kits) => [...kits].sort((a, b) => {
+  const aRank = highImpactOrder.indexOf(a.slug);
+  const bRank = highImpactOrder.indexOf(b.slug);
+  const normalizedA = aRank === -1 ? Number.MAX_SAFE_INTEGER : aRank;
+  const normalizedB = bRank === -1 ? Number.MAX_SAFE_INTEGER : bRank;
+  return normalizedA - normalizedB;
+});
+
 export const bioboxCollections = [
-  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: [...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug)).map((kit, index) => makeKit(kit, "Middle School", index)) },
-  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: [...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug)).map((kit, index) => makeKit(kit, "High School", index)) },
+  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: orderByImpact([...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug))).map((kit, index) => makeKit(kit, "Middle School", index)) },
+  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: orderByImpact([...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug))).map((kit, index) => makeKit(kit, "High School", index)) },
 ];
 
 export const allBioBoxKits = bioboxCollections.flatMap((collection) => collection.kits);

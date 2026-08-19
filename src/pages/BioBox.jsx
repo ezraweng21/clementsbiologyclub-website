@@ -8,6 +8,8 @@ const teacherFaqs = [
   ["What do you need from me?", "Your course and unit, approximate student count, class length, available equipment, and any safety or accessibility needs. We will suggest a format that fits."],
   ["How much teacher preparation is required?", "For a standard visit, we bring the activity plan, materials, and setup/cleanup support. The teacher remains the classroom authority and approves the final lesson plan."],
   ["How long does a visit take?", "Many kits work as a 10-15 minute demonstration, a 30-45 minute activity, or a 45-55 minute investigation. Multi-day options are only used when a teacher wants the follow-up."],
+  ["How does this fit into a class period?", "Each kit lists its prep and class-time range. We can usually adapt it into a demonstration, stations, or a full investigation; tell us your available time in the request form."],
+  ["What should I confirm before scheduling?", "Confirm class size, available equipment, safety or accessibility needs, your desired format, and the date/time window. We will confirm materials and the final plan before visiting."],
   ["Is it safe?", "We use age-appropriate, teacher-approved materials and share any safety needs before confirming. We do not offer uncontrolled cultures, unsealed mold, or real blood."],
   ["Can you match my TEKS and current lesson?", "Yes. Tell us the grade/course and current unit. We will suggest a direct fit, and activities requiring teacher-confirmed TEKS stay clearly labeled."],
   ["What if I have limited time or equipment?", "We can adapt many activities into a demonstration, pair station, reusable paper model, or smaller-group investigation."],
