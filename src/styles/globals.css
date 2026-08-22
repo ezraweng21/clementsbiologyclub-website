@@ -4660,8 +4660,23 @@ main:has(.resources-page-shell) + .footer {
 
 /* BIOBOX COLLECTION */
 .biobox-list-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, .65fr);
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  align-items: end;
   margin-bottom: 1.75rem;
 }
+.biobox-header-copy { max-width: 48rem; }
+.biobox-header-actions { display: grid; gap: .75rem; }
+.biobox-header-actions a { display: grid; gap: .18rem; padding: 1rem 1.1rem; border: 1px solid rgba(68, 107, 56, .2); border-radius: 18px 7px 18px 12px; background: rgba(255,255,255,.72); color: var(--ink); box-shadow: 0 9px 25px rgba(58, 82, 40, .07); transition: transform .2s ease, background .2s ease; }
+.biobox-header-actions a:hover { transform: translateY(-2px); background: #fff; }
+.biobox-header-actions span { color: #4e713d; font-size: .68rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.biobox-header-actions strong { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.12; }
+.biobox-header-actions strong span { margin-left: .22rem; font-size: 1rem; letter-spacing: 0; text-transform: none; }
+.biobox-header-actions small { color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
+.biobox-yes-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin: 0 0 2.3rem; }
+.biobox-yes-strip span { padding: .85rem .9rem; border-left: 3px solid #7f9e60; background: rgba(255,255,255,.55); color: var(--ink-soft); font-size: .88rem; line-height: 1.4; }
+.biobox-yes-strip b { color: var(--forest-800); }
 
 .biobox-collection-nav {
   display: flex;
@@ -4707,7 +4722,7 @@ main:has(.resources-page-shell) + .footer {
 
 .biobox-kit-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.15rem;
 }
 
@@ -4778,7 +4793,10 @@ main:has(.resources-page-shell) + .footer {
 
 .biobox-kit-copy { display: flex; flex: 1; flex-direction: column; padding: 1.25rem; }
 .biobox-kit-copy h3 { margin: 0.28rem 0 0.5rem; font-size: 1.25rem; line-height: 1.2; }
-.biobox-kit-copy > p:not(.biobox-teks) { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.62; }
+.biobox-kit-summary { color: var(--ink-soft); font-size: 1rem; line-height: 1.62; }
+.biobox-kit-meta { display: grid; gap: .38rem; margin-top: .8rem; padding: .7rem .75rem; border: 1px solid rgba(75, 111, 59, .13); border-radius: 12px 5px 12px 8px; background: rgba(234, 242, 226, .63); color: #3e5d35; font-size: .78rem; line-height: 1.35; }
+.biobox-kit-meta b { color: var(--forest-900); }
+.biobox-kit-included { display: -webkit-box; overflow: hidden; margin-top: .75rem; color: var(--ink-soft); font-size: .81rem; line-height: 1.52; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .biobox-teks { color: #4e713d; font-size: 0.71rem; font-weight: 800; line-height: 1.35; text-transform: uppercase; letter-spacing: .045em; }
 .biobox-open-link { margin-top: auto; padding-top: 1rem; color: var(--forest-800); font-size: .84rem; font-weight: 800; }
 .biobox-open-link span { display: inline-block; margin-left: .15rem; transition: transform .2s ease; }
@@ -4787,11 +4805,14 @@ main:has(.resources-page-shell) + .footer {
 .biobox-back-link { display: inline-block; margin-bottom: 1.65rem; color: var(--forest-800); font-size: .88rem; font-weight: 800; }
 .biobox-detail-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr); gap: clamp(1.8rem, 5vw, 4rem); align-items: center; margin-bottom: 2rem; }
 .biobox-detail-hero h1 { max-width: 13ch; margin-bottom: .8rem; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: .96; letter-spacing: -.05em; }
+.biobox-detail-summary { max-width: 42rem; font-size: clamp(1.08rem, 1.55vw, 1.3rem) !important; line-height: 1.65 !important; }
 .biobox-detail-image { min-height: clamp(16rem, 27vw, 23rem); border: 1px solid rgba(59, 99, 54, 0.16); border-radius: 38px 15px 38px 22px; box-shadow: var(--shadow-soft); }
 .biobox-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 .biobox-detail-card { min-height: 15rem; }
 .biobox-detail-card h2 { margin-bottom: .7rem; font-size: clamp(1.45rem, 2.4vw, 2rem); line-height: 1.12; }
 .biobox-detail-card p + p { margin-top: .75rem; }
+.biobox-lesson-steps { display: grid; gap: .6rem; margin: 1rem 0 0; padding: 1rem 0 0 1.25rem; border-top: 1px solid rgba(57, 95, 52, .16); color: var(--ink-soft); font-size: .98rem; line-height: 1.58; }
+.biobox-lesson-steps li::marker { color: var(--forest-800); font-weight: 800; }
 .biobox-setup-time { color: var(--forest-800); font-size: clamp(1.12rem, 1.7vw, 1.38rem); font-weight: 800; line-height: 1.45; }
 .biobox-faq-card details,
 .biobox-program-faq details { border-top: 1px solid rgba(57, 95, 52, .16); }
@@ -5646,10 +5667,13 @@ body {
   }
 
   .biobox-collection-heading,
+  .biobox-list-header,
   .biobox-detail-hero,
   .biobox-detail-grid {
     grid-template-columns: 1fr;
   }
+
+  .biobox-yes-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .biobox-collection-heading {
     display: flex;
@@ -5660,6 +5684,8 @@ body {
   .biobox-kit-grid {
     grid-template-columns: 1fr;
   }
+
+  .biobox-yes-strip { grid-template-columns: 1fr; }
 
   .biobox-detail-hero {
     display: grid;

@@ -25,7 +25,7 @@ function BioBoxDetail() {
           <div>
             <p className="page-eyebrow">{kit.level} BioBox · Kit {kit.number}</p>
             <h1>{kit.name}</h1>
-            <p className="section-text">{kit.summary}</p>
+            <p className="section-text biobox-detail-summary">{kit.summary}</p>
           </div>
           <div className="biobox-detail-image" aria-label={`Photo space for ${kit.name}`}>
             {kit.image ? <img src={kit.image} alt={kit.name} /> : <span>Kit photo</span>}
@@ -37,7 +37,9 @@ function BioBoxDetail() {
             <p className="section-kicker">Classroom integration</p>
             <h2>Ready for your lesson flow</h2>
             <p>{kit.classroomIntegration}</p>
-            <p><strong>Suggested flow:</strong> {kit.lessonFlow}</p>
+            <ul className="biobox-lesson-steps">
+              {kit.lessonSteps.map((step) => <li key={step}>{step}</li>)}
+            </ul>
           </section>
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Science card</p>
@@ -52,6 +54,8 @@ function BioBoxDetail() {
             <p className="section-kicker">At a glance</p>
             <h2>Plan before class</h2>
             <p className="biobox-setup-time">{kit.setup}</p>
+            <p><strong>Designed for:</strong> {kit.classSize}</p>
+            <p><strong>Estimated price:</strong> {kit.price}<br /><strong>Estimated per student:</strong> {kit.pricePerStudent}</p>
             <p><strong>Student output:</strong> A documented observation, data table, model, or evidence-based explanation that can be used for discussion or assessment.</p>
           </section>
           <section className="section-panel biobox-detail-card">

@@ -7,13 +7,88 @@ const overBudgetSlugs = new Set([
   "owl-pellet-dissection",
 ]);
 
+const kitImages = {
+  "agar-plates": "/images/biobox/agar-plates.png",
+  "high-school-agar-plates": "/images/biobox/bacterial-culture.png",
+  "uv-bead-bracelets": "/images/biobox/uv-beads.png",
+  "high-school-uv-beads": "/images/biobox/uv-beads.png",
+  "ptc-taste-strips": "/images/biobox/ptc-strips.png",
+  "high-school-ptc-taste-strips": "/images/biobox/ptc-strips.png",
+  "middle-school-dna-extraction": "/images/biobox/dna-extraction.png",
+  "high-school-dna-extraction": "/images/biobox/dna-extraction.png",
+  "gummy-bear-osmosis": "/images/biobox/gummy-osmosis.png",
+  "high-school-gummy-bear-osmosis": "/images/biobox/gummy-osmosis.png",
+  "density-column": "/images/biobox/density-column.png",
+  "high-school-density-column": "/images/biobox/density-column.png",
+  "elephant-toothpaste": "/images/biobox/elephant-toothpaste.png",
+  "high-school-elephant-toothpaste": "/images/biobox/elephant-toothpaste.png",
+  "cabbage-ph-indicator": "/images/biobox/cabbage-ph.png",
+  "high-school-cabbage-ph": "/images/biobox/cabbage-ph.png",
+  "seed-germination": "/images/biobox/seed-germination.png",
+  "balloon-lung-model": "/images/biobox/balloon-lung.png",
+  "leaf-chromatography": "/images/biobox/leaf-chromatography.png",
+  "cheek-cell-microscopy": "/images/biobox/cheek-microscopy.png",
+  "iodine-macromolecule-test": "/images/biobox/iodine-test.png",
+  "middle-school-soil-testing": "/images/biobox/soil-testing.png",
+  "high-school-soil-testing": "/images/biobox/soil-testing.png",
+  "mealworm-metamorphosis": "/images/biobox/mealworms.png",
+  "diy-stethoscope": "/images/biobox/diy-stethoscope.png",
+  "mold-growth-investigation": "/images/biobox/mold-growth.png",
+  "catalase-enzyme-lab": "/images/biobox/catalase.png",
+  "bioplastic-from-starch": "/images/biobox/bioplastic.png",
+  "blood-typing-simulation": "/images/biobox/blood-typing.png",
+  "vitamin-c-titration": "/images/biobox/vitamin-c-titration.png",
+};
+
+// Planning estimates for a 30-student class. Final cost includes the teacher's
+// confirmed class size, school inventory, shipping, and requested format.
+const classPriceEstimates = {
+  "elephant-toothpaste": "$4-$10 per class", "agar-plates": "$20-$35 per class", "uv-bead-bracelets": "$10-$18 per class",
+  "cabbage-ph-indicator": "$6-$12 per class", "ptc-taste-strips": "$5-$12 per class", "gummy-bear-osmosis": "$5-$12 per class",
+  "middle-school-dna-extraction": "$8-$18 per class", "yeast-fermentation": "$3-$10 per class", "density-column": "$10-$20 per class",
+  "middle-school-natural-selection": "$3-$8 per class", "seed-germination": "$6-$15 per class", "balloon-lung-model": "$8-$18 per class",
+  "surface-tension-demonstration": "$2-$7 per class", "leaf-chromatography": "$6-$18 per class",
+  "catalase-enzyme-lab": "$5-$15 per class", "gel-electrophoresis-simulation": "$4-$10 per class", "high-school-dna-extraction": "$8-$18 per class",
+  "high-school-gummy-bear-osmosis": "$5-$12 per class", "high-school-natural-selection": "$3-$8 per class", "water-quality-testing": "$20-$35 per class",
+  "high-school-cabbage-ph": "$6-$12 per class", "crystal-growing": "$4-$10 per class", "high-school-elephant-toothpaste": "$5-$15 per class",
+  "polymer-slime": "$12-$25 per class", "high-school-surface-tension": "$2-$7 per class", "high-school-agar-plates": "$20-$35 per class",
+};
+
+const lessonSteps = (kit) => {
+  if (!kit.lessonFlow) {
+    return [
+      `Start with a short prediction about ${kit.concepts}.`,
+      "Run the activity and record observations or data.",
+      `Use the evidence to connect the result to ${kit.teks}.`,
+    ];
+  }
+
+  return kit.lessonFlow
+    .split(/(?=\d+\.\s)/)
+    .map((step) => step.replace(/^\d+\.\s*/, "").trim())
+    .filter(Boolean);
+};
+
+const estimatedPricePerStudent = (price) => {
+  const explicit = price.match(/\$([\d.]+)(?:-\$([\d.]+))?\s*\/student/i);
+  if (explicit) return explicit[2] ? `$${explicit[1]}-$${explicit[2]}/student` : `$${explicit[1]}/student`;
+
+  const perClass = price.match(/\$([\d.]+)\s*-\s*\$([\d.]+)\s*per class/i);
+  if (perClass) return `$${(Number(perClass[1]) / 30).toFixed(2)}-$${(Number(perClass[2]) / 30).toFixed(2)}/student`;
+
+  return "Confirmed with class size";
+};
+
 const makeKit = (kit, level, index) => ({
   ...kit,
   level,
   number: String(index + 1).padStart(2, "0"),
-  image: "",
-  price: kit.price || "Included in the low-cost BioBox catalog; final delivered cost depends on class size and school inventory.",
-  lessonFlow: kit.lessonFlow || `1. Launch with a prediction connected to ${kit.concepts}. 2. Run the investigation and record observations or data. 3. Use evidence to explain the result and connect it to the lesson standard.`,
+  image: kitImages[kit.slug] || "",
+  price: kit.price || classPriceEstimates[kit.slug] || "Pricing confirmed after the teacher shares the class size and available equipment.",
+  classSize: kit.classSize || "Up to 30 students, usually in pairs or stations",
+  lessonSteps: lessonSteps(kit),
+  included: kit.included || kit.materials,
+  pricePerStudent: estimatedPricePerStudent(kit.price || classPriceEstimates[kit.slug] || ""),
   faqs: kit.faqs || [
     { question: "What should I confirm before scheduling?", answer: "Confirm class size, available equipment, safety/accessibility needs, and whether you want a demonstration, stations, or a full investigation." },
     { question: "What is included?", answer: "BioBox confirms materials, facilitation, setup/cleanup support, and the final lesson format with the teacher before the visit." },

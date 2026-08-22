@@ -23,15 +23,28 @@ function BioBox() {
     <section className="section page-section programs-page-shell biobox-page">
       <div className="container">
         <header className="page-header programs-page-header biobox-list-header">
-          <p className="page-eyebrow">BioBox classroom collection</p>
-          <h1>Biology kits made for curious classrooms.</h1>
-          <p className="section-text">
-            Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
-          </p>
-          <p className="section-text">
-            Good science feels different when students can touch it, test it, argue about it, and connect it to their own lives. BioBox exists to give local teachers one more way to make science memorable - and to let Clements students build something useful beyond our own campus.
-          </p>
+          <div className="biobox-header-copy">
+            <p className="page-eyebrow">BioBox classroom collection</p>
+            <h1>Biology kits made for curious classrooms.</h1>
+            <p className="section-text">
+              Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
+            </p>
+            <p className="section-text">
+              Good science feels different when students can touch it, test it, argue about it, and connect it to their own lives. BioBox exists to give local teachers one more way to make science memorable - and to let Clements students build something useful beyond our own campus.
+            </p>
+          </div>
+          <aside className="biobox-header-actions" aria-label="Teacher support links">
+            <a href="#grant-help-title"><span>Funding support</span><strong>Teacher Grant Help Program <span>→</span></strong><small>Funding research, links, and writing help for supplies beyond BioBox.</small></a>
+            <a href="#biobox-faq-title"><span>Before you say yes</span><strong>Teacher FAQ <span>→</span></strong><small>Free, safety, scheduling, class size, photos, and what we need from you.</small></a>
+          </aside>
         </header>
+
+        <div className="biobox-yes-strip" aria-label="How BioBox makes planning simple">
+          <span><b>1.</b> Choose a kit or tell us your unit.</span>
+          <span><b>2.</b> Share class size, time, and equipment.</span>
+          <span><b>3.</b> We confirm the plan and bring the setup.</span>
+          <span><b>4.</b> You keep classroom control; we handle the extra lift.</span>
+        </div>
 
         <div className="biobox-collection-nav" aria-label="BioBox collections">
           {bioboxCollections.map((collection) => <a href={`#${collection.id}`} key={collection.id}>{collection.label}</a>)}
@@ -57,7 +70,13 @@ function BioBox() {
                     <div className="biobox-kit-copy">
                       <p className="biobox-teks">{kit.teks}</p>
                       <h3>{kit.name}</h3>
-                      <p>{kit.summary}</p>
+                      <p className="biobox-kit-summary">{kit.summary}</p>
+                      <div className="biobox-kit-meta">
+                        <span><b>Class:</b> {kit.classSize}</span>
+                        <span><b>Est. kit:</b> {kit.price}</span>
+                        <span><b>Est. student:</b> {kit.pricePerStudent}</span>
+                      </div>
+                      <p className="biobox-kit-included"><b>Included:</b> {kit.included}</p>
                       <span className="biobox-open-link">View kit details <span>→</span></span>
                     </div>
                   </Link>
