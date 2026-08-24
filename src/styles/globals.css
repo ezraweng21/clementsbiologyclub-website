@@ -4811,9 +4811,9 @@ main:has(.resources-page-shell) + .footer {
 
 .biobox-back-link { display: inline-block; margin-bottom: .8rem; color: var(--forest-800); font-size: 1rem; font-weight: 800; }
 .biobox-detail-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr); gap: clamp(1.8rem, 5vw, 4rem); align-items: start; margin-bottom: 2rem; }
-.biobox-detail-hero h1 { max-width: 13ch; margin-bottom: .8rem; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: .96; letter-spacing: -.05em; }
+.biobox-detail-hero h1 { max-width: 15ch; margin-bottom: .65rem; font-size: clamp(2.55rem, 5vw, 4.75rem); line-height: .98; letter-spacing: -.05em; }
 .biobox-detail-summary { max-width: 42rem; font-size: clamp(1.2rem, 1.7vw, 1.42rem) !important; line-height: 1.65 !important; }
-.biobox-detail-image { min-height: clamp(18rem, 28vw, 25rem); border: 2px solid rgba(59, 99, 54, 0.28); border-radius: 38px 15px 38px 22px; box-shadow: var(--shadow-soft); }
+.biobox-detail-image { min-height: clamp(15rem, 22vw, 20rem); border: 2px solid rgba(59, 99, 54, 0.28); border-radius: 38px 15px 38px 22px; box-shadow: var(--shadow-soft); }
 .biobox-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
 .biobox-detail-column { display: grid; gap: 1.25rem; align-content: start; }
 .biobox-detail-card { min-height: 0; }
@@ -4838,6 +4838,8 @@ main:has(.resources-page-shell) + .footer {
 .biobox-core-card { border: 2px solid rgba(59, 99, 54, .28) !important; }
 .biobox-materials-list { margin-top: 1.15rem; padding: 1rem 1.1rem; border: 1px solid rgba(57, 95, 52, .18); border-radius: 15px 6px 15px 10px; background: rgba(231, 240, 219, .72); color: var(--forest-900); font-size: 1.06rem; }
 .biobox-materials-list ul { display: grid; gap: .38rem; margin: .65rem 0 0; padding-left: 1.25rem; color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
+.biobox-activity-link { display: inline-block; margin-top: 1rem; color: var(--forest-800); font-size: 1.03rem; font-weight: 800; }
+.biobox-activity-link span { margin-left: .15rem; }
 .biobox-not-found h1 { max-width: 17ch; margin-bottom: 1.4rem; font-size: clamp(2.5rem, 6vw, 4rem); }
 
 .biobox-grant-help { position: relative; margin-top: clamp(3rem, 7vw, 5.5rem); padding: clamp(1.5rem, 4vw, 3rem); overflow: hidden; border: 1px solid rgba(57, 95, 52, .2); border-radius: 38px 16px 38px 22px; background: linear-gradient(135deg, rgba(221, 235, 207, .9), rgba(255, 255, 255, .9)); box-shadow: var(--shadow-soft); }

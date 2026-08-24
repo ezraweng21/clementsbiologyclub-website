@@ -36,6 +36,7 @@ function BioBox() {
             </p>
           </div>
           <aside className="biobox-header-actions" aria-label="Teacher support links">
+            <a className="biobox-request-link" href={teacherRequestForm} target="_blank" rel="noreferrer"><span>Ready when you are</span><strong>Request a BioBox kit <span>→</span></strong><small>Tell us your unit, class size, timing, and the activity you want.</small></a>
             <a href="#grant-help-title"><span>Funding support</span><strong>Teacher Grant Help Program <span>→</span></strong><small>Funding research, links, and writing help for supplies beyond BioBox.</small></a>
             <a href="#biobox-faq-title"><span>Before you say yes</span><strong>Teacher FAQ <span>→</span></strong><small>Free, safety, scheduling, class size, photos, and what we need from you.</small></a>
           </aside>
@@ -73,7 +74,7 @@ function BioBox() {
                       <p className="biobox-teks">{kit.teks}</p>
                       <h3>{kit.name}</h3>
                       <p className="biobox-kit-summary">{kit.summary}</p>
-                      <p className="biobox-kit-included"><b>Included:</b> {kit.included}</p>
+                      <p className="biobox-kit-included"><b>Materials:</b> {kit.included}</p>
                       <span className="biobox-open-link">View kit details <span>→</span></span>
                     </div>
                   </Link>

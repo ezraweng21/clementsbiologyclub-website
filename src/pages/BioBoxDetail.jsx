@@ -85,6 +85,7 @@ function BioBoxDetail() {
                 <strong>Included in this kit</strong>
                 <ul>{kit.scienceCard.materials.split(", ").map((material) => <li key={material}>{material}</li>)}</ul>
               </div>
+              {kit.activityLink && <a className="biobox-activity-link" href={kit.activityLink} target="_blank" rel="noreferrer">Optional Ginger Bug activity guide <span>→</span></a>}
             </section>
           </div>
         </div>
