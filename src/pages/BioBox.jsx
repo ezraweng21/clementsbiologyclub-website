@@ -23,9 +23,9 @@ function BioBox() {
     <section className="section page-section programs-page-shell biobox-page">
       <div className="container">
         <header className="page-header programs-page-header biobox-list-header">
+          <p className="page-eyebrow">BioBox classroom collection</p>
+          <h1>Biology kits made for curious classrooms.</h1>
           <div className="biobox-header-copy">
-            <p className="page-eyebrow">BioBox classroom collection</p>
-            <h1>Biology kits made for curious classrooms.</h1>
             <p className="section-text">
               Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
             </p>
@@ -71,11 +71,6 @@ function BioBox() {
                       <p className="biobox-teks">{kit.teks}</p>
                       <h3>{kit.name}</h3>
                       <p className="biobox-kit-summary">{kit.summary}</p>
-                      <div className="biobox-kit-meta">
-                        <span><b>Class:</b> {kit.classSize}</span>
-                        <span><b>Est. kit:</b> {kit.price}</span>
-                        <span><b>Est. student:</b> {kit.pricePerStudent}</span>
-                      </div>
                       <p className="biobox-kit-included"><b>Included:</b> {kit.included}</p>
                       <span className="biobox-open-link">View kit details <span>→</span></span>
                     </div>
@@ -102,12 +97,14 @@ function BioBox() {
               </ul>
             </article>
             <article>
-              <h3>How it works</h3>
-              <ol>
-                <li>Tell us the supply, approximate cost, and TEKS it supports.</li>
-                <li>Our student grant-research team identifies the strongest next options and deadlines.</li>
-                <li>You receive direct links and writing help; you remain in control of the application.</li>
-              </ol>
+              <h3>Funding sources we check first</h3>
+              <ul>
+                <li>DonorsChoose classroom projects</li>
+                <li>Toshiba America Foundation STEM grants</li>
+                <li>NSTA awards and grant opportunities</li>
+                <li>H-E-B education programs and local education foundations</li>
+              </ul>
+              <p className="biobox-grant-note">We check current eligibility and deadlines before recommending a route.</p>
             </article>
             <article className="biobox-grant-help-action">
               <h3>Start a request</h3>
@@ -115,17 +112,6 @@ function BioBox() {
               <a className="primary-btn" href={teacherRequestForm} target="_blank" rel="noreferrer">Request BioBox or grant help</a>
             </article>
           </div>
-          <details className="biobox-email-template">
-            <summary>View the teacher outreach email</summary>
-            <div>
-              <p><strong>Subject: We’ll Help You Get Your Science Lab Funded (Free)</strong></p>
-              <p>Hi [Teacher name],</p>
-              <p>Even if our BioBox delivery program does not fit your schedule, Clements Biology Club would love to help you find funding for science supplies you need.</p>
-              <p>We can help you set up a DonorsChoose project, research grants specific to your course, and write a one-paragraph project description for a funding application.</p>
-              <p>If there is equipment or a supply set your budget does not cover, let us know. We are not promising to buy it for you — but we are promising to help you find a way to get it.</p>
-              <p>Would this be useful?<br />[Name] | Clements Biology Club</p>
-            </div>
-          </details>
         </section>
 
         <section className="section-panel biobox-program-faq" aria-labelledby="biobox-faq-title">

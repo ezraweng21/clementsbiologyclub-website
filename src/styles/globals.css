@@ -4661,21 +4661,24 @@ main:has(.resources-page-shell) + .footer {
 /* BIOBOX COLLECTION */
 .biobox-list-header {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, .65fr);
-  gap: clamp(1.25rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(25.5rem, .9fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: end;
   margin-bottom: 1.75rem;
 }
-.biobox-header-copy { max-width: 48rem; }
+.biobox-header-copy { max-width: none; }
+.biobox-list-header > .page-eyebrow,
+.biobox-list-header > h1 { grid-column: 1 / -1; }
+.biobox-list-header h1 { max-width: none; font-size: clamp(2.9rem, 4vw, 4.35rem); text-wrap: nowrap; }
 .biobox-header-actions { display: grid; gap: .75rem; }
-.biobox-header-actions a { display: grid; gap: .18rem; padding: 1rem 1.1rem; border: 1px solid rgba(68, 107, 56, .2); border-radius: 18px 7px 18px 12px; background: rgba(255,255,255,.72); color: var(--ink); box-shadow: 0 9px 25px rgba(58, 82, 40, .07); transition: transform .2s ease, background .2s ease; }
+.biobox-header-actions a { display: grid; gap: .28rem; padding: 1.3rem 1.4rem; border: 1px solid rgba(68, 107, 56, .2); border-radius: 20px 8px 20px 13px; background: rgba(255,255,255,.78); color: var(--ink); box-shadow: 0 9px 25px rgba(58, 82, 40, .07); transition: transform .2s ease, background .2s ease; }
 .biobox-header-actions a:hover { transform: translateY(-2px); background: #fff; }
 .biobox-header-actions span { color: #4e713d; font-size: .68rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-.biobox-header-actions strong { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.12; }
+.biobox-header-actions strong { font-family: var(--font-display); font-size: 1.38rem; line-height: 1.12; }
 .biobox-header-actions strong span { margin-left: .22rem; font-size: 1rem; letter-spacing: 0; text-transform: none; }
-.biobox-header-actions small { color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
+.biobox-header-actions small { color: var(--ink-soft); font-size: .9rem; line-height: 1.48; }
 .biobox-yes-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .7rem; margin: 0 0 2.3rem; }
-.biobox-yes-strip span { padding: .85rem .9rem; border-left: 3px solid #7f9e60; background: rgba(255,255,255,.55); color: var(--ink-soft); font-size: .88rem; line-height: 1.4; }
+.biobox-yes-strip span { display: grid; align-content: center; min-height: 5.35rem; padding: 1rem 1.1rem; border: 1px solid rgba(68, 107, 56, .18); border-left: 4px solid #7f9e60; border-radius: 18px 7px 18px 12px; background: rgba(255,255,255,.76); color: var(--ink-soft); font-size: 1rem; line-height: 1.45; box-shadow: 0 9px 25px rgba(58, 82, 40, .05); }
 .biobox-yes-strip b { color: var(--forest-800); }
 
 .biobox-collection-nav {
@@ -4747,7 +4750,7 @@ main:has(.resources-page-shell) + .footer {
 .biobox-detail-image {
   position: relative;
   display: grid;
-  min-height: 9rem;
+  min-height: 0;
   place-items: center;
   overflow: hidden;
   background:
@@ -4794,9 +4797,7 @@ main:has(.resources-page-shell) + .footer {
 .biobox-kit-copy { display: flex; flex: 1; flex-direction: column; padding: 1.25rem; }
 .biobox-kit-copy h3 { margin: 0.28rem 0 0.5rem; font-size: 1.25rem; line-height: 1.2; }
 .biobox-kit-summary { color: var(--ink-soft); font-size: 1rem; line-height: 1.62; }
-.biobox-kit-meta { display: grid; gap: .38rem; margin-top: .8rem; padding: .7rem .75rem; border: 1px solid rgba(75, 111, 59, .13); border-radius: 12px 5px 12px 8px; background: rgba(234, 242, 226, .63); color: #3e5d35; font-size: .78rem; line-height: 1.35; }
-.biobox-kit-meta b { color: var(--forest-900); }
-.biobox-kit-included { display: -webkit-box; overflow: hidden; margin-top: .75rem; color: var(--ink-soft); font-size: .81rem; line-height: 1.52; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.biobox-kit-included { display: -webkit-box; overflow: hidden; margin-top: .75rem; color: var(--ink-soft); font-size: .82rem; line-height: 1.52; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .biobox-teks { color: #4e713d; font-size: 0.71rem; font-weight: 800; line-height: 1.35; text-transform: uppercase; letter-spacing: .045em; }
 .biobox-open-link { margin-top: auto; padding-top: 1rem; color: var(--forest-800); font-size: .84rem; font-weight: 800; }
 .biobox-open-link span { display: inline-block; margin-left: .15rem; transition: transform .2s ease; }
@@ -4833,6 +4834,7 @@ main:has(.resources-page-shell) + .footer {
 .biobox-grant-help-grid h3 { margin-bottom: .55rem; font-size: 1.2rem; }
 .biobox-grant-help-grid ul, .biobox-grant-help-grid ol { padding-left: 1.1rem; color: var(--ink-soft); font-size: .9rem; line-height: 1.65; }
 .biobox-grant-help-grid li + li { margin-top: .42rem; }
+.biobox-grant-note { margin-top: .75rem; color: var(--ink-soft); font-size: .83rem; line-height: 1.5; }
 .biobox-grant-help-action { display: flex; flex-direction: column; }
 .biobox-grant-help-action p { color: var(--ink-soft); font-size: .92rem; line-height: 1.65; }
 .biobox-grant-help-action .primary-btn { width: max-content; margin-top: auto; }
@@ -5674,6 +5676,7 @@ body {
   }
 
   .biobox-yes-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .biobox-list-header h1 { text-wrap: balance; }
 
   .biobox-collection-heading {
     display: flex;
@@ -5710,6 +5713,7 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+.biobox-kit-image { height: 12.5rem; }
 
 /* Final desktop layout pass: use the available width before falling back to two columns. */
 @media (min-width: 981px) {

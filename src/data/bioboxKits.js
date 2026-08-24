@@ -7,6 +7,16 @@ const overBudgetSlugs = new Set([
   "owl-pellet-dissection",
 ]);
 
+const pausedKitSlugs = new Set([
+  "penny-surface-tension",
+  "vinegar-baking-soda",
+  "oobleck-investigation",
+  "pollinator-structure-investigation",
+  "middle-school-heart-rate",
+  "high-school-heart-rate",
+  "crystal-growing",
+]);
+
 const kitImages = {
   "agar-plates": "/images/biobox/agar-plates.png",
   "high-school-agar-plates": "/images/biobox/bacterial-culture.png",
@@ -56,11 +66,11 @@ const classPriceEstimates = {
 
 const lessonSteps = (kit) => {
   if (!kit.lessonFlow) {
-    return [
-      `Start with a short prediction about ${kit.concepts}.`,
-      "Run the activity and record observations or data.",
-      `Use the evidence to connect the result to ${kit.teks}.`,
-    ];
+    return kit.classroomIntegration
+      .split(/(?<=\.)\s+/)
+      .slice(0, 3)
+      .map((step) => step.replace(/^\d+(?:th|st|nd|rd) grade:\s*/i, "").trim())
+      .filter(Boolean);
   }
 
   return kit.lessonFlow
@@ -89,6 +99,7 @@ const makeKit = (kit, level, index) => ({
   lessonSteps: lessonSteps(kit),
   included: kit.included || kit.materials,
   pricePerStudent: estimatedPricePerStudent(kit.price || classPriceEstimates[kit.slug] || ""),
+  studentOutput: kit.studentOutput || `A completed claim-evidence response to “${kit.question}” supported by the group’s recorded observation or data.`,
   faqs: kit.faqs || [
     { question: "What should I confirm before scheduling?", answer: "Confirm class size, available equipment, safety/accessibility needs, and whether you want a demonstration, stations, or a full investigation." },
     { question: "What is included?", answer: "BioBox confirms materials, facilitation, setup/cleanup support, and the final lesson format with the teacher before the visit." },
@@ -152,8 +163,8 @@ const orderByImpact = (kits) => [...kits].sort((a, b) => {
 });
 
 export const bioboxCollections = [
-  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: orderByImpact([...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug))).map((kit, index) => makeKit(kit, "Middle School", index)) },
-  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: orderByImpact([...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug))).map((kit, index) => makeKit(kit, "High School", index)) },
+  { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: orderByImpact([...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug) && !pausedKitSlugs.has(kit.slug) && !kit.teks.includes("Teacher-confirmed"))).map((kit, index) => makeKit(kit, "Middle School", index)) },
+  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: orderByImpact([...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug) && !pausedKitSlugs.has(kit.slug) && !kit.teks.includes("Teacher-confirmed"))).map((kit, index) => makeKit(kit, "High School", index)) },
 ];
 
 export const allBioBoxKits = bioboxCollections.flatMap((collection) => collection.kits);

@@ -35,11 +35,22 @@ function BioBoxDetail() {
         <div className="biobox-detail-grid">
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Classroom integration</p>
-            <h2>Ready for your lesson flow</h2>
+            <h2>Detailed lesson flow</h2>
             <p>{kit.classroomIntegration}</p>
             <ul className="biobox-lesson-steps">
               {kit.lessonSteps.map((step) => <li key={step}>{step}</li>)}
             </ul>
+          </section>
+          <section className="section-panel biobox-detail-card biobox-curriculum-card">
+            <p className="section-kicker">Curriculum fit</p>
+            <h2>{kit.teks}</h2>
+            <p>{kit.curriculumFit}</p>
+          </section>
+          <section className="section-panel biobox-detail-card biobox-setup-card">
+            <p className="section-kicker">At a glance</p>
+            <h2>Plan before class</h2>
+            <p className="biobox-setup-time">{kit.setup}</p>
+            <p><strong>Student output:</strong> {kit.studentOutput}</p>
           </section>
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Science card</p>
@@ -50,23 +61,10 @@ function BioBoxDetail() {
             <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
             <p><strong>Materials:</strong> {kit.scienceCard.materials}</p>
           </section>
-          <section className="section-panel biobox-detail-card biobox-setup-card">
-            <p className="section-kicker">At a glance</p>
-            <h2>Plan before class</h2>
-            <p className="biobox-setup-time">{kit.setup}</p>
-            <p><strong>Designed for:</strong> {kit.classSize}</p>
-            <p><strong>Estimated price:</strong> {kit.price}<br /><strong>Estimated per student:</strong> {kit.pricePerStudent}</p>
-            <p><strong>Student output:</strong> A documented observation, data table, model, or evidence-based explanation that can be used for discussion or assessment.</p>
-          </section>
           <section className="section-panel biobox-detail-card">
             <p className="section-kicker">Expansion card</p>
             <h2>Take it further</h2>
             <p>{kit.extensionCard}</p>
-          </section>
-          <section className="section-panel biobox-detail-card biobox-curriculum-card">
-            <p className="section-kicker">Curriculum fit</p>
-            <h2>{kit.teks}</h2>
-            <p>{kit.curriculumFit}</p>
           </section>
           <section className="section-panel biobox-detail-card biobox-faq-card">
             <p className="section-kicker">Quick teacher FAQ</p>
