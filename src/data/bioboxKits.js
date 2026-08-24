@@ -1,9 +1,7 @@
 import { highSchoolAdditions, middleSchoolAdditions } from "./bioboxAdditions";
 
 const overBudgetSlugs = new Set([
-  "foldscope-microscopy",
   "pglo-bacterial-transformation",
-  "high-school-foldscope",
   "owl-pellet-dissection",
 ]);
 
@@ -38,6 +36,8 @@ const kitImages = {
   "balloon-lung-model": "/images/biobox/balloon-lung.png",
   "leaf-chromatography": "/images/biobox/leaf-chromatography.png",
   "cheek-cell-microscopy": "/images/biobox/cheek-microscopy.png",
+  "foldscope-microscopy": "/images/biobox/cheek-microscopy.png",
+  "high-school-foldscope": "/images/biobox/cheek-microscopy.png",
   "iodine-macromolecule-test": "/images/biobox/iodine-test.png",
   "middle-school-soil-testing": "/images/biobox/soil-testing.png",
   "high-school-soil-testing": "/images/biobox/soil-testing.png",

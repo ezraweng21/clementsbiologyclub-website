@@ -52,15 +52,6 @@ function BioBoxDetail() {
               </ul>
               <p className="biobox-student-output"><strong>Student output:</strong> {kit.studentOutput}</p>
             </section>
-            <section className="section-panel biobox-detail-card">
-              <p className="section-kicker">Science card</p>
-              <h2>Core investigation</h2>
-              <p><strong>Question:</strong> {kit.scienceCard.question}</p>
-              <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
-              <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
-              <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
-              <p><strong>Materials:</strong> {kit.scienceCard.materials}</p>
-            </section>
             <section className="section-panel biobox-detail-card biobox-extension-card">
               <p className="section-kicker">Expansion card</p>
               <h2>Take it further</h2>
@@ -82,6 +73,18 @@ function BioBoxDetail() {
                   <p>{faq.answer}</p>
                 </details>
               ))}
+            </section>
+            <section className="section-panel biobox-detail-card biobox-core-card">
+              <p className="section-kicker">Science card</p>
+              <h2>Core investigation</h2>
+              <p><strong>Question:</strong> {kit.scienceCard.question}</p>
+              <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
+              <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
+              <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
+              <div className="biobox-materials-list">
+                <strong>Included in this kit</strong>
+                <ul>{kit.scienceCard.materials.split(", ").map((material) => <li key={material}>{material}</li>)}</ul>
+              </div>
             </section>
           </div>
         </div>
