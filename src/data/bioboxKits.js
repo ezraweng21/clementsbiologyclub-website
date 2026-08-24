@@ -68,7 +68,7 @@ const lessonSteps = (kit) => {
   if (!kit.lessonFlow) {
     return kit.classroomIntegration
       .split(/(?<=\.)\s+/)
-      .slice(0, 3)
+      .slice(0, 5)
       .map((step) => step.replace(/^\d+(?:th|st|nd|rd) grade:\s*/i, "").trim())
       .filter(Boolean);
   }
@@ -77,6 +77,22 @@ const lessonSteps = (kit) => {
     .split(/(?=\d+\.\s)/)
     .map((step) => step.replace(/^\d+\.\s*/, "").trim())
     .filter(Boolean);
+};
+
+const kitSafetyNotes = {
+  "agar-plates": "Students swab only teacher-approved, non-body surfaces. Plates are taped shut after inoculation, never reopened, and disposed of sealed under the school’s procedure.",
+  "high-school-agar-plates": "Students swab only teacher-approved, non-body surfaces. Plates are taped shut after inoculation, never reopened, and disposed of sealed under the school’s procedure.",
+  "uv-bead-bracelets": "Use sunlight or a teacher-approved UV flashlight; do not aim UV light at eyes. The beads change color but are not a substitute for sun-safety instruction.",
+  "high-school-uv-beads": "Use sunlight or a teacher-approved UV flashlight; do not aim UV light at eyes. The beads change color but are not a substitute for sun-safety instruction.",
+  "ptc-taste-strips": "Tasting is optional. Students may use an anonymous non-tasting data role, and the activity should never be used to make a health or genetic diagnosis.",
+  "high-school-ptc-taste-strips": "Tasting is optional. Students may use an anonymous non-tasting data role, and the activity should never be used to make a health or genetic diagnosis.",
+  "elephant-toothpaste": "The facilitator or teacher handles hydrogen peroxide and starts the reaction. Use goggles, a tray, and a clear viewing boundary; students do not mix concentrated reagents.",
+  "high-school-elephant-toothpaste": "The facilitator or teacher handles hydrogen peroxide and starts the reaction. Use goggles, a tray, and a clear viewing boundary; students do not mix concentrated reagents.",
+  "middle-school-dna-extraction": "Cold alcohol is handled by the teacher or facilitator away from heat or flame. Check food and latex sensitivities before using fruit, soap, or filters.",
+  "high-school-dna-extraction": "Cold alcohol is handled by the teacher or facilitator away from heat or flame. Check food and latex sensitivities before using fruit, soap, or filters.",
+  "gummy-bear-osmosis": "Use unopened food materials, check allergies, and do not eat experimental samples after they contact classroom solutions.",
+  "high-school-gummy-bear-osmosis": "Use unopened food materials, check allergies, and do not eat experimental samples after they contact classroom solutions.",
+  "mold-growth-investigation": "All samples remain sealed in their bags or containers during observation. Students do not open, smell, or touch the mold; the teacher handles sealed disposal.",
 };
 
 const estimatedPricePerStudent = (price) => {
@@ -101,8 +117,10 @@ const makeKit = (kit, level, index) => ({
   pricePerStudent: estimatedPricePerStudent(kit.price || classPriceEstimates[kit.slug] || ""),
   studentOutput: kit.studentOutput || `A completed claim-evidence response to “${kit.question}” supported by the group’s recorded observation or data.`,
   faqs: kit.faqs || [
-    { question: "What should I confirm before scheduling?", answer: "Confirm class size, available equipment, safety/accessibility needs, and whether you want a demonstration, stations, or a full investigation." },
-    { question: "What is included?", answer: "BioBox confirms materials, facilitation, setup/cleanup support, and the final lesson format with the teacher before the visit." },
+    {
+      question: "What should we know for this activity?",
+      answer: kitSafetyNotes[kit.slug] || `The key class materials are ${kit.materials} BioBox confirms teacher-approved handling, equipment, and disposal before the visit.`,
+    },
   ],
   scienceCard: {
     question: kit.question,

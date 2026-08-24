@@ -23,14 +23,16 @@ function BioBox() {
     <section className="section page-section programs-page-shell biobox-page">
       <div className="container">
         <header className="page-header programs-page-header biobox-list-header">
-          <p className="page-eyebrow">BioBox classroom collection</p>
-          <h1>Biology kits made for curious classrooms.</h1>
+          <div className="biobox-header-title">
+            <p className="page-eyebrow">BioBox classroom collection</p>
+            <h1><span>Biology kits made for</span><span>curious classrooms</span></h1>
+          </div>
           <div className="biobox-header-copy">
             <p className="section-text">
               Explore ready-to-use investigations for middle and high school. Every kit includes a concise TEKS connection, classroom integration notes, a science card, and an extension idea.
             </p>
             <p className="section-text">
-              Good science feels different when students can touch it, test it, argue about it, and connect it to their own lives. BioBox exists to give local teachers one more way to make science memorable - and to let Clements students build something useful beyond our own campus.
+              Good science feels different when students can touch it, test it, argue about it, and connect it to their own lives. BioBox exists to give local teachers one more way to make science memorable.
             </p>
           </div>
           <aside className="biobox-header-actions" aria-label="Teacher support links">

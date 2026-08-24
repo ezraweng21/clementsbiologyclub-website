@@ -1,6 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { getBioBoxKit } from "../data/bioboxKits";
 
+function gradeAwareText(text) {
+  return text.split(/((?:6th|7th|8th|9th|10th|11th|12th) grade:)/gi).map((part, index) => (
+    /^(?:6th|7th|8th|9th|10th|11th|12th) grade:$/i.test(part)
+      ? <strong key={`${part}-${index}`}>{part}</strong>
+      : part
+  ));
+}
+
 function BioBoxDetail() {
   const { kitSlug } = useParams();
   const kit = getBioBoxKit(kitSlug);
@@ -33,49 +41,49 @@ function BioBoxDetail() {
         </header>
 
         <div className="biobox-detail-grid">
-          <section className="section-panel biobox-detail-card">
-            <p className="section-kicker">Classroom integration</p>
-            <h2>Detailed lesson flow</h2>
-            <p>{kit.classroomIntegration}</p>
-            <ul className="biobox-lesson-steps">
-              {kit.lessonSteps.map((step) => <li key={step}>{step}</li>)}
-            </ul>
-          </section>
-          <section className="section-panel biobox-detail-card biobox-curriculum-card">
-            <p className="section-kicker">Curriculum fit</p>
-            <h2>{kit.teks}</h2>
-            <p>{kit.curriculumFit}</p>
-          </section>
-          <section className="section-panel biobox-detail-card biobox-setup-card">
-            <p className="section-kicker">At a glance</p>
-            <h2>Plan before class</h2>
-            <p className="biobox-setup-time">{kit.setup}</p>
-            <p><strong>Student output:</strong> {kit.studentOutput}</p>
-          </section>
-          <section className="section-panel biobox-detail-card">
-            <p className="section-kicker">Science card</p>
-            <h2>Core investigation</h2>
-            <p><strong>Question:</strong> {kit.scienceCard.question}</p>
-            <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
-            <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
-            <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
-            <p><strong>Materials:</strong> {kit.scienceCard.materials}</p>
-          </section>
-          <section className="section-panel biobox-detail-card">
-            <p className="section-kicker">Expansion card</p>
-            <h2>Take it further</h2>
-            <p>{kit.extensionCard}</p>
-          </section>
-          <section className="section-panel biobox-detail-card biobox-faq-card">
-            <p className="section-kicker">Quick teacher FAQ</p>
-            <h2>Before you request this kit</h2>
-            {kit.faqs.map((faq) => (
-              <details key={faq.question}>
-                <summary>{faq.question}</summary>
-                <p>{faq.answer}</p>
-              </details>
-            ))}
-          </section>
+          <div className="biobox-detail-column">
+            <section className="section-panel biobox-detail-card biobox-flow-card">
+              <p className="section-kicker">Classroom integration</p>
+              <h2>Lesson flow</h2>
+              <p className="biobox-setup-time">{kit.setup}</p>
+              <p>{gradeAwareText(kit.classroomIntegration)}</p>
+              <ul className="biobox-lesson-steps">
+                {kit.lessonSteps.map((step) => <li key={step}>{gradeAwareText(step)}</li>)}
+              </ul>
+              <p className="biobox-student-output"><strong>Student output:</strong> {kit.studentOutput}</p>
+            </section>
+            <section className="section-panel biobox-detail-card">
+              <p className="section-kicker">Science card</p>
+              <h2>Core investigation</h2>
+              <p><strong>Question:</strong> {kit.scienceCard.question}</p>
+              <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
+              <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
+              <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
+              <p><strong>Materials:</strong> {kit.scienceCard.materials}</p>
+            </section>
+            <section className="section-panel biobox-detail-card biobox-extension-card">
+              <p className="section-kicker">Expansion card</p>
+              <h2>Take it further</h2>
+              <p>{kit.extensionCard}</p>
+            </section>
+          </div>
+          <div className="biobox-detail-column">
+            <section className="section-panel biobox-detail-card biobox-curriculum-card">
+              <p className="section-kicker">Curriculum fit</p>
+              <h2>{kit.teks}</h2>
+              <p>{kit.curriculumFit}</p>
+            </section>
+            <section className="section-panel biobox-detail-card biobox-faq-card">
+              <p className="section-kicker">Quick teacher FAQ</p>
+              <h2>Safety and materials</h2>
+              {kit.faqs.map((faq) => (
+                <details key={faq.question}>
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </section>
+          </div>
         </div>
       </div>
     </section>
