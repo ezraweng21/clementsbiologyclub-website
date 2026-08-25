@@ -34,6 +34,10 @@ function BioBoxDetail() {
             <p className="page-eyebrow">{kit.level} BioBox · Kit {kit.number}</p>
             <h1>{kit.name}</h1>
             <p className="section-text biobox-detail-summary">{kit.summary}</p>
+            <div className="biobox-hero-materials">
+              <strong>Materials included</strong>
+              <ul>{kit.scienceCard.materials.split(", ").map((material) => <li key={material}>{material}</li>)}</ul>
+            </div>
           </div>
           <div className="biobox-detail-image" aria-label={`Photo space for ${kit.name}`}>
             {kit.image ? <img src={kit.image} alt={kit.name} /> : <span>Kit photo</span>}
@@ -45,12 +49,9 @@ function BioBoxDetail() {
             <section className="section-panel biobox-detail-card biobox-flow-card">
               <p className="section-kicker">Classroom integration</p>
               <h2>Lesson flow</h2>
-              <p className="biobox-setup-time">{kit.setup}</p>
-              <p>{gradeAwareText(kit.classroomIntegration)}</p>
               <ul className="biobox-lesson-steps">
                 {kit.lessonSteps.map((step) => <li key={step}>{gradeAwareText(step)}</li>)}
               </ul>
-              <p className="biobox-student-output"><strong>Student output:</strong> {kit.studentOutput}</p>
             </section>
             <section className="section-panel biobox-detail-card biobox-extension-card">
               <p className="section-kicker">Expansion card</p>
@@ -66,7 +67,7 @@ function BioBoxDetail() {
             </section>
             <section className="section-panel biobox-detail-card biobox-faq-card">
               <p className="section-kicker">Quick teacher FAQ</p>
-              <h2>Safety and materials</h2>
+              <h2>Safety notes</h2>
               {kit.faqs.map((faq) => (
                 <details key={faq.question}>
                   <summary>{faq.question}</summary>
@@ -81,10 +82,6 @@ function BioBoxDetail() {
               <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
               <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
               <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
-              <div className="biobox-materials-list">
-                <strong>Included in this kit</strong>
-                <ul>{kit.scienceCard.materials.split(", ").map((material) => <li key={material}>{material}</li>)}</ul>
-              </div>
               {kit.activityLink && <a className="biobox-activity-link" href={kit.activityLink} target="_blank" rel="noreferrer">Optional Ginger Bug activity guide <span>→</span></a>}
             </section>
           </div>

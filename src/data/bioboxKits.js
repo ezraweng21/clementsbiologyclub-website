@@ -75,19 +75,26 @@ const classPriceEstimates = {
   "polymer-slime": "$12-$25 per class", "high-school-surface-tension": "$2-$7 per class", "high-school-agar-plates": "$20-$35 per class",
 };
 
+const studentOutputFor = (kit) => kit.studentOutput || `A completed claim-evidence response to “${kit.question}” supported by the group’s recorded observation or data.`;
+
 const lessonSteps = (kit) => {
-  if (!kit.lessonFlow) {
-    return kit.classroomIntegration
+  const classSteps = !kit.lessonFlow
+    ? kit.classroomIntegration
       .split(/(?<=\.)\s+/)
       .slice(0, 5)
       .map((step) => step.replace(/^\d+(?:th|st|nd|rd) grade:\s*/i, "").trim())
+      .filter(Boolean)
+    : kit.lessonFlow
+      .split(/(?=\d+\.\s)/)
+      .map((step) => step.replace(/^\d+\.\s*/, "").trim())
       .filter(Boolean);
-  }
 
-  return kit.lessonFlow
-    .split(/(?=\d+\.\s)/)
-    .map((step) => step.replace(/^\d+\.\s*/, "").trim())
-    .filter(Boolean);
+  return [
+    `Before class: ${kit.setup}`,
+    `Launch: ask students, “${kit.question}” and have them make a prediction before the activity.`,
+    ...classSteps,
+    `Student output: ${studentOutputFor(kit)}`,
+  ];
 };
 
 const kitSafetyNotes = {
@@ -126,7 +133,7 @@ const makeKit = (kit, level, index) => ({
   lessonSteps: lessonSteps(kit),
   included: kit.included || kit.materials,
   pricePerStudent: estimatedPricePerStudent(kit.price || classPriceEstimates[kit.slug] || ""),
-  studentOutput: kit.studentOutput || `A completed claim-evidence response to “${kit.question}” supported by the group’s recorded observation or data.`,
+  studentOutput: studentOutputFor(kit),
   faqs: kit.faqs || [
     {
       question: "What should we know for this activity?",
