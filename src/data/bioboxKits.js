@@ -200,7 +200,7 @@ const orderByImpact = (kits) => [...kits].sort((a, b) => {
 
 export const bioboxCollections = [
   { id: "middle-school", label: "Middle School", grades: "Grades 6–8", kits: orderByImpact([...middleSchoolKits, ...middleSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug) && !pausedKitSlugs.has(kit.slug) && !kit.teks.includes("Teacher-confirmed"))).map((kit, index) => makeKit(kit, "Middle School", index)) },
-  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: orderByImpact([...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug) && !pausedKitSlugs.has(kit.slug) && !kit.teks.includes("Teacher-confirmed"))).map((kit, index) => makeKit(kit, "High School", index)) },
+  { id: "high-school", label: "High School", grades: "Biology, Chemistry & environmental science", kits: orderByImpact([...highSchoolKits, ...highSchoolAdditions].filter((kit) => !overBudgetSlugs.has(kit.slug) && !pausedKitSlugs.has(kit.slug) && !kit.teks.includes("Teacher-confirmed") && kitImages[kit.slug])).map((kit, index) => makeKit(kit, "High School", index)) },
 ];
 
 export const allBioBoxKits = bioboxCollections.flatMap((collection) => collection.kits);

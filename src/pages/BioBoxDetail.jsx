@@ -12,6 +12,10 @@ function gradeAwareText(text) {
 function BioBoxDetail() {
   const { kitSlug } = useParams();
   const kit = getBioBoxKit(kitSlug);
+  const resourceLinks = [
+    ...(kit?.activityLinks ?? []),
+    ...(kit?.activityLink ? [{ href: kit.activityLink, label: kit.activityLinkLabel || "Teacher activity guide" }] : []),
+  ];
 
   if (!kit) {
     return (
@@ -82,7 +86,9 @@ function BioBoxDetail() {
               <p><strong>What you’ll see:</strong> {kit.scienceCard.whatYouSee}</p>
               <p><strong>What it means:</strong> {kit.scienceCard.whatItMeans}</p>
               <p><strong>Why it matters:</strong> {kit.scienceCard.whyItMatters}</p>
-              {kit.activityLink && <a className="biobox-activity-link" href={kit.activityLink} target="_blank" rel="noreferrer">Optional Ginger Bug activity guide <span>→</span></a>}
+              {resourceLinks.map((resource) => (
+                <a className="biobox-activity-link" href={resource.href} key={resource.href} target="_blank" rel="noreferrer">{resource.label} <span>→</span></a>
+              ))}
             </section>
           </div>
         </div>
