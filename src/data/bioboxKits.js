@@ -6,6 +6,8 @@ const overBudgetSlugs = new Set([
 ]);
 
 const pausedKitSlugs = new Set([
+  "agar-plates",
+  "high-school-agar-plates",
   "penny-surface-tension",
   "vinegar-baking-soda",
   "oobleck-investigation",
