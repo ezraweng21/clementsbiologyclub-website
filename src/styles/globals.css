@@ -4816,6 +4816,10 @@ main:has(.resources-page-shell) + .footer {
 .biobox-detail-summary { max-width: 42rem; font-size: clamp(1.2rem, 1.7vw, 1.42rem) !important; line-height: 1.65 !important; }
 .biobox-hero-materials { max-width: 50rem; margin-top: 1rem; padding: 1rem 1.1rem; border: 2px solid rgba(59, 99, 54, .28); border-radius: 18px 7px 18px 12px; background: rgba(255,255,255,.7); color: var(--forest-900); font-size: 1.06rem; }
 .biobox-hero-materials ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem 1.4rem; margin: .65rem 0 0; padding-left: 1.25rem; color: var(--ink-soft); font-size: 1rem; line-height: 1.45; }
+.biobox-hero-resources { display: grid; gap: .55rem; max-width: 50rem; margin-top: 1rem; padding: 1rem 1.1rem; border: 2px solid rgba(59, 99, 54, .34); border-radius: 18px 7px 18px 12px; background: rgba(236, 245, 227, .74); color: var(--forest-900); font-size: 1.14rem; }
+.biobox-hero-resources strong { font-size: 1.16rem; }
+.biobox-hero-resources a { color: var(--forest-800); font-weight: 800; line-height: 1.35; }
+.biobox-hero-resources a span { margin-left: .15rem; }
 .biobox-detail-image { min-height: clamp(15rem, 22vw, 20rem); border: 2px solid rgba(59, 99, 54, 0.28); border-radius: 38px 15px 38px 22px; box-shadow: var(--shadow-soft); }
 .biobox-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
 .biobox-detail-column { display: grid; gap: 1.25rem; align-content: start; }

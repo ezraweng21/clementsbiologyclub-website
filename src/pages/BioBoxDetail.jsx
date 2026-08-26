@@ -16,6 +16,7 @@ function BioBoxDetail() {
     ...(kit?.activityLinks ?? []),
     ...(kit?.activityLink ? [{ href: kit.activityLink, label: kit.activityLinkLabel || "Teacher activity guide" }] : []),
   ];
+  const officialResourceLinks = kit?.officialResourceLinks ?? [];
 
   if (!kit) {
     return (
@@ -42,6 +43,14 @@ function BioBoxDetail() {
               <strong>Materials included</strong>
               <ul>{kit.scienceCard.materials.split(", ").map((material) => <li key={material}>{material}</li>)}</ul>
             </div>
+            {officialResourceLinks.length > 0 && (
+              <div className="biobox-hero-resources">
+                <strong>Official activity guides and purchase links</strong>
+                {officialResourceLinks.map((resource) => (
+                  <a href={resource.href} key={resource.href} target="_blank" rel="noreferrer">{resource.label} <span>→</span></a>
+                ))}
+              </div>
+            )}
           </div>
           <div className="biobox-detail-image" aria-label={`Photo space for ${kit.name}`}>
             {kit.image ? <img src={kit.image} alt={kit.name} /> : <span>Kit photo</span>}
@@ -54,7 +63,7 @@ function BioBoxDetail() {
               <p className="section-kicker">Classroom integration</p>
               <h2>Lesson flow</h2>
               <ul className="biobox-lesson-steps">
-                {kit.lessonSteps.map((step) => <li key={step}>{gradeAwareText(step)}</li>)}
+                {kit.lessonSteps.map((step, index) => <li key={step}>{index === 0 ? <strong>{gradeAwareText(step)}</strong> : gradeAwareText(step)}</li>)}
               </ul>
             </section>
             <section className="section-panel biobox-detail-card biobox-extension-card">
