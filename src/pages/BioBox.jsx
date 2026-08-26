@@ -46,6 +46,11 @@ function BioBox() {
           <span><b>4.</b> You keep classroom control; we handle the extra lift.</span>
         </div>
 
+        <aside className="biobox-source-note" aria-label="BioBox sourcing information">
+          <strong>BioBox sources and brings the materials.</strong>
+          <span>Supplier and official activity links are included for transparency only — they are not a request for teachers to purchase anything. We confirm the final materials, quantity, and availability before scheduling.</span>
+        </aside>
+
         <div className="biobox-collection-nav" aria-label="BioBox collections">
           {bioboxCollections.map((collection) => <a href={`#${collection.id}`} key={collection.id}>{collection.label}</a>)}
         </div>
